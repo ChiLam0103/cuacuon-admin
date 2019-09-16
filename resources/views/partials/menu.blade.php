@@ -53,6 +53,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ route("admin.brands.index") }}" class="nav-link {{ request()->is('admin/brands') || request()->is('admin/brands/*') ? 'active' : '' }}">
+                    <i class="far fa-copyright"></i>
+                    Thương hiệu
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">
 
