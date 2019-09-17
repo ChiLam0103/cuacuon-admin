@@ -1,40 +1,36 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use App\Brands;
+use App\Models\Brands;
+use Illuminate\Http\Request;
 
 class BrandsController extends Controller
 {
     public function index()
     {
-
-        $brands = Brands::all();
-
+        $brands = Brands::getAll();
         return view('admin.brands.index', compact('brands'));
     }
-
-    public function create()
+    public function postCreate(Request $request)
     {
-        abort_unless(\Gate::allows('Brands_create'), 403);
-
-        return view('admin.brands.create');
+        dd(123);
+        $brands = Brands::create($request);
+        if ($brands == 200) {
+            return redirect()->back()->with('success', 'Bạn đã thêm mới thương hiệu thành công');
+        } else {
+            return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
+        }
     }
-
-    public function store(StoreBrandsRequest $request)
+    public function postEdit(Request $request)
     {
-        abort_unless(\Gate::allows('Brands_create'), 403);
-
-        $Brands = Brands::create($request->all());
-
-        return redirect()->route('admin.brands.index');
-    }
-
-    public function edit(Brands $Brands)
-    {
-        abort_unless(\Gate::allows('Brands_edit'), 403);
-
-        return view('admin.brands.edit', compact('Brands'));
+        $brands = Brands::edit($request);
+        if ($brands == 200) {
+            return redirect()->back()->with('success', 'Bạn đã thêm mới thương hiệu thành công');
+        } else {
+            return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
+        }
     }
 
     public function update(UpdateBrandsRequest $request, Brands $Brands)
@@ -53,11 +49,12 @@ class BrandsController extends Controller
         return view('admin.brands.show', compact('Brands'));
     }
 
-    public function destroy(Brands $Brands)
+    public function destroy(Request $request)
     {
+        dd(1);
         abort_unless(\Gate::allows('Brands_delete'), 403);
 
-        $Brands->delete();
+       // $Brands->delete();
 
         return back();
     }

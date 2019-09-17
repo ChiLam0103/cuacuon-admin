@@ -26,6 +26,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('products', 'ProductsController');
 
     Route::delete('brands/destroy', 'BrandsController@massDestroy')->name('brands.massDestroy');
-
     Route::resource('brands', 'BrandsController');
+    
+    Route::group(['prefix' => 'brands'], function () {
+        Route::post('create', 'BrandsController@postCreate')->name('admin.brands.create');
+        Route::post('edit', 'BrandsController@edit')->name('admin.brands.edit');
+        // Route::post('destroy', 'BrandsController@destroy')->name('admin.brands.destroy');
+    });
 });
