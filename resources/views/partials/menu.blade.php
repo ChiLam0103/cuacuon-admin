@@ -45,23 +45,32 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
-                    <i class="fas fa-cogs nav-icon">
-
-                    </i>
-                    {{ trans('global.product.title') }}
+                <a href="{{ url('admin/products') }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                    <i class="fas fa-cogs nav-icon"></i>
+                    Sản phẩm
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route("admin.brands.index") }}" class="nav-link {{ request()->is('admin/brands') || request()->is('admin/brands/*') ? 'active' : '' }}">
-                    <i class="far fa-copyright"></i>
+                <a href="{{ url('admin/types') }}" class="nav-link {{ request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
+                <i class="fas fa-cogs nav-icon"></i>
+                    Loại sản phẩm
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/brands')  }}" class="nav-link {{ request()->is('admin/brands') || request()->is('admin/brands/*') ? 'active' : '' }}">
+                    <i class="far fa-copyright nav-icon"></i>
                     Thương hiệu
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/contacts') }}" class="nav-link {{ request()->is('admin/contacts') || request()->is('admin/contacts/*') ? 'active' : '' }}">
+                <i class="fas fa-file-contract nav-icon"></i>
+                    Liên hệ
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">
-
                     </i>
                     {{ trans('global.logout') }}
                 </a>

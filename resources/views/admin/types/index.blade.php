@@ -3,7 +3,7 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm thương hiệu</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm loại sản phẩm</button>
     </div>
 </div>
 @endcan
@@ -22,13 +22,13 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Thêm thương hiệu</h4>
+                <h4 class="modal-title">Thêm loại sản phẩm</h4>
             </div>
-            <form action="{{ route('admin.brands.create') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.types.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <label for="title">Tên thương hiệu*</label>
+                        <label for="title">Tên loại sản phẩm*</label>
                         <input type="text" name="name" class="form-control" value="">
                     </div>
                 </div>
@@ -46,14 +46,14 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Chinh sửa thương hiệu</h4>
+                <h4 class="modal-title">Chinh sửa loại sản phẩm</h4>
             </div>
-            <form action="{{ route('admin.brands.edit',0) }}" method="get" enctype="multipart/form-data">
+            <form action="{{ route('admin.types.edit',1) }}" method="get" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                         <input name="id" id="edit-id" type="hidden">
-                        <label for="title">Tên thương hiệu*</label>
+                        <label for="title">Tên loại sản phẩm*</label>
                         <input type="text" name="name" id="edit-name" class="form-control" value="">
                     </div>
                 </div>
@@ -67,7 +67,7 @@
 </div>
 <div class="card">
     <div class="card-header">
-        Danh sách thương hiệu
+        Danh sách loại sản phẩm
     </div>
 
     <div class="card-body">
@@ -76,27 +76,27 @@
                 <thead>
                     <tr>
                         <th width="10"> </th>
-                        <th> Tên thương hiệu </th>
+                        <th> Tên loại sản phẩm </th>
                         <th> Ngày tạo </th>
                         <th> Ngày chỉnh sửa </th>
                         <th> &nbsp; </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($brands as $key => $b)
-                    <tr data-entry-id="{{ $b->id }}">
+                    @foreach($types as $key => $k)
+                    <tr data-entry-id="{{ $k->id }}">
                         <td> </td>
-                        <td> {{ $b->name ?? '' }} </td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($b->created_at))}}</td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($b->updated_at))}}</td>
+                        <td> {{ $k->name ?? '' }} </td>
+                        <td>{{date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
+                        <td>{{date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="editBrands({{$b->id}},'{{$b->name}}')">
+                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="edit({{$k->id}},'{{$k->name}}')">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan
                             @can('permission_delete')
-                            <form action="{{ route('admin.brands.destroy', $b->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                            <form action="{{ route('admin.types.destroy', $k->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -113,7 +113,7 @@
 @section('scripts')
 @parent
 <script>
-    function editBrands(id, name) {
+    function edit(id, name) {
         $('#edit-id').val(id);
         $('#edit-name').val(name);
     }

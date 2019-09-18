@@ -4,19 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Request;
 
-class Brands extends Model
+class Types extends Model
 {
     public static function getAll()
     {
-        $data=DB::table('brands')->orderBy('id','desc')->get();
+        $data=DB::table('types')->orderBy('id','desc')->get();
         return $data;
     }
     public static function create($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        DB::table('brands')->insert([
+        DB::table('types')->insert([
             'name'=>$data->name,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -25,7 +24,7 @@ class Brands extends Model
     public static function edit($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        DB::table('brands')
+        DB::table('types')
         ->where('id',$data->id)
         ->update([
             'name'=>$data->name,
@@ -35,7 +34,7 @@ class Brands extends Model
     }
     public static function destroy($id)
     {
-        DB::table('brands')
+        DB::table('types')
         ->where('id',$id)->delete();
         return 200;
     }
