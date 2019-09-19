@@ -83,20 +83,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($brands as $key => $b)
-                    <tr data-entry-id="{{ $b->id }}">
+                    @foreach($brands as $key => $k)
+                    <tr data-entry-id="{{ $k->id }}">
                         <td> </td>
-                        <td> {{ $b->name ?? '' }} </td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($b->created_at))}}</td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($b->updated_at))}}</td>
+                        <td> {{ $k->name ?? '' }} </td>
+                        <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
+                        <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="editBrands({{$b->id}},'{{$b->name}}')">
+                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="editBrands({{$k->id}},'{{$k->name}}')">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan
                             @can('permission_delete')
-                            <form action="{{ route('admin.brands.destroy', $b->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                            <form action="{{ route('admin.brands.destroy', $k->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">

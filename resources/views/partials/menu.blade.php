@@ -63,6 +63,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ url('admin/ranges')  }}" class="nav-link {{ request()->is('admin/ranges') || request()->is('admin/ranges/*') ? 'active' : '' }}">
+                    <i class="fas fa-expand-arrows-alt nav-icon"></i>
+                    Chiết khấu
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ url('admin/contacts') }}" class="nav-link {{ request()->is('admin/contacts') || request()->is('admin/contacts/*') ? 'active' : '' }}">
                 <i class="fas fa-file-contract nav-icon"></i>
                     Liên hệ

@@ -41,6 +41,11 @@
                                 <label for="title">Mô tả</label>
                                 <textarea type="text" name="description" class="form-control" rows="5"></textarea>
                             </div>
+                            @foreach($ranges as $r)
+                            <div class="range_id" style="display: none">
+                                <label class="checkbox-inline"><input type="checkbox" name="range_id[]" value="{{$r->id}}">{{$r->size_name}}</label>
+                            </div>
+                            @endforeach
                         </div>
                         <div class="col-md-6">
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
@@ -53,7 +58,7 @@
                             </div>
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                 <label for="title">Loại sản phẩm</label>
-                                <select class="form-control" name="type_id">
+                                <select class="form-control type_id" name="type_id">
                                     @foreach($types as $t)
                                     <option value="{{$t->id}}">{{$t->name}}</option>
                                     @endforeach
@@ -108,6 +113,11 @@
                                 <label for="title">Mô tả</label>
                                 <textarea type="text" name="description" id="description" class="form-control" rows="5"></textarea>
                             </div>
+                            @foreach($ranges as $r)
+                            <div class="range_id" style="display: none">
+                                <label class="checkbox-inline"><input type="checkbox" name="range_id[]" value="{{$r->id}}">{{$r->size_name}}</label>
+                            </div>
+                            @endforeach
                         </div>
                         <div class="col-md-6">
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
@@ -120,7 +130,7 @@
                             </div>
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                 <label for="title">Loại sản phẩm</label>
-                                <select class="form-control" name="type_id" id="type_id">
+                                <select class="form-control type_id" name="type_id" id="type_id">
                                     @foreach($types as $t)
                                     <option value="{{$t->id}}">{{$t->name}}</option>
                                     @endforeach
@@ -131,7 +141,7 @@
                                     Ảnh sản phẩm:
                                 </label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" name="product_image" id="product_image" onchange="readURL(event, 2)">
+                                    <input type="file" class="custom-file-input" id="customFile2" name="product_image" id="product_image" onchange="readURL(event, 2)">
                                     <label class="custom-file-label" for="customFile">
                                         Chọn hình ảnh
                                     </label>
@@ -164,6 +174,7 @@
                         <th>Giá</th>
                         <th>Thương hiệu</th>
                         <th>Loại sản phẩm</th>
+                        <th>Tương thích</th>
                         <th>Mô tả</th>
                         <th> Ngày tạo </th>
                         <th> Ngày chỉnh sửa </th>
@@ -179,9 +190,15 @@
                         <td> {{ $k->price?? '' }}</td>
                         <td> {{ $k->brand_name ?? '' }}</td>
                         <td> {{ $k->type_name ?? '' }}</td>
+                        <td>
+                            @foreach($range_product as $rp)
+                            @if($rp->product_id == $k->id)
+                            {{ $rp->size_name ?? '' }},
+                            @endif
+                            @endforeach</td>
                         <td> {{ $k->description ?? '' }}</td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
+                        <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
+                        <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
                             <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="edit({{$k->id}},'{{$k->name}}','{{$k->price}}','{{$k->brand_id}}','{{$k->type_id}}','{{$k->description}}','{{$k->image_link}}')">
@@ -206,10 +223,20 @@
 @section('scripts')
 @parent
 <script>
+    //hiển thị hình ảnh khi chọn file
     function readURL(event, id) {
         var output = document.getElementById('img' + id);
         output.src = URL.createObjectURL(event.target.files[0]);
     };
+    $('.type_id').on('change', function(e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        if (valueSelected == 1 || valueSelected == 2) {
+            $('.range_id').css('display', 'block');
+        } else {
+            $('.range_id').css('display', 'none');
+        }
+    });
 
     function edit(id, name, price, brand_id, type_id, description, image_link) {
         $('#id').val(id);

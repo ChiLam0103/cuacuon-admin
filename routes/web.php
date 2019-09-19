@@ -49,4 +49,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('create', 'ProductsController@postCreate')->name('admin.products.create');
         Route::get('edit', 'ProductsController@edit')->name('admin.products.edit');
     });
+    //ranges
+    Route::resource('ranges', 'RangesController');
+    Route::group(['prefix' => 'ranges'], function () {
+        Route::get('/', 'RangesController@index')->name('admin.ranges.index');
+        Route::post('create', 'RangesController@postCreate')->name('admin.ranges.create');
+        Route::get('edit', 'RangesController@edit')->name('admin.ranges.edit');
+    });
 });

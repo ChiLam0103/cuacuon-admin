@@ -75,8 +75,8 @@
                         <td> {{ $k->email ?? '' }} </td>
                         <td> {{ $k->phone ?? '' }} </td>
                         <td> {{ $k->content ?? '' }} </td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
-                        <td>{{date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
+                        <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
+                        <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="edit('{{$k->id}}','{{$k->name}}','{{$k->email}}','{{$k->phone}}','{{$k->content}}')">
                                 {{ trans('global.edit') }}

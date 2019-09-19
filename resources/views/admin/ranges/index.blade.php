@@ -3,7 +3,7 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm loại sản phẩm</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm chiết khấu</button>
     </div>
 </div>
 @endcan
@@ -22,14 +22,18 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Thêm loại sản phẩm</h4>
+                <h4 class="modal-title">Thêm chiết khấu</h4>
             </div>
-            <form action="{{ route('admin.types.create') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.ranges.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <label for="title">Tên loại sản phẩm*</label>
-                        <input type="text" name="name" class="form-control" value="">
+                        <label for="title">Tên chiết khẩu</label>
+                        <input type="text" name="size_name" class="form-control" value="">
+                    </div>
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                        <label for="title">% chiết khấu</label>
+                        <input type="text" name="size" class="form-control" value="">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -46,15 +50,19 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Chinh sửa loại sản phẩm</h4>
+                <h4 class="modal-title">Chinh sửa chiết khấu</h4>
             </div>
-            <form action="{{ route('admin.types.edit',1) }}" method="get" enctype="multipart/form-data">
+            <form action="{{ route('admin.ranges.edit',0) }}" method="get" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id" id="id" >
                 <div class="modal-body">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <input name="id" id="edit-id" type="hidden">
-                        <label for="title">Tên loại sản phẩm*</label>
-                        <input type="text" name="name" id="edit-name" class="form-control" value="">
+                        <label for="title">Tên chiết khẩu</label>
+                        <input type="text" name="size_name" id="size_name" class="form-control" value="">
+                    </div>
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                        <label for="title">% chiết khấu</label>
+                        <input type="text" name="size" id="size" class="form-control" value="">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -67,7 +75,7 @@
 </div>
 <div class="card">
     <div class="card-header">
-        Danh sách loại sản phẩm
+        Danh sách chiết khấu
     </div>
 
     <div class="card-body">
@@ -76,27 +84,29 @@
                 <thead>
                     <tr>
                         <th width="10"> </th>
-                        <th> Tên loại sản phẩm </th>
+                        <th> Tên chiết khấu </th>
+                        <th> % chiết khấu </th>
                         <th> Ngày tạo </th>
                         <th> Ngày chỉnh sửa </th>
                         <th> &nbsp; </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($types as $key => $k)
+                    @foreach($ranges as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
                         <td> </td>
-                        <td> {{ $k->name ?? '' }} </td>
+                        <td> {{ $k->size_name ?? '' }} </td>
+                        <td> {{ $k->size ?? '' }} </td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
                         <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="edit({{$k->id}},'{{$k->name}}')">
+                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="edit({{$k->id}},'{{$k->size_name}}','{{$k->size}}')">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan
                             @can('permission_delete')
-                            <form action="{{ route('admin.types.destroy', $k->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                            <form action="{{ route('admin.ranges.destroy', $k->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -113,9 +123,10 @@
 @section('scripts')
 @parent
 <script>
-    function edit(id, name) {
-        $('#edit-id').val(id);
-        $('#edit-name').val(name);
+    function edit(id, size_name, size) {
+        $('#id').val(id);
+        $('#size_name').val(size_name);
+        $('#size').val(size);
     }
     $(function() {
         let deleteButtonTrans = "{{ trans('global.datatables.delete') }}"
