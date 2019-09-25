@@ -12,6 +12,11 @@ class Ranges extends Model
         $data=DB::table('ranges')->orderBy('id','desc')->get();
         return $data;
     }
+    public static function getAll_Compatibility()
+    {
+        $data=DB::table('compatibility')->get();
+        return $data;
+    }
     public static function getInProduct()
     {
         $data=DB::table('ranges as r')

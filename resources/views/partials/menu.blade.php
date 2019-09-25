@@ -5,7 +5,6 @@
             <li class="nav-item">
                 <a href="{{ route("admin.home") }}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt">
-
                     </i>
                     {{ trans('global.dashboard') }}
                 </a>
@@ -19,9 +18,8 @@
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                        <a href="{{ route("admin.permissions.index")}}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
                             <i class="fas fa-unlock-alt nav-icon">
-
                             </i>
                             {{ trans('global.permission.title') }}
                         </a>
@@ -29,7 +27,6 @@
                     <li class="nav-item">
                         <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
                             <i class="fas fa-briefcase nav-icon">
-
                             </i>
                             {{ trans('global.role.title') }}
                         </a>
@@ -37,24 +34,57 @@
                     <li class="nav-item">
                         <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                             <i class="fas fa-user nav-icon">
-
                             </i>
                             {{ trans('global.user.title') }}
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="{{ url('admin/products') }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle">
                     <i class="fas fa-cogs nav-icon"></i>
                     Sản phẩm
                 </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="{{ url('admin/products') }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                            <i class="fas fa-cogs nav-icon"></i>
+                            Tất cả
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/types') }}" class="nav-link {{ request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
+                            <i class="fas fa-cogs nav-icon"></i>
+                            Loại sản phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/ranges')  }}" class="nav-link {{ request()->is('admin/ranges') || request()->is('admin/ranges/*') ? 'active' : '' }}">
+                            <i class="fas fa-expand-arrows-alt nav-icon"></i>
+                            Chiết khấu
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a href="{{ url('admin/types') }}" class="nav-link {{ request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
-                <i class="fas fa-cogs nav-icon"></i>
-                    Loại sản phẩm
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle">
+                    <i class="fas fa-newspaper nav-icon"></i>
+                    Tin tức
                 </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="{{ url('admin/products') }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                            <i class="fas fa-cogs nav-icon"></i>
+                            Tất cả
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/new_types') }}" class="nav-link {{ request()->is('admin/new_types') || request()->is('admin/new_types/*') ? 'active' : '' }}">
+                            <i class="fas fa-cogs nav-icon"></i>
+                            Loại tin tức
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a href="{{ url('admin/brands')  }}" class="nav-link {{ request()->is('admin/brands') || request()->is('admin/brands/*') ? 'active' : '' }}">
@@ -63,15 +93,27 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('admin/ranges')  }}" class="nav-link {{ request()->is('admin/ranges') || request()->is('admin/ranges/*') ? 'active' : '' }}">
-                    <i class="fas fa-expand-arrows-alt nav-icon"></i>
-                    Chiết khấu
+                <a href="{{ url('admin/contacts') }}" class="nav-link {{ request()->is('admin/contacts') || request()->is('admin/contacts/*') ? 'active' : '' }}">
+                    <i class="fas fa-file-contract nav-icon"></i>
+                    Liên hệ
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('admin/contacts') }}" class="nav-link {{ request()->is('admin/contacts') || request()->is('admin/contacts/*') ? 'active' : '' }}">
-                <i class="fas fa-file-contract nav-icon"></i>
-                    Liên hệ
+                <a href="{{ url('admin/warranty_types') }}" class="nav-link {{ request()->is('admin/warranty_types') || request()->is('admin/warranty_types/*') ? 'active' : '' }}">
+                    <i class="fas fa-check-square nav-icon"></i>
+                    Bảo hành
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/seo_tags') }}" class="nav-link {{ request()->is('admin/seo_tags') || request()->is('admin/seo_tags/*') ? 'active' : '' }}">
+                    <i class="fas fa-tags nav-icon"></i>
+                    Thẻ seo
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/home_banners') }}" class="nav-link {{ request()->is('admin/home_banners') || request()->is('admin/home_banners/*') ? 'active' : '' }}">
+                    <i class="far fa-images  nav-icon"></i>
+                    Ảnh bìa trang chủ
                 </a>
             </li>
             <li class="nav-item">
@@ -82,7 +124,6 @@
                 </a>
             </li>
         </ul>
-
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
             <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
         </div>

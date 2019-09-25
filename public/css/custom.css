@@ -63,7 +63,12 @@ table.dataTable thead .sorting_desc {
 .sidebar .nav-item {
     cursor: pointer;
 }
-
+.range_id {
+    margin-right:1em;
+}
+.nav-dropdown-items .nav-item a{
+    padding-left: 2em;
+}
 .btn-default {
     color: #23282c;
     background-color: #f0f3f5;

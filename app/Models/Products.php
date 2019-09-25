@@ -29,8 +29,8 @@ class Products extends Model
             'type_id' => $data->type_id,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        if ($data->type_id == 1 || $data->type_id == 2) { 
-            foreach($data->range_id as $r){
+        if ($data->type_id == 1 || $data->type_id == 2) {
+            foreach ($data->range_id as $r) {
                 DB::table('compatibility')->insert([
                     'product_id' => $id,
                     'range_id' => $r,
@@ -59,7 +59,7 @@ class Products extends Model
         }
         return 200;
     }
-    public static function edit($data)
+    public static function postEdit($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         DB::table('products')
@@ -72,6 +72,18 @@ class Products extends Model
                 'type_id' => $data->type_id,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
+
+        DB::table('compatibility')
+            ->where('product_id', $data->id)->delete();
+        if ($data->type_id == 1 || $data->type_id == 2) {
+            foreach ($data->range_id as $r) {
+                DB::table('compatibility')->insert([
+                    'product_id' => $data->id,
+                    'range_id' => $r,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ]);
+            }
+        }
         if ($data->hasFile('product_image')) {
             //filename to store
             $filenametostore = $data->id . '_product.png';
@@ -84,6 +96,11 @@ class Products extends Model
                 $constraint->aspectRatio();
             });
             $img->save($thumbnailpath);
+            DB::table('products')
+                ->where('id', $data->id)
+                ->update([
+                    'image_link' => '/storage/product/' . $filenametostore,
+                ]);
         }
         return 200;
     }
@@ -92,5 +109,11 @@ class Products extends Model
         DB::table('products')
             ->where('id', $id)->delete();
         return 200;
+    }
+    public static function ajaxGetEdit($id)
+    {
+        $data =  DB::table('products')
+            ->where('id', $id)->first();
+        return $data;
     }
 }

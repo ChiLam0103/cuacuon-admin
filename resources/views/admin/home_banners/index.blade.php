@@ -3,7 +3,7 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm sản phẩm</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm ảnh bìa trang chủ</button>
     </div>
 </div>
 @endcan
@@ -22,61 +22,34 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Thêm sản phẩm</h4>
+                <h4 class="modal-title">Thêm ảnh bìa trang chủ</h4>
             </div>
-            <form action="{{ route('admin.products.create') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.home_banners.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Tên sản phẩm*</label>
-                                <input type="text" name="name" class="form-control" value="" required>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Giá sản phẩm*</label>
-                                <input type="text" name="price" class="form-control" value="" required>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Mô tả</label>
-                                <textarea type="text" name="description" class="form-control" rows="5"></textarea>
-                            </div>
-                            @foreach($ranges as $r)
-                            <div class="range_id" style="display: none">
-                                <label class="checkbox-inline range_id"><input type="checkbox" name="range_id[]" value="{{$r->id}}">{{$r->size_name}}</label>
-                            </div>
-                            @endforeach
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                        <label for="title">Tiêu đề</label>
+                        <input type="text" name="main_title" class="form-control" value="">
+                    </div>
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                        <label for="title">Phụ đề</label>
+                        <input type="text" name="sub_title" class="form-control" value="">
+                    </div>
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                        <label for="title">Nút đường dẫn</label>
+                        <input type="text" name="button_link" class="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            Ảnh bìa:
+                        </label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" name="image_link" onchange="readURL(event, 1)">
+                            <label class="custom-file-label" for="customFile">
+                                Chọn hình ảnh
+                            </label>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Thương hiệu</label>
-                                <select class="form-control" name="brand_id">
-                                    @foreach($brands as $b)
-                                    <option value="{{$b->id}}">{{$b->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Loại sản phẩm</label>
-                                <select class="form-control type_id" name="type_id">
-                                    @foreach($types as $t)
-                                    <option value="{{$t->id}}">{{$t->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">
-                                    Ảnh sản phẩm:
-                                </label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" name="product_image" onchange="readURL(event, 1)">
-                                    <label class="custom-file-label" for="customFile">
-                                        Chọn hình ảnh
-                                    </label>
-                                </div>
-                                <img id="img1" width="200" height="200" src="/storage/not-found.jpeg">
-                            </div>
-                        </div>
+                        <img id="img1" width="200" height="200" src="/storage/not-found.jpeg">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -93,10 +66,10 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
+                <h4 class="modal-title">Chỉnh sửa ảnh bìa trang chủ</h4>
             </div>
-            <form action="{{ url('admin/products/edit') }}" method="post" enctype="multipart/form-data">
-                @csrf
+            <form action="{{ url('admin/home_banners/edit') }}" method="post" enctype="multipart/form-data">
+            @csrf
                 <div class="modal-body" id="form-edit">
                 </div>
                 <div class="modal-footer">
@@ -109,7 +82,7 @@
 </div>
 <div class="card">
     <div class="card-header">
-        Danh sách sản phẩm
+        Danh sách ảnh bìa trang chủ
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -117,44 +90,33 @@
                 <thead>
                     <tr>
                         <th width="10"> </th>
-                        <th>Tên sản phẩm </th>
-                        <th>Hình ảnh sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Thương hiệu</th>
-                        <th>Loại sản phẩm</th>
-                        <th>Tương thích</th>
-                        <th>Mô tả</th>
+                        <th>Ảnh bìa</th>
+                        <th>Tiêu đề</th>
+                        <th>Phụ đề</th>
+                        <th>Nút đường dẫn</th>
                         <th>Ngày tạo </th>
                         <th>Ngày chỉnh sửa </th>
-                        <th>&nbsp; </th>
+                        <th> &nbsp; </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $key => $k)
+                    @foreach($home_banners as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
                         <td> </td>
-                        <td> {{ $k->name ?? '' }} </td>
-                        <td><img src="{{ $k->image_link ?? '' }}" width="150"> </td>
-                        <td> {{ $k->price?? '' }}</td>
-                        <td> {{ $k->brand_name ?? '' }}</td>
-                        <td> {{ $k->type_name ?? '' }}</td>
-                        <td>
-                            @foreach($range_product as $rp)
-                            @if($rp->product_id == $k->id)
-                            {{ $rp->size_name ?? '' }},
-                            @endif
-                            @endforeach</td>
-                        <td> {{ $k->description ?? '' }}</td>
+                        <td><img src="{{ $k->image_link ?? '' }}" width="150"></td>
+                        <td> {{ $k->main_title?? '' }}</td>
+                        <td> {{ $k->sub_title ?? '' }}</td>
+                        <td> {{ $k->button_link ?? '' }}</td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
                         <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" id="btnEdit" href="#" data-id="{{$k->id}}" data-toggle="modal" data-target="#edit" >
+                            <a class="btn btn-xs btn-info" id="btnEdit" href="#" data-id="{{$k->id}}" data-toggle="modal" data-target="#edit">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan
                             @can('permission_delete')
-                            <form action="{{ route('admin.products.destroy', $k->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                            <form action="{{ route('admin.home_banners.destroy', $k->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -176,13 +138,13 @@
             var id = $(this).data('id');
             $('#form-data').remove();
             $.ajax({
-                url: '{{ url("admin/products/ajax/getedit") }}',
+                url: '{{ url("admin/home_banners/ajax/getedit") }}',
                 method: "POST",
                 data: {
                     id: id,
                     _token: "{{csrf_token()}}"
                 },
-                dataType : "text",
+                dataType: "text",
                 success: function(data) {
                     if (data != '') {
                         $('#form-edit').append(data);
@@ -198,11 +160,12 @@
         var output = document.getElementById('img' + id);
         output.src = URL.createObjectURL(event.target.files[0]);
     };
-    $('#type_id').on('change', function(e) {
+    $('.type_id').on('change', function(e) {
         var optionSelected = $("option:selected", this);
         var valueSelected = this.value;
         if (valueSelected == 1 || valueSelected == 2) {
             $('.range_id').css('display', 'inline-block');
+            $('.range_id').css('margin-right', '1em');
         } else {
             $('.range_id').css('display', 'none');
         }
