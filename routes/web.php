@@ -86,4 +86,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('create', 'NewTypesController@postCreate')->name('admin.new_types.create');
         Route::get('edit', 'NewTypesController@edit')->name('admin.new_types.edit');
     });
+    //news
+    Route::resource('news', 'NewsController');
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('/', 'NewsController@index')->name('admin.news.index');
+        Route::post('create', 'NewsController@postCreate')->name('admin.news.create');
+        Route::post('edit', 'NewsController@edit');
+    });
 });

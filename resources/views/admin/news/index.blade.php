@@ -3,7 +3,7 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm sản phẩm</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm tin tức</button>
     </div>
 </div>
 @endcan
@@ -18,7 +18,7 @@
 @endif
 <!-- Modal thêm-->
 <div id="create" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -28,53 +28,22 @@
                 @csrf
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Tên sản phẩm*</label>
+                                <label for="title">Tên tiêu đề*</label>
                                 <input type="text" name="name" class="form-control" value="" required>
                             </div>
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Giá sản phẩm*</label>
-                                <input type="text" name="price" class="form-control" value="" required>
+                                <label for="title">Loại tin tức</label>
+                                <select class="form-control sltTypeNew" name="type_id" >
+                                    @foreach($new_types as $k)
+                                    <option value="{{$k->id}}">{{$k->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                 <label for="title">Mô tả</label>
-                                <textarea type="text" name="description" class="form-control" rows="5"></textarea>
-                            </div>
-                            @foreach($ranges as $r)
-                            <div class="range_id" style="display: none">
-                                <label class="checkbox-inline range_id"><input type="checkbox" name="range_id[]" value="{{$r->id}}">{{$r->size_name}}</label>
-                            </div>
-                            @endforeach
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Thương hiệu</label>
-                                <select class="form-control" name="brand_id">
-                                    @foreach($brands as $b)
-                                    <option value="{{$b->id}}">{{$b->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Loại sản phẩm</label>
-                                <select class="form-control sltTypeNew" name="type_id" >
-                                    @foreach($types as $t)
-                                    <option value="{{$t->id}}">{{$t->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">
-                                    Ảnh sản phẩm:
-                                </label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" name="product_image" onchange="readURL(event, 1)">
-                                    <label class="custom-file-label" for="customFile">
-                                        Chọn hình ảnh
-                                    </label>
-                                </div>
-                                <img id="img1" width="200" height="200" src="/storage/not-found.jpeg">
+                                <textarea type="text" name="description" class="form-control mytextarea" id="editor-ckeditor"></textarea>
                             </div>
                         </div>
                     </div>
@@ -117,34 +86,21 @@
                 <thead>
                     <tr>
                         <th width="10"> </th>
-                        <th>Tên sản phẩm </th>
-                        <th>Hình ảnh sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Thương hiệu</th>
-                        <th>Loại sản phẩm</th>
-                        <th>Tương thích</th>
-                        <th>Mô tả</th>
+                        <th>Tiêu đề</th>
+                        <th>Người tạo</th>
+                        <th>Loại tin tức</th>
                         <th>Ngày tạo </th>
                         <th>Ngày chỉnh sửa </th>
                         <th>&nbsp; </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($products as $key => $k)
+                    @foreach($news as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
                         <td> </td>
-                        <td> {{ $k->name ?? '' }} </td>
-                        <td><img src="{{ $k->image_link ?? '' }}" width="150"> </td>
-                        <td> {{ $k->price?? '' }}</td>
-                        <td> {{ $k->brand_name ?? '' }}</td>
-                        <td> {{ $k->type_name ?? '' }}</td>
-                        <td>
-                            @foreach($range_product as $rp)
-                            @if($rp->product_id == $k->id)
-                            {{ $rp->size_name ?? '' }},
-                            @endif
-                            @endforeach</td>
-                        <td> {{ $k->description ?? '' }}</td>
+                        <td> {{ $k->title ?? '' }} </td>
+                        <td> {{ $k->created_by ?? '' }}</td>
+                        <td> {{ $k->new_type ?? '' }}</td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
                         <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>

@@ -73,7 +73,7 @@
                 </a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="{{ url('admin/products') }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/news') }}" class="nav-link {{ request()->is('admin/news') || request()->is('admin/news/*') ? 'active' : '' }}">
                             <i class="fas fa-cogs nav-icon"></i>
                             Tất cả
                         </a>

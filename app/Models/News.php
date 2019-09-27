@@ -6,16 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Image;
 
-class Products extends Model
+class News extends Model
 {
     public static function getAll()
     {
-        $data = DB::table('products as p')
-            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
-            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->orderBy('id', 'desc')
-            ->select('p.*', 'b.name as brand_name', 't.name as type_name')
-            ->get();
+        $data = DB::table('news')->get();
         return $data;
     }
     public static function create($data)
