@@ -16,6 +16,12 @@ class NewsController extends Controller
         $new_types = NewTypes::getAll();
         return view('admin.news.index', compact('news','new_types'));
     }
+    public function edit($id)
+    {
+        $news = News::find($id);
+        $new_types = NewTypes::getAll();
+        return view('admin.news.edit', compact('news','new_types'));
+    }
     public function postCreate(Request $request)
     {
         $data = News::create($request);

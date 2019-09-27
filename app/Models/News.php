@@ -34,7 +34,7 @@ class News extends Model
             ->update([
                 'title' => $data->title,
                 'content' => $data->content,
-                'new_type' => $data->new_type,
+                'new_type' => (int)$data->new_type,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
         return 200;
