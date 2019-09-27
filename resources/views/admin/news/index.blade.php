@@ -24,18 +24,18 @@
             <div class="modal-header">
                 <h4 class="modal-title">Thêm sản phẩm</h4>
             </div>
-            <form action="{{ route('admin.products.create') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.news.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                 <label for="title">Tên tiêu đề*</label>
-                                <input type="text" name="name" class="form-control" value="" required>
+                                <input type="text" name="title" class="form-control" value="" required>
                             </div>
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                 <label for="title">Loại tin tức</label>
-                                <select class="form-control sltTypeNew" name="type_id" >
+                                <select class="form-control sltTypeNew" name="new_type" >
                                     @foreach($new_types as $k)
                                     <option value="{{$k->id}}">{{$k->name}}</option>
                                     @endforeach
@@ -43,30 +43,10 @@
                             </div>
                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                 <label for="title">Mô tả</label>
-                                <textarea type="text" name="description" class="form-control mytextarea" id="editor-ckeditor"></textarea>
+                                    <textarea name="content" class="form-control my-editor"></textarea>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-danger">Lưu</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Modal chinh sua-->
-<div id="edit" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
-            </div>
-            <form action="{{ url('admin/products/edit') }}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body" id="form-edit">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -100,12 +80,12 @@
                         <td> </td>
                         <td> {{ $k->title ?? '' }} </td>
                         <td> {{ $k->created_by ?? '' }}</td>
-                        <td> {{ $k->new_type ?? '' }}</td>
+                        <td> {{ $k->new_type_name ?? '' }}</td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
                         <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" id="btnEdit" href="#" data-id="{{$k->id}}" data-toggle="modal" data-target="#edit">
+                            <a class="btn btn-xs btn-info" id="btnEdit" href="{{route('admin.news.edit',[$k->id])}}">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan
@@ -132,7 +112,7 @@
             var id = $(this).data('id');
             $('#form-data').remove();
             $.ajax({
-                url: '{{ url("admin/products/ajax/getedit") }}',
+                url: '{{ url("admin/news/ajax/getedit") }}',
                 method: "POST",
                 data: {
                     id: id,
@@ -162,34 +142,6 @@
         } else {
             $('.range_id').css('display', 'none');
         } 
-    }
-    $(".sltTypeNew").on('change', function(e) {
-        var value = $(this).val();
-        if (value == 1 || value == 2) {
-            $('.range_id').css('display', 'inline-block');
-        } else {
-            $('.range_id').css('display', 'none');
-        }
-    });
-
-    function edit(id, name, price, brand_id, type_id, description, image_link) {
-        $('#id').val(id);
-        $('#name').val(name);
-        $('#price').val(price);
-        $('#description').val(description);
-        if (image_link != '') {
-            $('#img2').attr('src', image_link);
-        }
-        $('#brand_id option').each(function() {
-            if ($(this).val() == brand_id) {
-                $(this).prop("selected", true);
-            }
-        });
-        $('#type_id option').each(function() {
-            if ($(this).val() == type_id) {
-                $(this).prop("selected", true);
-            }
-        });
     }
     $(function() {
         let deleteButtonTrans = "{{ trans('global.datatables.delete') }}"

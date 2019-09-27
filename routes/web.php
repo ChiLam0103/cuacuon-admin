@@ -91,6 +91,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::group(['prefix' => 'news'], function () {
         Route::get('/', 'NewsController@index')->name('admin.news.index');
         Route::post('create', 'NewsController@postCreate')->name('admin.news.create');
-        Route::post('edit', 'NewsController@edit');
+        Route::get('edit/{id?}', 'NewsController@edit');
+        Route::post('edit', 'NewsController@postEdit');
+        Route::post('ajax/getedit', 'NewsController@ajaxGetEdit');
     });
 });

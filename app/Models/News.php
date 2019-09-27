@@ -4,111 +4,50 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Image;
 
 class News extends Model
 {
     public static function getAll()
     {
-        $data = DB::table('news')->get();
+        $data = DB::table('news as n')->join('new_types as nt', 'nt.id', '=', 'n.new_type')->select('n.*', 'nt.name as new_type_name')->get();
         return $data;
     }
     public static function create($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $id = DB::table('products')->insertGetId([
-            'name' => $data->name,
-            'price' => $data->price,
-            'description' => $data->description,
-            'brand_id' => $data->brand_id,
-            'type_id' => $data->type_id,
+        DB::table('news')->insert([
+            'title' => $data->title,
+            'content' => $data->content,
+            'new_type' => $data->new_type,
+            'created_by' => Auth::user()->id,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        if ($data->type_id == 1 || $data->type_id == 2) {
-            foreach ($data->range_id as $r) {
-                DB::table('compatibility')->insert([
-                    'product_id' => $id,
-                    'range_id' => $r,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
-            }
-        }
-        if ($data->hasFile('product_image')) {
-            //filename to store
-            $filenametostore = $id . '_product.png';
-            //Upload File
-            $data->file('product_image')->storeAs('public/product', $filenametostore);
-            $data->file('product_image')->storeAs('public/product/thumbnail', $filenametostore);
-
-            //Resize image here
-            $thumbnailpath = public_path('storage/product/thumbnail/' . $filenametostore);
-            $img = Image::make($thumbnailpath)->resize(400, 150, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $img->save($thumbnailpath);
-            DB::table('products')
-                ->where('id', $id)
-                ->update([
-                    'image_link' => '/storage/product/' . $filenametostore,
-                ]);
-        }
         return 200;
     }
     public static function postEdit($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        DB::table('products')
+        DB::table('news')
             ->where('id', $data->id)
             ->update([
-                'name' => $data->name,
-                'price' => $data->price,
-                'description' => $data->description,
-                'brand_id' => $data->brand_id,
-                'type_id' => $data->type_id,
+                'title' => $data->title,
+                'content' => $data->content,
+                'new_type' => $data->new_type,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-        DB::table('compatibility')
-            ->where('product_id', $data->id)->delete();
-        if ($data->type_id == 1 || $data->type_id == 2) {
-            foreach ($data->range_id as $r) {
-                DB::table('compatibility')->insert([
-                    'product_id' => $data->id,
-                    'range_id' => $r,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
-            }
-        }
-        if ($data->hasFile('product_image')) {
-            //filename to store
-            $filenametostore = $data->id . '_product.png';
-            //Upload File
-            $data->file('product_image')->storeAs('public/product', $filenametostore);
-            $data->file('product_image')->storeAs('public/product/thumbnail', $filenametostore);
-            //Resize image here
-            $thumbnailpath = public_path('storage/product/thumbnail/' . $filenametostore);
-            $img = Image::make($thumbnailpath)->resize(400, 150, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $img->save($thumbnailpath);
-            DB::table('products')
-                ->where('id', $data->id)
-                ->update([
-                    'image_link' => '/storage/product/' . $filenametostore,
-                ]);
-        }
         return 200;
     }
     public static function destroy($id)
     {
-        DB::table('products')
+        DB::table('news')
             ->where('id', $id)->delete();
-        DB::table('compatibility')
-            ->where('product_id', $id)->delete();
         return 200;
     }
-    public static function ajaxGetEdit($id)
+    public static function find($id)
     {
-        $data =  DB::table('products')
+        $data =  DB::table('news')
             ->where('id', $id)->first();
         return $data;
     }
