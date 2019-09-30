@@ -330,13 +330,34 @@
                             style="visibility: hidden; animation-name: none;">
                             <div class="ft-contact">
                                 <h3 class="ft-title">
-                                    Thông tin liên hệ
+                                    Về chúng tôi
                                 </h3>
                                 <div class="ft-contact-desc">
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác
                                     trong kinh doanh và quản lý doanh nghiệp.
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInUp"
+                            style="visibility: hidden; animation-name: none;">
+                            <div class="ft-nav">
+                            </div>
+                        </div>
+
+                        <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInUp"
+                            style="visibility: hidden; animation-name: none;">
+                            <div class="ft-nav">
+                            </div>
+                        </div>
+
+                        <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInLeft"
+                            style="visibility: hidden; animation-name: none;">
+                            <div class="ft-contact">
+                                <h3 class="ft-title">
+                                    Thông tin liên hệ
+                                </h3>
                                 <div class="ft-contact-address">
                                     <span class="ft-contact-icon">
                                         <i class="fas fa-map-marker-alt"></i>
@@ -363,143 +384,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInUp"
-                            style="visibility: hidden; animation-name: none;">
-                            <div class="ft-nav">
-                                <h3 class="ft-title">
-                                    Liên kết nhanh website
-                                </h3>
-                                <ul class="no-bullets">
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Hệ thống chi nhánh</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Các dịch vụ của Suplo</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Gửi thông tin liên hệ</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Ban giám đốc Suplo</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Lĩnh vực của Suplo</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInUp"
-                            style="visibility: hidden; animation-name: none;">
-                            <div class="ft-nav">
-                                <h3 class="ft-title">
-                                    Các dịch vụ của Suplo
-                                </h3>
-                                <ul class="no-bullets">
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Công nghệ tiên phong</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Nội dung số hấp dẫn</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Hoạch định chiến lược</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Vận hành tổ chức</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Quản lý tài chính</a></li>
-
-                                    <li>
-                                        <i class="fas fa-caret-right"></i>
-                                        <a href=#>Phát triển vượt bậc</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInRight"
-                            style="visibility: hidden; animation-name: none;">
-                            <div class="ft-subscribe">
-                                <h3 class="ft-title">
-                                    Đăng ký nhận tin
-                                </h3>
-                                <div class="ft-subscribe-desc">
-                                    Mỗi tháng chúng tôi đều có những đợt giảm giá dịch vụ và sản phẩm nhằm chi ân khách
-                                    hàng. Để có thể cập nhật kịp thời những đợt giảm giá này, vui lòng nhập địa chỉ
-                                    email
-                                    của bạn vào ô dưới đây.
-                                </div>
-                                <div class="ft-sub-wrapper">
-
-                                    <form accept-charset="UTF-8"
-                                        action="https://suplo-company-2.myharavan.com/account/contact"
-                                        class="contact-form" method="post">
-                                        <input name="form_type" type="hidden" value="customer">
-                                        <input name="utf8" type="hidden" value="✓">
-
-
-                                        <input type="email" value="" placeholder="Nhập địa chỉ email của bạn..."
-                                            name="contact[email]" id="Email" aria-label="email@example.com">
-                                        <input type="hidden" name="contact[tags]" value="newsletter">
-                                        <button type="submit" name="subscribe" id="subscribe" value="GỬI">
-                                            <i class="fab fa-telegram-plane"></i>
-                                        </button>
-
-
-                                    </form>
-
-                                </div>
-                            </div>
-                            <div class="ft-social">
-
-                                <a href="https://www.facebook.com/SuploTeam/">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-
-
-                                <a href="https://twitter.com/">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-
-
-                                <a href="https://vn.linkedin.com/">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-
-
-                                <a href="https://plus.google.com/">
-                                    <i class="fab fa-google-plus-g"></i>
-                                </a>
-
-
-                                <a href="https://www.youtube.com/">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-
-
-                                <a href="https://www.instagram.com/">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -514,15 +398,15 @@
 
                                     <li class="wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
-                                        <a href=#>Chính sách bảo mật</a></li>
+                                        <a href=#>Giới thiệu</a></li>
 
                                     <li class="wow fadeInRight" data-wow-delay="0.4s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                                        <a href=#>Điều khoản sử dụng</a></li>
+                                        <a href=#>Bảo hành</a></li>
 
                                     <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
-                                        <a href=#>Câu hỏi thường gặp</a></li>
+                                        <a href=#>Liên hệ</a></li>
 
                                 </ul>
                             </div>
@@ -531,8 +415,7 @@
                             <div class="ft-copyrights-content wow fadeInLeft" data-wow-duration="0.75s"
                                 data-wow-delay="0.2s"
                                 style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
-                                Copyrights © 2018 by <a target="_blank" href="http://suplo.vn/">Suplo</a>. <a
-                                    target="_blank" href="https://www.haravan.com/">Powered by Haravan</a>
+                                Copyrights © 2019 by <a target="_blank" href="#">NAD</a>
                             </div>
                         </div>
                     </div>
@@ -1362,7 +1245,7 @@
                         var values = '';
                         for (var i = 0; i < product.variants.length; i++) {
                             var value = convertToSlug(product.variants[i].options[
-                            option_index]); //value handle :(
+                                option_index]); //value handle :(
                             var _value = product.variants[i].options[option_index];
 
                             if (values.indexOf(value) < 0) {
@@ -1541,9 +1424,9 @@
     function callFirstVariantQuickView() {
         var _chage = '';
         $('#productQuickView .swatch-element[data-value="' + $('.selector-wrapper .single-option-selector').eq(0)
-        .val() + '"]').find('input').click();
+            .val() + '"]').find('input').click();
         $('#productQuickView .swatch-element[data-value="' + $('.selector-wrapper .single-option-selector').eq(1)
-        .val() + '"]').find('input').click();
+            .val() + '"]').find('input').click();
         if (swatch_size == 2) {
             var _avi_op1 = '';
             var _avi_op2 = '';
