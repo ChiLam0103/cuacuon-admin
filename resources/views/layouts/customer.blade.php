@@ -10,7 +10,7 @@
     <!-- Basic page needs ================================================== -->
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/customer/img/favicon.png" type="image/png">
 
     <!-- Title and description ================================================== -->
     <title>
@@ -28,10 +28,12 @@
     <link href="/customer/css/animate.css" rel="stylesheet" type="text/css" media="all">
     <link href="/customer/css/slick.css" rel="stylesheet" type="text/css" media="all">
     <link href="/customer/css/slick-theme.css" rel="stylesheet" type="text/css" media="all">
-
+    <link href="/css/jquery-fab-button.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="/customer/js/jquery.min.js" type="text/javascript"></script>
     <script src="/customer/js/owl.carousel.min.js" type="text/javascript"></script>
     <script src="/customer/js/slick.min.js" type="text/javascript"></script>
+
 
 
     <!-- Font Aweseome -->
@@ -80,7 +82,8 @@
                         </div>
                         <div class="popup-form">
                             <div class="form-desc"> Đăng ký: </div>
-                            <form accept-charset="UTF-8" action="https://suplo-company-2.myharavan.com/account/contact" class="contact-form" method="post">
+                            <form accept-charset="UTF-8" action="https://suplo-company-2.myharavan.com/account/contact"
+                                class="contact-form" method="post">
                                 <input name="form_type" type="hidden" value="/customer">
                                 <input name="utf8" type="hidden" value="✓">
                                 <div class="input-group">
@@ -255,7 +258,8 @@
                             <div class="hd-logo text-left">
 
                                 <a href="/">
-                                    <img src="/customer/img/logo.png" alt="Giao diện website doanh nghiệp đẹp nhất 2018 - Suplo Company 2">
+                                    <img src="/customer/img/logo.png"
+                                        alt="Giao diện website doanh nghiệp đẹp nhất 2018 - Suplo Company 2">
                                 </a>
 
                             </div>
@@ -277,6 +281,43 @@
         </div>
     </header>
 
+    <div class="fixed-action-btn vertical" style="bottom: 100px; right: 24px;">
+        <a class="btn-floating btn-large red">
+            <i class="material-icons">apps</i>
+        </a>
+        <ul>
+            <li>
+                <a id="first-fab" class="btn-floating" data-fabcolor="#45d1ff" href="tel:1234567">
+                    <i class="material-icons">local_phone</i>
+                </a>
+            </li>
+            <li>
+                <a id="second-fab" class="btn-floating" data-fabcolor="#7345ff">
+                    <div id="fb-root"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Load Facebook SDK for JavaScript -->
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v4.0'
+        });
+    };
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="571131936685251">
+    </div>
     <script>
     $(document).ready(function() {
         $('#hero-slider').on('init', function(e, slick) {
@@ -1509,5 +1550,6 @@
 
 
 </body>
+<script src="/js/jquery-fab-button.min.js" type="text/javascript"></script>
 
 </html>

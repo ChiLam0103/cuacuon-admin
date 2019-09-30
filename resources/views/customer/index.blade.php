@@ -237,11 +237,6 @@
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp.
                                 </div>
-                                <div class="hservice-viewmore btn-viewmore">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/cong-nghe-tien-phong">Xem
-                                        thêm</a>
-                                </div>
                             </div>
                         </div>
 
@@ -261,11 +256,6 @@
                                 <div class="hservice-desc">
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
-                                <div class="hservice-viewmore btn-viewmore">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/noi-dung-so-hap-dan">Xem
-                                        thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -287,11 +277,6 @@
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp.
                                 </div>
-                                <div class="hservice-viewmore btn-viewmore">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/hoach-dinh-chien-luoc">Xem
-                                        thêm</a>
-                                </div>
                             </div>
                         </div>
 
@@ -310,10 +295,6 @@
                                 <div class="hservice-desc">
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
-                                <div class="hservice-viewmore btn-viewmore">
-                                    <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/van-hanh-to-chuc">Xem
-                                        thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -334,14 +315,8 @@
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp.
                                 </div>
-                                <div class="hservice-viewmore btn-viewmore">
-                                    <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/quan-ly-tai-chinh">Xem
-                                        thêm</a>
-                                </div>
                             </div>
                         </div>
-
-
                         <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
                             data-wow-delay="1.2s" data-wow-duration="0.75s"
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: none;">
@@ -358,15 +333,8 @@
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp.
                                 </div>
-                                <div class="hservice-viewmore btn-viewmore">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/noi-dung-so-hap-dan">Xem
-                                        thêm</a>
-                                </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

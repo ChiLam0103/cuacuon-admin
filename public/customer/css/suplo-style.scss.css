@@ -1037,7 +1037,7 @@ input[type=number]::-webkit-outer-spin-button {
           color: #11b5e6; }
 
 #header .desktop-header .desktop-header-navbar {
-  background: #2c394c; }
+  background: #fff; }
   #header .desktop-header .desktop-header-navbar > .wrapper > .inner > ul {
     margin: 0px;
     text-align: center;
@@ -1046,14 +1046,14 @@ input[type=number]::-webkit-outer-spin-button {
       display: inline-block;
       margin: 0px;
       padding: 15px 10px;
-      border-right: 1px solid rgba(255, 255, 255, 0.1); }
+      border-right: 1px solid rgba(255, 255, 255, 0.11); }
       #header .desktop-header .desktop-header-navbar > .wrapper > .inner > ul > li.active a {
         color: #11b5e6; }
       #header .desktop-header .desktop-header-navbar > .wrapper > .inner > ul > li:last-child {
         border-right: none; }
       #header .desktop-header .desktop-header-navbar > .wrapper > .inner > ul > li > a {
         display: inline-block;
-        color: #ffffff; }
+        color: #012d59; }
         #header .desktop-header .desktop-header-navbar > .wrapper > .inner > ul > li > a:hover {
           color: #11b5e6; }
       #header .desktop-header .desktop-header-navbar > .wrapper > .inner > ul > li.dropdown {
