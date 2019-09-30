@@ -3,7 +3,7 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm sản phẩm</button>
+        <a type="button" class="btn btn-success" href="{{ url('admin/products/create') }}">Thêm sản phẩm</a>
     </div>
 </div>
 @endcan
@@ -16,77 +16,7 @@
     {!! \Session::get('fail') !!}
 </div>
 @endif
-<!-- Modal thêm-->
-<div id="create" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Thêm sản phẩm</h4>
-            </div>
-            <form action="{{ route('admin.products.create') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Tên sản phẩm*</label>
-                                <input type="text" name="name" class="form-control" value="" required>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Giá sản phẩm*</label>
-                                <input type="text" name="price" class="form-control" value="" required>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Mô tả</label>
-                                <textarea type="text" name="description" class="form-control" rows="5"></textarea>
-                            </div>
-                            @foreach($ranges as $r)
-                            <div class="range_id" style="display: none">
-                                <label class="checkbox-inline range_id"><input type="checkbox" name="range_id[]" value="{{$r->id}}">{{$r->size_name}}</label>
-                            </div>
-                            @endforeach
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Thương hiệu</label>
-                                <select class="form-control" name="brand_id">
-                                    @foreach($brands as $b)
-                                    <option value="{{$b->id}}">{{$b->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Loại sản phẩm</label>
-                                <select class="form-control sltTypeNew" name="type_id" >
-                                    @foreach($types as $t)
-                                    <option value="{{$t->id}}">{{$t->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">
-                                    Ảnh sản phẩm:
-                                </label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" name="product_image" onchange="readURL(event, 1)">
-                                    <label class="custom-file-label" for="customFile">
-                                        Chọn hình ảnh
-                                    </label>
-                                </div>
-                                <img id="img1" width="200" height="200" src="/storage/not-found.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-danger">Lưu</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 <!-- Modal chinh sua-->
 <div id="edit" class="modal fade" role="dialog">
     <div class="modal-dialog">

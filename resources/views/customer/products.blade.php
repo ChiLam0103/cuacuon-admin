@@ -64,7 +64,7 @@
                                         <div class="grid__item large--one-third medium--one-third small--one-half md-pd-left15">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="https://suplo-company-2.myharavan.com/products/may-loc-nuoc-treo-tuong-rewa-rw-na-50pb1">
+                                                    <a href="product-detail/{{$k->id}}">
                                                         <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
                                                     </a>
                                                     <!-- <div class="tag-saleoff text-center">
@@ -88,18 +88,15 @@
 
                                                 <div class="product-item-info text-center">
                                                     <div class="product-title">
-                                                        <a href="https://suplo-company-2.myharavan.com/products/may-loc-nuoc-treo-tuong-rewa-rw-na-50pb1">Máy
+                                                        <a href="product-detail/{{$k->id}}">Máy
                                                             {{$k->name}}</a>
                                                     </div>
                                                     <div class="product-price clearfix">
                                                         <span class="current-price">{{number_format($k->price)}} đ</span>
-
                                                         <!-- <span class="original-price"><s>4,000,000₫</s></span> -->
-
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         @endforeach
                                     </div>

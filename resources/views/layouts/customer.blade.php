@@ -17,26 +17,26 @@
     <!-- Helpers ================================================== -->
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <!-- CSS ================================================== -->
-    <link href="customer/css/style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/timber.scss.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/suplo-style.scss.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/owl.theme.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/owl.transitions.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/animate.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/slick.css" rel="stylesheet" type="text/css" media="all">
-    <link href="customer/css/slick-theme.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/timber.scss.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/suplo-style.scss.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/owl.theme.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/owl.transitions.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/slick.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/slick-theme.css" rel="stylesheet" type="text/css" media="all">
 
-    <script src="customer/js/jquery.min.js" type="text/javascript"></script>
-    <script src="customer/js/owl.carousel.min.js" type="text/javascript"></script>
-    <script src="customer/js/slick.min.js" type="text/javascript"></script>
+    <script src="/customer/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/customer/js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="/customer/js/slick.min.js" type="text/javascript"></script>
 
 
     <!-- Font Aweseome -->
-    <script defer="" src="customer/js/all.js"></script>
-    <link rel="stylesheet" href="customer/css/all.css">
-    <script src="customer/js/wow.min.js"></script>
-    <script src="customer/js/lazyload.js"></script>
+    <script defer="" src="/customer/js/all.js"></script>
+    <link rel="stylesheet" href="/customer/css/all.css">
+    <script src="/customer/js/wow.min.js"></script>
+    <script src="/customer/js/lazyload.js"></script>
     <script type="text/javascript" charset="utf-8">
         window.addEventListener("load", function(event) {
             lazyload();
@@ -77,7 +77,7 @@
                         <div class="popup-form">
                             <div class="form-desc"> Đăng ký: </div>
                             <form accept-charset="UTF-8" action="https://suplo-company-2.myharavan.com/account/contact" class="contact-form" method="post">
-                                <input name="form_type" type="hidden" value="customer">
+                                <input name="form_type" type="hidden" value="/customer">
                                 <input name="utf8" type="hidden" value="✓">
                                 <div class="input-group">
                                     <input type="email" value="" placeholder="Nhập email của bạn..." name="contact[email]" id="Email" class="input-group-field" aria-label="email@example.com">
@@ -258,10 +258,10 @@
 
 
             <li class="mobile-nav__item">
-                <a href="https://suplo-company-2.myharavan.com/account/login" id="customer_login_link">Đăng nhập</a>
+                <a href="https://suplo-company-2.myharavan.com/account/login" id="/customer_login_link">Đăng nhập</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="https://suplo-company-2.myharavan.com/account/register" id="customer_register_link">Đăng kí</a>
+                <a href="https://suplo-company-2.myharavan.com/account/register" id="/customer_register_link">Đăng kí</a>
             </li>
 
 
@@ -293,7 +293,7 @@
 
                             <li class="active wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: fadeInLeft;">
                                 <a href="/">
-                                    <img src="customer/img/logo.png" alt="Cửa cuốn" class="menu-logo"> </a>
+                                    <img src="/customer/img/logo.png" alt="Cửa cuốn" class="menu-logo"> </a>
                             </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
                                 <a href="https://suplo-company-2.myharavan.com/pages/about-us">Giới thiệu </a>
@@ -327,7 +327,7 @@
                             <div class="hd-logo text-left">
 
                                 <a href="/">
-                                    <img src="customer/img/logo.png" alt="Giao diện website doanh nghiệp đẹp nhất 2018 - Suplo Company 2">
+                                    <img src="/customer/img/logo.png" alt="Giao diện website doanh nghiệp đẹp nhất 2018 - Suplo Company 2">
                                 </a>
 
                             </div>
@@ -508,7 +508,7 @@
                                 <div class="ft-sub-wrapper">
 
                                     <form accept-charset="UTF-8" action="https://suplo-company-2.myharavan.com/account/contact" class="contact-form" method="post">
-                                        <input name="form_type" type="hidden" value="customer">
+                                        <input name="form_type" type="hidden" value="/customer">
                                         <input name="utf8" type="hidden" value="✓">
 
 
@@ -617,12 +617,12 @@
         }
     </script>
 
-    <script src="customer/js/api.jquery.js" type="text/javascript"></script>
-    <script src="customer/js/option_selection.js" type="text/javascript"></script>
-    <script src="customer/js/fastclick.min.js" type="text/javascript"></script>
-    <script src="customer/js/script.js" type="text/javascript"></script>
-    <script src="customer/js/timber.js" type="text/javascript"></script>
-    <script src="customer/js/handlebars.min.js" type="text/javascript"></script>
+    <script src="/customer/js/api.jquery.js" type="text/javascript"></script>
+    <script src="/customer/js/option_selection.js" type="text/javascript"></script>
+    <script src="/customer/js/fastclick.min.js" type="text/javascript"></script>
+    <script src="/customer/js/script.js" type="text/javascript"></script>
+    <script src="/customer/js/timber.js" type="text/javascript"></script>
+    <script src="/customer/js/handlebars.min.js" type="text/javascript"></script>
     <!-- Custom script -->
 
     <script id="CartTemplate" type="text/template">
@@ -770,7 +770,7 @@
     </div>
 
 </script>
-    <script src="customer/js/ajax-cart.js" type="text/javascript"></script>
+    <script src="/customer/js/ajax-cart.js" type="text/javascript"></script>
     <script>
         jQuery(function($) {
             ajaxCart.init({

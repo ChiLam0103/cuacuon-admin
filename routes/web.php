@@ -48,7 +48,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('products', 'ProductsController');
     Route::group(['prefix' => 'products'], function () {
         Route::get('/', 'ProductsController@index')->name('admin.products.index');
-        Route::post('create', 'ProductsController@postCreate')->name('admin.products.create');
+        Route::get('create', 'ProductsController@getCreate');
+        Route::post('create', 'ProductsController@postCreate');
         Route::post('edit', 'ProductsController@postEdit');
         Route::post('ajax/getedit', 'ProductsController@ajaxGetEdit');
     });

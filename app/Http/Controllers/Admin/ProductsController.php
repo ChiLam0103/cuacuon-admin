@@ -20,11 +20,22 @@ class ProductsController extends Controller
         $range_product = Ranges::getInProduct();
         return view('admin.products.index', compact('products', 'brands', 'types', 'ranges', 'range_product'));
     }
+    public function getCreate()
+    {
+        $products = Products::getAll();
+        $brands = Brands::getAll();
+        $types = Types::getAll();
+        $ranges = Ranges::getAll();
+        $range_product = Ranges::getInProduct();
+        return view('admin.products.create', compact('products', 'brands', 'types', 'ranges', 'range_product'));
+    }
     public function postCreate(Request $request)
     {
         $data = Products::create($request);
         if ($data == 200) {
             return redirect()->back()->with('success', 'Bạn đã thêm mới sản phẩm thành công');
+        } else if ($data == 201) {
+            return redirect()->back()->with('fail', 'Vui vòng chọn độ tương thích!');
         } else {
             return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
         }

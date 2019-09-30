@@ -24,9 +24,9 @@ class Products extends Model
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
             ->orderBy('id', 'desc')
-            ->where('p.id',$id)
+            ->where('p.id', $id)
             ->select('p.*', 'b.name as brand_name', 't.name as type_name')
-            ->get();
+            ->first();
         return $data;
     }
     public static function create($data)
@@ -41,12 +41,16 @@ class Products extends Model
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         if ($data->type_id == 1 || $data->type_id == 2) {
-            foreach ($data->range_id as $r) {
-                DB::table('compatibility')->insert([
-                    'product_id' => $id,
-                    'range_id' => $r,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
+            if ($data->range_id==null) {
+                return 201;
+            } else {
+                foreach ($data->range_id as $r) {
+                    DB::table('compatibility')->insert([
+                        'product_id' => $data->id,
+                        'range_id' => $r,
+                        'created_at' => date('Y-m-d H:i:s'),
+                    ]);
+                }
             }
         }
         if ($data->hasFile('product_image')) {
@@ -72,12 +76,14 @@ class Products extends Model
     }
     public static function postEdit($data)
     {
+        dd($data);
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         DB::table('products')
             ->where('id', $data->id)
             ->update([
                 'name' => $data->name,
                 'price' => $data->price,
+                'short_description' => $data->short_description,
                 'description' => $data->description,
                 'brand_id' => $data->brand_id,
                 'type_id' => $data->type_id,
@@ -85,8 +91,10 @@ class Products extends Model
             ]);
         DB::table('compatibility')
             ->where('product_id', $data->id)->delete();
-        if($data->range_id){
-            if ($data->type_id == 1 || $data->type_id == 2) {
+        if ($data->type_id == 1 || $data->type_id == 2) {
+            if ($data->range_id) {
+                return 201;
+            } else {
                 foreach ($data->range_id as $r) {
                     DB::table('compatibility')->insert([
                         'product_id' => $data->id,
@@ -95,7 +103,7 @@ class Products extends Model
                     ]);
                 }
             }
-        }    
+        }
         if ($data->hasFile('product_image')) {
             //filename to store
             $filenametostore = $data->id . '_product.png';

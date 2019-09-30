@@ -23,9 +23,7 @@ class HomeController extends Controller
     }
     public function productDetail($id)
     {
-        dd($id);
-        $products=Products::getProductId($id);
-        dd($products);
-        return view('customer.product-detail', compact('products','brands','types'));
+        $product=Products::getProductId($id);
+        return view('customer.product-detail', compact('product'));
     }
 }
