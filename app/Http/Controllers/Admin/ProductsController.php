@@ -14,20 +14,15 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Products::getAll();
-        $brands = Brands::getAll();
-        $types = Types::getAll();
-        $ranges = Ranges::getAll();
         $range_product = Ranges::getInProduct();
-        return view('admin.products.index', compact('products', 'brands', 'types', 'ranges', 'range_product'));
+        return view('admin.products.index', compact('products','range_product'));
     }
     public function getCreate()
     {
-        $products = Products::getAll();
         $brands = Brands::getAll();
         $types = Types::getAll();
         $ranges = Ranges::getAll();
-        $range_product = Ranges::getInProduct();
-        return view('admin.products.create', compact('products', 'brands', 'types', 'ranges', 'range_product'));
+        return view('admin.products.create', compact('brands', 'types', 'ranges'));
     }
     public function postCreate(Request $request)
     {
@@ -39,6 +34,15 @@ class ProductsController extends Controller
         } else {
             return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
         }
+    }
+    public function getEdit($id)
+    {
+        $product = Products::getProductId($id);
+        dd($product);
+        $brands = Brands::getAll();
+        $types = Types::getAll();
+        $ranges = Ranges::getAll();
+        return view('admin.products.create', compact('product', 'brands', 'types', 'ranges'));
     }
     public function postEdit(Request $request)
     {

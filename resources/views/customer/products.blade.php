@@ -72,16 +72,10 @@
                                                     </div> -->
                                                     <div class="product-actions text-center clearfix">
                                                         <div>
-                                                            <button type="button" class="btnQuickView quick-view medium--hide small--hide" data-handle="/products/may-loc-nuoc-treo-tuong-rewa-rw-na-50pb1">
-                                                                <span>
-                                                                    <i class="fa fa-search-plus" aria-hidden="true"></i>
-                                                                </span></button>
-                                                            <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"><span>Mua ngay</span></button>
-                                                            <button type="button" class="btnAddToCart add-to-cart medium--hide small--hide" data-id="1030768709">
-                                                                <span>
-                                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                                                </span>
-                                                            </button>
+                                                            
+                                                            <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"><span>Nhận tư vấn</span></button>
+                                                            <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"><span>Báo giá</span></button>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -91,10 +85,9 @@
                                                         <a href="product-detail/{{$k->id}}">Máy
                                                             {{$k->name}}</a>
                                                     </div>
-                                                    <div class="product-price clearfix">
+                                                    <!-- <div class="product-price clearfix">
                                                         <span class="current-price">{{number_format($k->price)}} đ</span>
-                                                        <!-- <span class="original-price"><s>4,000,000₫</s></span> -->
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>

@@ -107,11 +107,6 @@
                                 </div> -->
                             </div>
 
-                            <div class="pro-price clearfix">
-                                <span class="current-price ProductPrice">{{number_format($product->price)}} đ</span>
-                                <!-- <span class="original-price ComparePrice"><s>4,000,000₫</s></span>
-                                <div class="sale-percentage"><span class="PriceSaving">(Bạn đã tiết kiệm được 1,210,000₫)</span></div> -->
-                            </div>
                             <div class="pro-short-desc">
                                 <p><strong>Ứng dụng công nghệ 5 bước lọc </strong></p>
                                 <p>Máy lọc nước Pureit là một trong những nhãn hiệu lọc nước nổi tiếng trên thế giới và được đánh giá
@@ -131,21 +126,6 @@
                                         <option selected="selected" data-sku="SUPLO-013A" value="1030768709">Default Title - 2,790,000 VND
                                         </option>
                                     </select>
-                                    <!-- <div id="product-select-watch" class="select-swatch">
-                                        <div id="variant-swatch-0" class="swatch swatch-product-single clearfix" data-option="option1" data-option-index="0">
-                                            <div class="header">Tiêu đề</div>
-                                            <div class="select-swap">
-                                                <div data-value="Default Title" class="n-sd swatch-element default-title">
-                                                    <input class="variant-0 input-product" id="swatch-0-default-title" type="radio" name="option1" value="Default Title" checked="">
-                                                    <label for="swatch-0-default-title" class="sd">
-                                                        Default Title
-                                                        <img class="crossed-out" src="./img/soldout.png">
-                                                        <img class="img-check" src="./img/select-pro.png">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                     <div class="product-size-hotline">
                                         <div class="product-hotline">
                                             <i class="fa fa-mobile" aria-hidden="true"></i> Hotline hỗ trợ: <a href="tel:(+84) 934 323 882">(+84) 934 323 882</a>
@@ -158,37 +138,10 @@
                                 </div>
 
                                 <div class="grid mg-left-5">
-
-                                    <div class="grid__item large--one-third medium--one-third small--one-whole pd-left5">
-                                        <div class="product-quantity clearfix">
-                                            <div class="qty-addcart clearfix">
-                                                <span>Số lượng </span>
-
-
-                                                <div class="js-qty">
-                                                    <button type="button" class="js-qty__adjust js-qty__adjust--minus icon-fallback-text" onclick="subOneItem(this)">
-                                                        <span class="icon icon-minus" aria-hidden="true"></span>
-                                                        <span class="fallback-text" aria-hidden="true">−</span>
-                                                        <span class="visually-hidden">Giảm số lượng sản phẩm đi 1</span>
-                                                    </button>
-                                                    <input type="number" class="js-qty__num" value="1" min="1" data-id="" aria-label="quantity" pattern="[0-9]*" name="quantity" id="Quantity" onkeyup="setCurrentQuantity(this)">
-                                                    <button type="button" class="js-qty__adjust js-qty__adjust--plus icon-fallback-text" onclick="addOneItem(this)">
-                                                        <span class="icon icon-plus" aria-hidden="true"></span>
-                                                        <span class="fallback-text" aria-hidden="true">+</span>
-                                                        <span class="visually-hidden">Tăng số lượng sản phẩm lên 1</span>
-                                                    </button>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="grid__item large--two-thirds medium--two-thirds small--one-whole pd-left5">
                                         <div class="product-actions clearfix">
-                                            <button type="button" name="add" id="AddToCart" class="btnAddToCart" onclick="addToCart()">
-                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            </button>
-                                            <button type="button" name="buy" id="buy-now" class="btnBuyNow">Mua ngay</button>
+                                        <button type="button" name="buy" id="buy-now" class="btnBuyNow">Nhận tư vấn</button>
+                                            <button type="button" name="buy" id="buy-now" class="btnBuyNow">Báo giá</button>
                                         </div>
                                     </div>
 

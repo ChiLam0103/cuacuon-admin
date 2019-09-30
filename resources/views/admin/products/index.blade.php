@@ -16,27 +16,6 @@
     {!! \Session::get('fail') !!}
 </div>
 @endif
-
-<!-- Modal chinh sua-->
-<div id="edit" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
-            </div>
-            <form action="{{ url('admin/products/edit') }}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body" id="form-edit">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-danger">Lưu</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <div class="card">
     <div class="card-header">
         Danh sách sản phẩm
@@ -53,7 +32,6 @@
                         <th>Thương hiệu</th>
                         <th>Loại sản phẩm</th>
                         <th>Tương thích</th>
-                        <th>Mô tả</th>
                         <th>Ngày tạo </th>
                         <th>Ngày chỉnh sửa </th>
                         <th>&nbsp; </th>
@@ -65,7 +43,7 @@
                         <td> </td>
                         <td> {{ $k->name ?? '' }} </td>
                         <td><img src="{{ $k->image_link ?? '' }}" width="150"> </td>
-                        <td> {{number_format($k->price) ?? '' }}</td>
+                        <td> {{number_format($k->price) ?? '' }} đ</td>
                         <td> {{ $k->brand_name ?? '' }}</td>
                         <td> {{ $k->type_name ?? '' }}</td>
                         <td>
@@ -74,12 +52,11 @@
                             {{ $rp->size_name ?? '' }},
                             @endif
                             @endforeach</td>
-                        <td> {{ $k->description ?? '' }}</td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
                         <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" id="btnEdit" href="#" data-id="{{$k->id}}" data-toggle="modal" data-target="#edit">
+                            <a class="btn btn-xs btn-info" id="btnEdit" href="{{ url('admin/products/edit',$k->id) }}">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan

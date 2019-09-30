@@ -36,6 +36,7 @@ class Products extends Model
             'name' => $data->name,
             'price' => $data->price,
             'description' => $data->description,
+            'short_description' => $data->short_description,
             'brand_id' => $data->brand_id,
             'type_id' => $data->type_id,
             'created_at' => date('Y-m-d H:i:s'),
@@ -46,7 +47,7 @@ class Products extends Model
             } else {
                 foreach ($data->range_id as $r) {
                     DB::table('compatibility')->insert([
-                        'product_id' => $data->id,
+                        'product_id' => $id,
                         'range_id' => $r,
                         'created_at' => date('Y-m-d H:i:s'),
                     ]);

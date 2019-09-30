@@ -55,6 +55,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::get('/', 'ProductsController@index')->name('admin.products.index');
         Route::get('create', 'ProductsController@getCreate');
         Route::post('create', 'ProductsController@postCreate');
+        Route::get('edit/{id?}', 'ProductsController@getEdit');
         Route::post('edit', 'ProductsController@postEdit');
         Route::post('ajax/getedit', 'ProductsController@ajaxGetEdit');
     });
