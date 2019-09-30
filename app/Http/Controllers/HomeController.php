@@ -50,6 +50,8 @@ class HomeController extends Controller
 
     public function productDetail($id)
     {
+        $product=Products::getProductId($id);
+        return view('customer.product-detail', compact('product'));
         dd($id);
         $products = Products::getProductId($id);
         dd($products);
