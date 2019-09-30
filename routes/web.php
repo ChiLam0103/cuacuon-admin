@@ -57,7 +57,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('create', 'ProductsController@postCreate');
         Route::get('edit/{id?}', 'ProductsController@getEdit');
         Route::post('edit', 'ProductsController@postEdit');
-        Route::post('ajax/getedit', 'ProductsController@ajaxGetEdit');
     });
     //ranges
     Route::resource('ranges', 'RangesController');

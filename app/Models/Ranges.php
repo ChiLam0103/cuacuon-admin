@@ -25,6 +25,14 @@ class Ranges extends Model
         ->select('r.size_name','c.product_id')->distinct('c.product_id')->get();
         return $data;
     }
+    public static function findProductID($id)
+    {
+        $data=DB::table('ranges as r')
+        ->join('compatibility as c', 'c.range_id', '=', 'r.id')
+        ->join('products as p', 'c.product_id', '=', 'p.id')
+        ->select('r.id as range_id')->where('c.product_id',$id)->get();
+        return $data;
+    }
     public static function create($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');

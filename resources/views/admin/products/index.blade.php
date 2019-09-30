@@ -78,29 +78,6 @@
 @section('scripts')
 @parent
 <script>
-    $(document).ready(function() {
-        $(document).on('click', '#btnEdit', function() {
-            var id = $(this).data('id');
-            $('#form-data').remove();
-            $.ajax({
-                url: '{{ url("admin/products/ajax/getedit") }}',
-                method: "POST",
-                data: {
-                    id: id,
-                    _token: "{{csrf_token()}}"
-                },
-                dataType: "text",
-                success: function(data) {
-                    if (data != '') {
-                        $('#form-edit').append(data);
-                    } else {
-                        console.log(1);
-                    }
-                }
-            });
-        });
-
-    });
     //hiển thị hình ảnh khi chọn file
     function readURL(event, id) {
         var output = document.getElementById('img' + id);

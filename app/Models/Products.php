@@ -77,7 +77,6 @@ class Products extends Model
     }
     public static function postEdit($data)
     {
-        dd($data);
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         DB::table('products')
             ->where('id', $data->id)
@@ -93,7 +92,7 @@ class Products extends Model
         DB::table('compatibility')
             ->where('product_id', $data->id)->delete();
         if ($data->type_id == 1 || $data->type_id == 2) {
-            if ($data->range_id) {
+            if ($data->range_id==null) {
                 return 201;
             } else {
                 foreach ($data->range_id as $r) {
@@ -132,11 +131,5 @@ class Products extends Model
         DB::table('compatibility')
             ->where('product_id', $id)->delete();
         return 200;
-    }
-    public static function ajaxGetEdit($id)
-    {
-        $data =  DB::table('products')
-            ->where('id', $id)->first();
-        return $data;
     }
 }
