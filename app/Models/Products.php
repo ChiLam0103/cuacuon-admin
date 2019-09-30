@@ -18,6 +18,17 @@ class Products extends Model
             ->get();
         return $data;
     }
+    public static function getProductId($id)
+    {
+        $data = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->orderBy('id', 'desc')
+            ->where('p.id',$id)
+            ->select('p.*', 'b.name as brand_name', 't.name as type_name')
+            ->get();
+        return $data;
+    }
     public static function create($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -74,15 +85,17 @@ class Products extends Model
             ]);
         DB::table('compatibility')
             ->where('product_id', $data->id)->delete();
-        if ($data->type_id == 1 || $data->type_id == 2) {
-            foreach ($data->range_id as $r) {
-                DB::table('compatibility')->insert([
-                    'product_id' => $data->id,
-                    'range_id' => $r,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
+        if($data->range_id){
+            if ($data->type_id == 1 || $data->type_id == 2) {
+                foreach ($data->range_id as $r) {
+                    DB::table('compatibility')->insert([
+                        'product_id' => $data->id,
+                        'range_id' => $r,
+                        'created_at' => date('Y-m-d H:i:s'),
+                    ]);
+                }
             }
-        }
+        }    
         if ($data->hasFile('product_image')) {
             //filename to store
             $filenametostore = $data->id . '_product.png';

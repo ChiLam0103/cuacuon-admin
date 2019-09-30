@@ -1,6 +1,5 @@
 <div class="sidebar">
     <nav class="sidebar-nav ps ps--active-y">
-
         <ul class="nav">
             <li class="nav-item">
                 <a href="{{ route("admin.home") }}" class="nav-link">
@@ -61,7 +60,7 @@
                     <li class="nav-item">
                         <a href="{{ url('admin/ranges')  }}" class="nav-link {{ request()->is('admin/ranges') || request()->is('admin/ranges/*') ? 'active' : '' }}">
                             <i class="fas fa-expand-arrows-alt nav-icon"></i>
-                            Chiết khấu
+                            Độ tương thích
                         </a>
                     </li>
                 </ul>

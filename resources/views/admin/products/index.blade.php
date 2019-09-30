@@ -135,7 +135,7 @@
                         <td> </td>
                         <td> {{ $k->name ?? '' }} </td>
                         <td><img src="{{ $k->image_link ?? '' }}" width="150"> </td>
-                        <td> {{ $k->price?? '' }}</td>
+                        <td> {{number_format($k->price) ?? '' }}</td>
                         <td> {{ $k->brand_name ?? '' }}</td>
                         <td> {{ $k->type_name ?? '' }}</td>
                         <td>

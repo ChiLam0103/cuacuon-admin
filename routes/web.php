@@ -1,11 +1,13 @@
 <?php
 
-Route::redirect('/', '/login');
+// Route::redirect('/', '/login');
 
-Route::redirect('/home', '/admin');
+// Route::redirect('/home', '/admin');
+Route::get('/', 'HomeController@index');
+Route::get('products', 'HomeController@products');
+Route::get('product-detail/{id?}', 'HomeController@productDetail');
 
 Auth::routes(['register' => false]);
-
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
 

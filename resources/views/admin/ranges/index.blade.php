@@ -3,7 +3,7 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm chiết khấu</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm độ tương thích</button>
     </div>
 </div>
 @endcan
@@ -22,17 +22,17 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Thêm chiết khấu</h4>
+                <h4 class="modal-title">Thêm độ tương thích</h4>
             </div>
             <form action="{{ route('admin.ranges.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <label for="title">Tên chiết khẩu</label>
+                        <label for="title">Độ tương thích</label>
                         <input type="text" name="size_name" class="form-control" value="">
                     </div>
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <label for="title">% chiết khấu</label>
+                        <label for="title">Diện tích tương ứng</label>
                         <input type="text" name="size" class="form-control" value="">
                     </div>
                 </div>
@@ -50,18 +50,18 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Chinh sửa chiết khấu</h4>
+                <h4 class="modal-title">Chinh sửa độ tương thích</h4>
             </div>
             <form action="{{ route('admin.ranges.edit',0) }}" method="get" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" id="id" >
                 <div class="modal-body">
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <label for="title">Tên chiết khẩu</label>
+                        <label for="title">Độ tương thích</label>
                         <input type="text" name="size_name" id="size_name" class="form-control" value="">
                     </div>
                     <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                        <label for="title">% chiết khấu</label>
+                        <label for="title">Diện tích tương ứng</label>
                         <input type="text" name="size" id="size" class="form-control" value="">
                     </div>
                 </div>
@@ -75,7 +75,7 @@
 </div>
 <div class="card">
     <div class="card-header">
-        Danh sách chiết khấu
+        Danh sách độ tương thích
     </div>
 
     <div class="card-body">
@@ -84,8 +84,8 @@
                 <thead>
                     <tr>
                         <th width="10"> </th>
-                        <th> Tên chiết khấu </th>
-                        <th> % chiết khấu </th>
+                        <th> Tên độ tương thích </th>
+                        <th> Diện tích tương ứng </th>
                         <th> Ngày tạo </th>
                         <th> Ngày chỉnh sửa </th>
                         <th> &nbsp; </th>
