@@ -5,7 +5,12 @@
 // Route::redirect('/home', '/admin');
 Route::get('/', 'HomeController@index');
 Route::get('products', 'HomeController@products');
+Route::get('news', 'HomeController@news');
+Route::get('about-us', 'HomeController@about');
+Route::get('contact-us', 'HomeController@contact');
+Route::get('warranty', 'HomeController@warranty');
 Route::get('product-detail/{id?}', 'HomeController@productDetail');
+Route::get('news-detail', 'HomeController@newsDetail');
 
 Auth::routes(['register' => false]);
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
