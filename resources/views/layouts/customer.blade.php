@@ -6,12 +6,11 @@
 <!--<![endif]-->
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Basic page needs ================================================== -->
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <?php $seotags = (App\Models\SeoTags::getAll())?>
+    @foreach($seotags as $i)
+    {!! $i->meta_tag!!}
+    @endforeach
     <link rel="shortcut icon" href="/customer/img/favicon.png" type="image/png">
-
     <!-- Title and description ================================================== -->
     <title>
         @yield('pageTitle')
@@ -35,9 +34,6 @@
     <script src="/customer/js/jquery.min.js" type="text/javascript"></script>
     <script src="/customer/js/owl.carousel.min.js" type="text/javascript"></script>
     <script src="/customer/js/slick.min.js" type="text/javascript"></script>
-
-
-
     <!-- Font Aweseome -->
     <script defer="" src="/customer/js/all.js"></script>
     <link rel="stylesheet" href="/customer/css/all.css">
@@ -48,7 +44,6 @@
         lazyload();
     });
     </script>
-
 </head>
 
 <body id="giao-dien-website-doanh-nghiep-dep-nhat-2018-suplo-company-2" class=" template-index"
