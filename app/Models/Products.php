@@ -18,6 +18,50 @@ class Products extends Model
             ->get();
         return $data;
     }
+    public static function get_CuaCuon()
+    {
+        $data = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->where('t.id',1)
+            ->orderBy('id', 'desc')
+            ->select('p.*', 'b.name as brand_name', 't.name as type_name')
+            ->get();
+        return $data;
+    }
+    public static function get_MoTor()
+    {
+        $data = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->where('t.id',2)
+            ->orderBy('id', 'desc')
+            ->select('p.*', 'b.name as brand_name', 't.name as type_name')
+            ->get();
+        return $data;
+    }
+    public static function get_BinhLuuDien()
+    {
+        $data = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->where('t.id',3)
+            ->orderBy('id', 'desc')
+            ->select('p.*', 'b.name as brand_name', 't.name as type_name')
+            ->get();
+        return $data;
+    }
+    public static function get_PhuKien()
+    {
+        $data = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->where('t.id',4)
+            ->orderBy('id', 'desc')
+            ->select('p.*', 'b.name as brand_name', 't.name as type_name')
+            ->get();
+        return $data;
+    }
     public static function getProductId($id)
     {
         $data = DB::table('products as p')

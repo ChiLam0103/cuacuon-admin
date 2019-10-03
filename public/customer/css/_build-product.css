@@ -1,0 +1,257 @@
+.build-product {
+    height: 34px;
+    line-height: 34px;
+    padding: 0px 5px;
+    margin-right: 5px;
+    background: #11b5e6;
+    color: #fff;
+    border: 0px;
+    outline: 0px;
+    border-radius: 3px;
+}
+
+.build-product:hover {
+    background: #0d90b7;
+}
+
+.list-product {
+    display: table;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.list-product .item:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+.list-product .item {
+    display: table-row;
+    width: 100%;
+    padding: 10px;
+}
+
+.list-product .item .item-name, .list-product .item .choose-item {
+    display: table-cell;
+    padding: 15px;
+}
+
+.list-product .item .item-name {
+    width: 20%;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.choose-item-wrapper {
+    background: white;
+}
+
+.choose-item-header {
+    height: 50px;
+    line-height: 50px;
+    background: #2d3877;
+}
+
+.w40 {
+    width: 40%;
+    float: left;
+}
+
+.w60 {
+    width: 60%;
+    float: left;
+}
+
+.w80 {
+    width: 80%;
+    float: left;
+}
+
+.w20 {
+    width: 20%;
+    float: left;
+}
+
+.w100 {
+    width: 100%;
+    float: left;
+}
+
+.w50 {
+    width: 50%;
+    float: left;
+}
+
+.search-choose-product {
+    margin-bottom: 0 !important;
+}
+
+.search-bar-product {
+    top: 5px;
+    width: 90% !important;
+}
+
+.btn-search-choose-product {
+    color: #fff;
+    line-height: 18px;
+}
+
+.choosed-item-name {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.sub-item .w80 {
+    padding-left: 20px;
+}
+
+.choose-item-header:after, .choose-item-body:after,
+.sub-item:after, .w40.item-left:after,
+.item-chosen:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.w40.item-left, .w60.item-right {
+    height: 80vH;
+    overflow-y: scroll;
+}
+
+.sub-item {
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.rotate {
+    transform: rotateZ(-180deg);
+}
+
+.list-sub-item {
+    padding: 10px;
+}
+
+.sub-item-chooser {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 50px;
+    line-height: 21px;
+    background: #ccc;
+    padding: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 5px;
+    width: calc(50% - 10px);
+}
+
+.sub-item-chooser.active {
+    background: #fef4f3;
+    border: 1px solid #d10a00;
+    color: #d10a00;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.item-chosen {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-chosen .item-info {
+    padding: 10px;
+}
+
+.item-chosen .item-info .name a {
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    height: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-chosen .item-info .sku {
+    color: #666;
+}
+
+.item-chosen .item-info .price {
+    color: #f44336 !important;
+    caret-color: #f44336 !important;
+    font-style: italic;
+}
+
+.add-to-cart-no, .add-to-cart-yes {
+    will-change: box-shadow;
+    -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    color: white;
+    width: 60px;
+    height: 36px;
+    margin-top: 21px;
+    max-width: 80%;
+}
+
+.add-to-cart-no {
+    background-color: #d10a00 !important;
+    border-color: #d10a00 !important;
+}
+
+.add-to-cart-yes {
+    background-color: #2d3877 !important;
+    border-color: #2d3877 !important;
+}
+
+.remove-cart {
+    color: white;
+    background: red;
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+}
+
+.item-image{
+    max-width: 120px;
+}
+
+.item-info-2{
+    padding-left: 10px;
+}
+
+.choose-item-quantity{
+    width: 60px;
+    height: 30px;
+}
+
+.sub-quantity, .add-quantity{
+    width: 40px;
+    height: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.added-name{
+    color: black;
+}
+
+.added-sku{
+    font-size: 12px;
+}
+
+.added-price{
+    color: red;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.added-quantity{
+    padding-top: 5px;
+}
