@@ -86,6 +86,12 @@
                 </ul>
             </li>
             <li class="nav-item">
+                <a href="{{ url('admin/quotations')  }}" class="nav-link {{ request()->is('admin/quotations') || request()->is('admin/quotations/*') ? 'active' : '' }}">
+                    <i class="fas fa-shopping-cart nav-icon"></i>
+                    Đơn hàng
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ url('admin/brands')  }}" class="nav-link {{ request()->is('admin/brands') || request()->is('admin/brands/*') ? 'active' : '' }}">
                     <i class="far fa-copyright nav-icon"></i>
                     Thương hiệu

@@ -108,4 +108,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('edit', 'NewsController@postEdit');
         Route::post('ajax/getedit', 'NewsController@ajaxGetEdit');
     });
+    Route::resource('quotations', 'QuotationsController');
+    Route::group(['prefix' => 'quotations'], function () {
+        Route::get('/', 'QuotationsController@index')->name('admin.quotations.index');
+        Route::get('detail/{id?}', 'QuotationsController@detail')->name('admin.quotations.detail');
+    });
 });
