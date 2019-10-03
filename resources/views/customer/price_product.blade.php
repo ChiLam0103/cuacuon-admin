@@ -72,9 +72,7 @@
                                             <button type="button" class="build-product" onclick="rebuildProduct()"><i class="fa fa-recycle"></i> Build
                                                 lại
                                             </button>
-                                            <button type="button" class="build-product"><i class="fa fa-download"></i> Tải
-                                                file Excel
-                                            </button>
+                                            <button type="button" class="build-product"><i class="fa fa-download"></i> Tải file Excel </button>
                                             <button type="button" class="build-product" data-toggle="modal" data-target="#myModal2"><i class="fa fa-download"></i> Nhận tư vấn
                                             </button>
                                         </div>
@@ -162,19 +160,19 @@
         </span>
         <div class="choose-item-wrapper">
             <div class="choose-item-header">
-                <div class="w40 choosed-item-name">Vi xử lý</div>
+                <div class="w40 choosed-item-name">1 Cửa cuốn</div>
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
                     @foreach($brands as $k)
                     <div class="sub-item">
-                        <div class="w100 sub-item-chooser" style="width:95%;background:white !important">{{$k->name}}</div>
+                        <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
                     </div>
                     @endforeach
                 </div>
                 <div class="w60 item-right">
                     @foreach($products_cuacuon as $k)
-                    <div class="item-chosen">
+                    <div class="item-chosen brand_{{$k->brand_id}}">
                         <div class="item-image w20">
                             <a href="#">
                                 <img src="{{$k->image_link}}">
@@ -209,19 +207,19 @@
         </span>
         <div class="choose-item-wrapper">
             <div class="choose-item-header">
-                <div class="w40 choosed-item-name">Vi xử lý</div>
+                <div class="w40 choosed-item-name">2. Motor</div>
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
                     @foreach($brands as $k)
                     <div class="sub-item">
-                        <div class="w100 sub-item-chooser" style="width:95%;background:white !important">{{$k->name}}</div>
+                        <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
                     </div>
                     @endforeach
                 </div>
                 <div class="w60 item-right">
                     @foreach($products_motor as $k)
-                    <div class="item-chosen">
+                    <div class="item-chosen brand_{{$k->brand_id}}"" >
                         <div class="item-image w20">
                             <a href="#">
                                 <img src="{{$k->image_link}}">
@@ -259,19 +257,19 @@
         </span>
         <div class="choose-item-wrapper">
             <div class="choose-item-header">
-                <div class="w40 choosed-item-name">Vi xử lý</div>
+                <div class="w40 choosed-item-name">3. Bình lưu điện</div>
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
                     @foreach($brands as $k)
                     <div class="sub-item">
-                        <div class="w100 sub-item-chooser" style="width:95%;background:white !important">{{$k->name}}</div>
+                        <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
                     </div>
                     @endforeach
                 </div>
                 <div class="w60 item-right">
                     @foreach($products_binhluudien as $k)
-                    <div class="item-chosen">
+                    <div class="item-chosen brand_{{$k->brand_id}}"">
                         <div class="item-image w20">
                             <a href="#">
                                 <img src="{{$k->image_link}}">
@@ -309,19 +307,19 @@
         </span>
         <div class="choose-item-wrapper">
             <div class="choose-item-header">
-                <div class="w40 choosed-item-name">Vi xử lý</div>
+                <div class="w40 choosed-item-name">4. Phụ kiện cửa cuốn</div>
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
                     @foreach($brands as $k)
                     <div class="sub-item">
-                        <div class="w100 sub-item-chooser" style="width:95%;background:white !important">{{$k->name}}</div>
+                        <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
                     </div>
                     @endforeach
                 </div>
                 <div class="w60 item-right">
                     @foreach($products_phukien as $k)
-                    <div class="item-chosen">
+                    <div class="item-chosen brand_{{$k->brand_id}}"">
                         <div class="item-image w20">
                             <a href="#">
                                 <img src="{{$k->image_link}}">
@@ -364,7 +362,11 @@
         })
         jQuery('.sub-item-chooser').click(function(event) {
             event.preventDefault();
+            jQuery(".sub-item-chooser").removeClass("active");
             $(this).toggleClass("active");
+            var brand_id = $(this).attr("data-id");
+            jQuery(".item-chosen").hide();
+            jQuery(".brand_" + brand_id).show();
         });
     });
 
@@ -374,26 +376,20 @@
     }
 
     function openChooseProductPopup(ele, parent) {
-        var item_name = '';
         var item_id = '';
         if (parent == 1) {
-            item_name = '1. Cửa cuốn';
             item_id = 'popup-choose-cuacuon';
         } else if (parent == 2) {
-            item_name = '2. Motor';
             item_id = 'popup-choose-motor';
         } else if (parent == 3) {
-            item_name = '3. Bình lưu điện';
             item_id = 'popup-choose-binhluudien';
         } else if (parent == 4) {
-            item_name = '4. Phụ kiện cửa cuốn';
             item_id = 'popup-choose-phukien';
         }
         document.getElementById(item_id).dataset.parent = parent;
-        console.log(document.getElementById(item_id).dataset.parent);
         document.getElementById(item_id).classList.add("show");
         currentChoose = "item-" + parent;
-        $('.choosed-item-name').html(item_name);
+        jQuery(".item-chosen").show();
     }
 
     function generateCartData(id) {
