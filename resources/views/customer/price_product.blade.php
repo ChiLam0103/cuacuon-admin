@@ -72,7 +72,7 @@
                                             <button type="button" class="build-product" onclick="rebuildProduct()"><i class="fa fa-recycle"></i> Build
                                                 lại
                                             </button>
-                                            <button type="button" class="build-product"><i class="fa fa-download"></i> Tải file Excel </button>
+                                            <a href="{{ url('export')}}"><button type="button" class="build-product"><i class="fa fa-download"></i> Tải file Excel </button></a>
                                             <button type="button" class="build-product" data-toggle="modal" data-target="#myModal2"><i class="fa fa-download"></i> Nhận tư vấn
                                             </button>
                                         </div>
@@ -220,33 +220,33 @@
                 <div class="w60 item-right">
                     @foreach($products_motor as $k)
                     <div class="item-chosen brand_{{$k->brand_id}}"" >
-                        <div class="item-image w20">
+                        <div class=" item-image w20">
+                        <a href="#">
+                            <img src="{{$k->image_link}}">
+                        </a>
+                    </div>
+                    <div class="item-info w60">
+                        <div class="name">
                             <a href="#">
-                                <img src="{{$k->image_link}}">
+                                {{$k->name}}
                             </a>
                         </div>
-                        <div class="item-info w60">
-                            <div class="name">
-                                <a href="#">
-                                    {{$k->name}}
-                                </a>
-                            </div>
-                            <div class="price">{{number_format($k->price)}} đ</div>
-                        </div>
-                        <div class="item-button w20">
-                            <button type="button" class="add-to-cart-no">
-                                <i class="fa fa-ban"></i>
-                            </button>
-                            <button type="button" class="add-to-cart-yes" data-id=" {{$k->id}}" onclick="addToCart({{$k->id}})">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
+                        <div class="price">{{number_format($k->price)}} đ</div>
                     </div>
-                    @endforeach
+                    <div class="item-button w20">
+                        <button type="button" class="add-to-cart-no">
+                            <i class="fa fa-ban"></i>
+                        </button>
+                        <button type="button" class="add-to-cart-yes" data-id=" {{$k->id}}" onclick="addToCart({{$k->id}})">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- Modal binh luu dien -->
 <div id="popup-choose-binhluudien" class="popup" style="display: none;">
@@ -270,33 +270,33 @@
                 <div class="w60 item-right">
                     @foreach($products_binhluudien as $k)
                     <div class="item-chosen brand_{{$k->brand_id}}"">
-                        <div class="item-image w20">
+                        <div class=" item-image w20">
+                        <a href="#">
+                            <img src="{{$k->image_link}}">
+                        </a>
+                    </div>
+                    <div class="item-info w60">
+                        <div class="name">
                             <a href="#">
-                                <img src="{{$k->image_link}}">
+                                {{$k->name}}
                             </a>
                         </div>
-                        <div class="item-info w60">
-                            <div class="name">
-                                <a href="#">
-                                    {{$k->name}}
-                                </a>
-                            </div>
-                            <div class="price">{{number_format($k->price)}} đ</div>
-                        </div>
-                        <div class="item-button w20">
-                            <button type="button" class="add-to-cart-no">
-                                <i class="fa fa-ban"></i>
-                            </button>
-                            <button type="button" class="add-to-cart-yes" data-id=" {{$k->id}}" onclick="addToCart({{$k->id}})">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
+                        <div class="price">{{number_format($k->price)}} đ</div>
                     </div>
-                    @endforeach
+                    <div class="item-button w20">
+                        <button type="button" class="add-to-cart-no">
+                            <i class="fa fa-ban"></i>
+                        </button>
+                        <button type="button" class="add-to-cart-yes" data-id=" {{$k->id}}" onclick="addToCart({{$k->id}})">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- Modal phu kien -->
 <div id="popup-choose-phukien" class="popup" style="display: none;">
@@ -320,30 +320,30 @@
                 <div class="w60 item-right">
                     @foreach($products_phukien as $k)
                     <div class="item-chosen brand_{{$k->brand_id}}"">
-                        <div class="item-image w20">
+                        <div class=" item-image w20">
+                        <a href="#">
+                            <img src="{{$k->image_link}}">
+                        </a>
+                    </div>
+                    <div class="item-info w60">
+                        <div class="name">
                             <a href="#">
-                                <img src="{{$k->image_link}}">
+                                {{$k->name}}
                             </a>
                         </div>
-                        <div class="item-info w60">
-                            <div class="name">
-                                <a href="#">
-                                    {{$k->name}}
-                                </a>
-                            </div>
-                            <div class="price">{{number_format($k->price)}} đ</div>
-                        </div>
-                        <div class="item-button w20">
-                            <button type="button" class="add-to-cart-yes" data-id=" {{$k->id}}" onclick="addToCart({{$k->id}})">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
+                        <div class="price">{{number_format($k->price)}} đ</div>
                     </div>
-                    @endforeach
+                    <div class="item-button w20">
+                        <button type="button" class="add-to-cart-yes" data-id=" {{$k->id}}" onclick="addToCart({{$k->id}})">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
+</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>

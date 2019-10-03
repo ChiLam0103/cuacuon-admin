@@ -8,7 +8,8 @@ use App\Models\Brands;
 use App\Models\Products;
 use App\Models\Types;
 use Exception;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductsExport;
 class HomeController extends Controller
 {
 
@@ -170,5 +171,9 @@ class HomeController extends Controller
         </button>
         </div>";
         echo $output;
+    }
+    public function export() 
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
     }
 }

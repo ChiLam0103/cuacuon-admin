@@ -14,7 +14,7 @@ Route::get('bao-hanh', 'HomeController@warranty');
 Route::get('chi-tiet-san-pham/{id?}', 'HomeController@productDetail');
 Route::get('noi-dung-tin-tuc', 'HomeController@newsDetail');
 Route::post('ajax/getProduct', 'HomeController@getProduct');
-
+Route::get('export', 'HomeController@export')->name('export');
 
 
 Auth::routes(['register' => false]);
