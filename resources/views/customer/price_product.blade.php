@@ -72,7 +72,7 @@
                                             <button type="button" class="build-product" onclick="rebuildProduct()"><i class="fa fa-recycle"></i> Build
                                                 lại
                                             </button>
-                                            <a href="{{ url('export')}}"><button type="button" class="build-product"><i class="fa fa-download"></i> Tải file Excel </button></a>
+                                            <a href="{{url('export')}}"> <button type="button" class="build-product"><i class="fa fa-download"></i> Tải file Excel </button></a>
                                             <button type="button" class="build-product" data-toggle="modal" data-target="#myModal2"><i class="fa fa-download"></i> Nhận tư vấn
                                             </button>
                                         </div>
@@ -369,7 +369,27 @@
             jQuery(".brand_" + brand_id).show();
         });
     });
-
+    // function Export(){
+    //     var cuacuon_id=$('#cuacuon_id').val();
+    //     var motor_id=$('#motor_id').val();
+    //     var binhluudien_id=$('#binhluudien_id').val();
+    //     var phukien_id=$('#phukien_id').val();
+    //     $.ajax({
+    //         url: '{{ url("export") }}',
+    //         method: "post",
+    //         data: {
+    //             cuacuon_id: cuacuon_id,
+    //             motor_id: motor_id,
+    //             binhluudien_id: binhluudien_id,
+    //             phukien_id: phukien_id,
+    //             _token: "{{csrf_token()}}"
+    //         },
+    //         dataType: "text",
+    //         success: function(data) {
+    //             console.log('ok');
+    //         }
+    //     });
+    // }
     function addToCart(id) {
         jQuery(".popup").removeClass("show");
         document.getElementById(currentChoose).innerHTML = generateCartData(id);

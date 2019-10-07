@@ -12,7 +12,7 @@ Route::get('gioi-thieu', 'HomeController@about');
 Route::get('lien-he', 'HomeController@contact');
 Route::get('bao-hanh', 'HomeController@warranty');
 Route::get('chi-tiet-san-pham/{id?}', 'HomeController@productDetail');
-Route::get('noi-dung-tin-tuc', 'HomeController@newsDetail');
+Route::get('noi-dung-tin-tuc/{id?}', 'HomeController@newsDetail');
 Route::post('ajax/getProduct', 'HomeController@getProduct');
 Route::get('export', 'HomeController@export')->name('export');
 

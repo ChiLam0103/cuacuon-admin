@@ -23,7 +23,7 @@ class Products extends Model
         $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->where('t.id',1)
+            ->where('t.id', 1)
             ->orderBy('id', 'desc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name')
             ->get();
@@ -34,7 +34,7 @@ class Products extends Model
         $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->where('t.id',2)
+            ->where('t.id', 2)
             ->orderBy('id', 'desc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name')
             ->get();
@@ -45,7 +45,7 @@ class Products extends Model
         $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->where('t.id',3)
+            ->where('t.id', 3)
             ->orderBy('id', 'desc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name')
             ->get();
@@ -56,7 +56,7 @@ class Products extends Model
         $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->where('t.id',4)
+            ->where('t.id', 4)
             ->orderBy('id', 'desc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name')
             ->get();
@@ -86,7 +86,7 @@ class Products extends Model
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         if ($data->type_id == 1 || $data->type_id == 2) {
-            if ($data->range_id==null) {
+            if ($data->range_id == null) {
                 return 201;
             } else {
                 foreach ($data->range_id as $r) {
@@ -136,7 +136,7 @@ class Products extends Model
         DB::table('compatibility')
             ->where('product_id', $data->id)->delete();
         if ($data->type_id == 1 || $data->type_id == 2) {
-            if ($data->range_id==null) {
+            if ($data->range_id == null) {
                 return 201;
             } else {
                 foreach ($data->range_id as $r) {
@@ -175,5 +175,9 @@ class Products extends Model
         DB::table('compatibility')
             ->where('product_id', $id)->delete();
         return 200;
+    }
+    public static function getExport($data)
+    {
+        return DB::table('products')->select(['id','name','price'])->get();
     }
 }

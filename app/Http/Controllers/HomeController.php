@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Brands;
+use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
 use Exception;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ProductsExport;
+
 class HomeController extends Controller
 {
 
@@ -38,7 +39,8 @@ class HomeController extends Controller
     }
     public function news()
     {
-        return view('customer.news');
+        $news=News::getAll();
+        return view('customer.news',compact('news'));
     }
 
     public function about()
@@ -56,9 +58,10 @@ class HomeController extends Controller
         return view('customer.contact');
     }
 
-    public function newsDetail()
+    public function newsDetail($id)
     {
-        return view('customer.news-detail');
+        $new=News::getById($id);
+        return view('customer.news-detail', compact('new'));
     }
 
     public function productDetail($id)
@@ -84,35 +87,35 @@ class HomeController extends Controller
                 'contact_id' => $contact_id,
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
-            if($request->cuacuon_id){
+            if ($request->cuacuon_id) {
                 DB::table('detail_quotation')->insert([
                     'quotation_id' => $quotation_id,
                     'product_id' => $request->cuacuon_id,
-                    'quantity'=>$request->quantity_cuacuon_id,
+                    'quantity' => $request->quantity_cuacuon_id,
                     'created_at' => date('Y-m-d H:i:s'),
                 ]);
             }
-            if($request->motor_id){
+            if ($request->motor_id) {
                 DB::table('detail_quotation')->insert([
                     'quotation_id' => $quotation_id,
                     'product_id' => $request->motor_id,
-                    'quantity'=>$request->quantity_motor_id,
+                    'quantity' => $request->quantity_motor_id,
                     'created_at' => date('Y-m-d H:i:s'),
                 ]);
             }
-            if($request->binhluudien_id){
+            if ($request->binhluudien_id) {
                 DB::table('detail_quotation')->insert([
                     'quotation_id' => $quotation_id,
                     'product_id' => $request->binhluudien_id,
-                    'quantity'=>$request->quantity_binhluudien_id,
+                    'quantity' => $request->quantity_binhluudien_id,
                     'created_at' => date('Y-m-d H:i:s'),
                 ]);
             }
-            if($request->phukien_id){
+            if ($request->phukien_id) {
                 DB::table('detail_quotation')->insert([
                     'quotation_id' => $quotation_id,
                     'product_id' => $request->phukien_id,
-                    'quantity'=>$request->quantity_phukien_id,
+                    'quantity' => $request->quantity_phukien_id,
                     'created_at' => date('Y-m-d H:i:s'),
                 ]);
             }
@@ -157,7 +160,7 @@ class HomeController extends Controller
         <div class='price added-price'>" . number_format($data->price) . "đ</div>
         <div class='quantity added-quantity'>
         <button type='button' class='sub-quantity' onclick='sub(this," . $data->type_id . "," . $data->size . ")'>-</button>
-        <input type='hidden' name='$type_id' value='$data->id'>
+        <input type='hidden' name='$type_id' id='$type_id' value='$data->id'>
         <input type='number' id='number' name='quantity_$type_id' class='choose-item-quantity' value='1' onkeyup='checkNumber(this," . $data->type_id . "," . $data->size . ")' onfocusout='checkNumber(this," . $data->type_id . "," . $data->size . ")'>
         <button type='button' class='add-quantity' onclick='add(this," . $data->type_id . "," . $data->size . ")'>+</button>
         </div>
@@ -172,8 +175,17 @@ class HomeController extends Controller
         </div>";
         echo $output;
     }
-    public function export() 
+    public function export(Request $request)
     {
-        return Excel::download(new ProductsExport, 'products.xlsx');
+        $data = Products::getExport($request);
+        
+        return Excel::create('bao-gia', function($excel) use ($data) {
+            $excel->sheet('báo giá', function($sheet) use ($data) {
+                $sheet->loadView('customer.export', [
+                    'listResult' => $data,
+                ]);
+                $sheet->setOrientation('landscape');
+            });
+        })->download('xlsx');
     }
 }

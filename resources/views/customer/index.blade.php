@@ -360,7 +360,7 @@
                                     <div class="article-item">
                                         <div class="article-img">
                                             <a
-                                                href="https://suplo-company-2.myharavan.com/blogs/news/thay-doi-mo-hinh-kinh-doanh-da-lac-hau-giup-tang-doanh-thu-cho-doanh-nghiep">
+                                                href="/chi-tiet-san-pham/{{$k->id}}">
                                                 <img src="{{$k->image_link}}" height="400"
                                                     alt="Thay đổi mô hình kinh doanh đã lạc hậu giúp tăng doanh thu cho doanh nghiệp">
                                             </a>
@@ -368,11 +368,11 @@
                                         <div class="article-info-wrapper">
                                             <div class="article-title">
                                                 <a
-                                                    href="https://suplo-company-2.myharavan.com/blogs/news/thay-doi-mo-hinh-kinh-doanh-da-lac-hau-giup-tang-doanh-thu-cho-doanh-nghiep">
+                                                    href="/chi-tiet-san-pham/{{$k->id}}">
                                                     {{$k->name}} - {{number_format($k->price)}} đ</a>
                                             </div>
                                             <div class="article-desc">
-                                                {{$k->description}}
+                                            {!!$k->short_description!!}
                                             </div>
                                             <div class="article-info" style="padding: 7px;">
                                                 <button type="button" name="buy" id="buy-now"
