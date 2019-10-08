@@ -8,6 +8,7 @@ use App\Models\HomeBanners;
 use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
+use App\Models\WarrantyTypes;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -54,7 +55,8 @@ class HomeController extends Controller
 
     public function warranty()
     {
-        return view('customer.warranty');
+        $warranty=WarrantyTypes::getAll();
+        return view('customer.warranty', compact('warranty'));
     }
 
     public function contact()

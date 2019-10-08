@@ -1,30 +1,7 @@
 @extends('layouts.customer')
 @section('pageTitle', 'Báo giá sản phẩm')
 @section('content')
-<style>
-.input-full {
-    margin-top: 1em
-}
 
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
-.alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-}
-
-.alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-}
-</style>
 <section id="breadcrumb-wrapper5" class="breadcrumb-w-img">
     <div class="breadcrumb-overlay"></div>
     <div class="breadcrumb-content">

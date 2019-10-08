@@ -17,6 +17,7 @@ class WarrantyTypes extends Model
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         DB::table('warranty_types')->insert([
             'name'=>$data->name,
+            'content'=>$data->content,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         return 200;
@@ -28,6 +29,7 @@ class WarrantyTypes extends Model
         ->where('id',$data->id)
         ->update([
             'name'=>$data->name,
+            'content'=>$data->content,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
         return 200;
