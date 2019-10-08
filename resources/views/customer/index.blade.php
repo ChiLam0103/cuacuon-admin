@@ -310,13 +310,14 @@
                                                 {!! substr($k->short_description,0, 300)!!}...
                                             </div>
                                             <div class="article-info" style="padding: 7px;">
-                                                <button type="button" name="buy" id="buy-now"
-                                                    style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;">Nhận
-                                                    tư
-                                                    vấn</button>
-                                                <button type="button" name="buy" id="buy-now"
-                                                    style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;">Báo
-                                                    giá</button>
+                                                <button type="button"
+                                                    style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
+                                                        style="color: white" href="{{ url('/') . '/lien-he'}}">Nhận tư
+                                                        vấn</a></button>
+                                                <button type="button"
+                                                    style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
+                                                        style="color: white" href="{{ url('/') . '/bao-gia'}}">Báo
+                                                        giá</a></button>
                                             </div>
                                         </div>
                                     </div>

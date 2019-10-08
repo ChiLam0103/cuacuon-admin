@@ -66,7 +66,7 @@
                                             class="grid__item large--one-third medium--one-third small--one-half md-pd-left15">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="/chi-tiet-san-pham/{{$k->id}}">
+                                                    <a href="chi-tiet-san-pham/{{$k->id}}">
                                                         <img id="1016170018" height="300" src="{{$k->image_link}}"
                                                             alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
                                                     </a>
@@ -76,14 +76,12 @@
                                                     <div class="product-actions text-center clearfix">
                                                         <div>
 
-                                                            <button type="button"
-                                                                class="btnBuyNow buy-now medium--hide small--hide"
-                                                                data-id="1030768709"><span>Nhận tư vấn</span></button>
-                                                            <button type="button"
-                                                                class="btnBuyNow buy-now medium--hide small--hide"
-                                                                data-id="1030768709"
-                                                                onclick="location.href='/bao-gia'"><span>Báo
-                                                                    giá</span></button>
+                                                            <button type="button" class="medium--hide small--hide"><a
+                                                                    style="color: white" href="lien-he">Nhận tư
+                                                                    vấn</a></button>
+                                                            <button type="button" class="medium--hide small--hide"><a
+                                                                    style=" color: white" href="bao-gia">Báo
+                                                                    giá</a></button>
 
                                                         </div>
                                                     </div>
