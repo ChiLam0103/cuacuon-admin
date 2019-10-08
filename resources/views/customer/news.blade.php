@@ -39,20 +39,20 @@
                                         </div>
                                         <div class="blog-body">
                                             <div class="grid-uniform">
-                                                <div
-                                                    class="grid__item large--one-half medium--one-half small--one-whole">
+                                                @foreach($news as $k)
+                                                <div class="grid__item large--one-half medium--one-half small--one-whole">
                                                     <div class="article-item">
                                                         <div class="article-img">
-                                                            <a href="/new/1">
+                                                            <a href="noi-dung-tin-tuc/{{$k->id}}">
                                                                 <img src="//file.hstatic.net/1000278915/article/service_04_large.jpg"
                                                                     alt="Kế hoạch đưa doanh nghiệp phát triển và thành công trong các lĩnh vực">
                                                             </a>
                                                         </div>
                                                         <div class="article-info-wrapper">
                                                             <div class="article-title">
-                                                                <a href="/new/1">Tiêu đề bài viết</a>
+                                                                <a href="noi-dung-tin-tuc/{{$k->id}}">{{$k->title}}</a>
                                                             </div>
-                                                            <div class="article-desc">nội dung tóm tắt bài viết</div>
+                                                            <div class="article-desc">{!!str_limit($k->content,250)!!}</div>
                                                             <div class="article-info">
                                                                 <div class="article-date">
                                                                     <svg class="svg-inline--fa fa-calendar-alt fa-w-14"
@@ -64,14 +64,17 @@
                                                                             d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z">
                                                                         </path>
                                                                     </svg>
-                                                                    Ngày tạo bài viết
+                                                                    
+                                                                    {{date('d-m-Y', strtotime($k->created_at))}}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            @endforeach
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>

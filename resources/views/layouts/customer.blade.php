@@ -28,6 +28,8 @@
     <link href="/customer/css/slick.css" rel="stylesheet" type="text/css" media="all">
     <link href="/customer/css/slick-theme.css" rel="stylesheet" type="text/css" media="all">
     <link href="/css/jquery-fab-button.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/customer/css/_build-product.css" rel="stylesheet" type="text/css" media="all">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="/customer/js/jquery.min.js" type="text/javascript"></script>
     <script src="/customer/js/owl.carousel.min.js" type="text/javascript"></script>
@@ -161,16 +163,16 @@
             <li class="mobile-nav__item mobile-nav__search">
             </li>
             <li class="mobile-nav__item mobile-nav__item--active">
-                <a href=# class="mobile-nav__link">Trang chủ</a>
+                <a href="/" class="mobile-nav__link">Trang chủ</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="https://suplo-company-2.myharavan.com/pages/about-us" class="mobile-nav__link">Giới thiệu</a>
+                <a href="/gioi-thieu" class="mobile-nav__link">Giới thiệu</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="https://suplo-company-2.myharavan.com/pages/about-us" class="mobile-nav__link">Bảo hành</a>
+                <a href="/bao-hanh" class="mobile-nav__link">Bảo hành</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="products" class="mobile-nav__link">Sản phẩm</a>
+                <a href="/san-pham" class="mobile-nav__link">Sản phẩm</a>
             </li>
             <li class="mobile-nav__item">
                 <a href="https://suplo-company-2.myharavan.com/pages/tat-ca-tin-tuc" class="mobile-nav__link">Tin
@@ -212,31 +214,31 @@
                             </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <a href="https://suplo-company-2.myharavan.com/pages/about-us">Giới thiệu </a>
+                                <a href="/gioi-thieu">Giới thiệu </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <a href="https://suplo-company-2.myharavan.com/pages/about-us">Bảo hành </a>
+                                <a href="/bao-hanh">Bảo hành </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                                <a href="products">Sản phẩm </a>
+                                <a href="/san-pham">Sản phẩm </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: fadeInLeft;">
-                                <a href="https://suplo-company-2.myharavan.com/pages/tat-ca-tin-tuc">Tin tức </a>
+                                <a href="/tin-tuc">Tin tức </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.4s; animation-name: fadeInLeft;">
-                                <a href="https://suplo-company-2.myharavan.com/pages/lien-he">Liên hệ </a>
+                                <a href="/lien-he">Liên hệ </a>
 
                             </li>
                         </ul>
@@ -431,11 +433,11 @@
 
                                     <li class="wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
-                                        <a href=#>Giới thiệu</a></li>
+                                        <a href='/gioi-thieu'>Giới thiệu</a></li>
 
                                     <li class="wow fadeInRight" data-wow-delay="0.4s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                                        <a href=#>Bảo hành</a></li>
+                                        <a href="/bao-hanh">Bảo hành</a></li>
 
                                     <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">

@@ -14,6 +14,10 @@ class News extends Model
         $data = DB::table('news as n')->join('new_types as nt', 'nt.id', '=', 'n.new_type')->select('n.*', 'nt.name as new_type_name')->get();
         return $data;
     }
+    public static function getById($id){
+        $data = DB::table('news as n')->join('new_types as nt', 'nt.id', '=', 'n.new_type')->where('n.id',$id)->select('n.*', 'nt.name as new_type_name')->first();
+        return $data;
+    }
     public static function create($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');

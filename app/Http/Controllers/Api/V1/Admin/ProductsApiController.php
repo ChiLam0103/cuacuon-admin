@@ -35,4 +35,5 @@ class ProductsApiController extends Controller
     {
         return $product->delete();
     }
+ 
 }

@@ -64,7 +64,7 @@
                                         <div class="grid__item large--one-third medium--one-third small--one-half md-pd-left15">
                                             <div class="product-item">
                                                 <div class="product-img">
-                                                    <a href="product-detail/{{$k->id}}">
+                                                    <a href="/chi-tiet-san-pham/{{$k->id}}">
                                                         <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
                                                     </a>
                                                     <!-- <div class="tag-saleoff text-center">
@@ -74,7 +74,7 @@
                                                         <div>
                                                             
                                                             <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"><span>Nhận tư vấn</span></button>
-                                                            <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"><span>Báo giá</span></button>
+                                                            <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"  onclick="location.href='/bao-gia'"><span>Báo giá</span></button>
                                                             
                                                         </div>
                                                     </div>
@@ -82,7 +82,7 @@
 
                                                 <div class="product-item-info text-center">
                                                     <div class="product-title">
-                                                        <a href="product-detail/{{$k->id}}">Máy
+                                                        <a href="/chi-tiet-san-pham/{{$k->id}}">Máy
                                                             {{$k->name}}</a>
                                                     </div>
                                                     <!-- <div class="product-price clearfix">

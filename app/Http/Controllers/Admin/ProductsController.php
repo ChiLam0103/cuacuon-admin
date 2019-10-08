@@ -15,7 +15,7 @@ class ProductsController extends Controller
     {
         $products = Products::getAll();
         $range_product = Ranges::getInProduct();
-        return view('admin.products.index', compact('products','range_product'));
+        return view('admin.products.index', compact('products', 'range_product'));
     }
     public function getCreate()
     {
@@ -42,8 +42,8 @@ class ProductsController extends Controller
         $brands = Brands::getAll();
         $types = Types::getAll();
         $ranges = Ranges::getAll();
-        $checked=0;
-        return view('admin.products.edit', compact('product', 'brands', 'types', 'ranges','range_product','checked'));
+        $checked = 0;
+        return view('admin.products.edit', compact('product', 'brands', 'types', 'ranges', 'range_product', 'checked'));
     }
     public function postEdit(Request $request)
     {
@@ -52,7 +52,7 @@ class ProductsController extends Controller
             return redirect()->back()->with('success', 'Bạn đã chỉnh sửa sản phẩm thành công');
         } else if ($data == 201) {
             return redirect()->back()->with('fail', 'Vui vòng chọn độ tương thích!');
-        }  else {
+        } else {
             return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
         }
     }
