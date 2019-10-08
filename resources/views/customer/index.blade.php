@@ -304,7 +304,7 @@
                                         <div class="article-info-wrapper">
                                             <div class="article-title">
                                                 <a href="chi-tiet-san-pham/{{$k->id}}">
-                                                    {{$k->name}} - {{number_format($k->price)}} đ</a>
+                                                    {{$k->name}} </a>
                                             </div>
                                             <div class="article-desc" style="height: 150px">
                                                 {!! substr($k->short_description,0, 300)!!}...
@@ -315,7 +315,7 @@
                                                         style="color: white" href="{{ url('/') . '/lien-he'}}">Nhận tư
                                                         vấn</a></button> -->
                                                 <button type="button"
-                                                    style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
+                                                    style="width:100%;height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
                                                         style="color: white" href="{{ url('/') . '/bao-gia'}}">Báo
                                                         giá</a></button>
                                             </div>
