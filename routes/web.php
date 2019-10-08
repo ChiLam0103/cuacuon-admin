@@ -10,6 +10,7 @@ Route::post('bao-gia', 'HomeController@postPriceProducts');
 Route::get('tin-tuc', 'HomeController@news');
 Route::get('gioi-thieu', 'HomeController@about');
 Route::get('lien-he', 'HomeController@contact');
+Route::post('lien-he', 'HomeController@postContact');
 Route::get('bao-hanh', 'HomeController@warranty');
 Route::get('chi-tiet-san-pham/{id?}', 'HomeController@productDetail');
 Route::get('noi-dung-tin-tuc/{id?}', 'HomeController@newsDetail');
@@ -43,7 +44,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('contacts', 'ContactsController');
     Route::group(['prefix' => 'contacts'], function () {
         Route::get('/', 'ContactsController@index')->name('admin.contacts.index');
-        Route::post('create', 'ContactsController@postCreate')->name('admin.contacts.create');
         Route::get('edit', 'ContactsController@edit')->name('admin.contacts.edit');
     });
     //types

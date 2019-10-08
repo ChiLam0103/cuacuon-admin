@@ -75,7 +75,6 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th width="10"> </th>
                         <th> Tên thương hiệu </th>
                         <th> Ngày tạo </th>
                         <th> Ngày chỉnh sửa </th>
@@ -85,7 +84,6 @@
                 <tbody>
                     @foreach($brands as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td> </td>
                         <td> {{ $k->name ?? '' }} </td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
                         <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>

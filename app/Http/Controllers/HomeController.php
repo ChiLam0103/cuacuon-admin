@@ -9,6 +9,7 @@ use App\Models\HomeBanners;
 use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
+use App\Models\Contacts;
 use Exception;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -17,9 +18,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $home_banners=HomeBanners::getAll();
+        $home_banners = HomeBanners::getAll();
         $products = Products::getAll();
-        return view('customer.index', compact('products','home_banners'));
+        return view('customer.index', compact('products', 'home_banners'));
     }
 
     public function products()
@@ -41,8 +42,8 @@ class HomeController extends Controller
     }
     public function news()
     {
-        $news=News::getAll();
-        return view('customer.news',compact('news'));
+        $news = News::getAll();
+        return view('customer.news', compact('news'));
     }
 
     public function about()
@@ -59,10 +60,18 @@ class HomeController extends Controller
     {
         return view('customer.contact');
     }
-
+    public function postContact(Request $request)
+    {
+        $data = Contacts::create($request);
+        if ($data == 200) {
+            return redirect()->back()->with('success', 'Bạn đã gửi thông tin liên hệ với chúng tôi thành công');
+        } else {
+            return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
+        }
+    }
     public function newsDetail($id)
     {
-        $new=News::getById($id);
+        $new = News::getById($id);
         return view('customer.news-detail', compact('new'));
     }
 
@@ -180,9 +189,9 @@ class HomeController extends Controller
     public function export(Request $request)
     {
         $data = Products::getExport($request);
-        
-        return Excel::create('bao-gia', function($excel) use ($data) {
-            $excel->sheet('báo giá', function($sheet) use ($data) {
+
+        return Excel::create('bao-gia', function ($excel) use ($data) {
+            $excel->sheet('báo giá', function ($sheet) use ($data) {
                 $sheet->loadView('customer.export', [
                     'listResult' => $data,
                 ]);

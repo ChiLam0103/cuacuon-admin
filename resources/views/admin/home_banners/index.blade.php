@@ -91,7 +91,6 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th width="10"> </th>
                         <th>Ảnh bìa</th>
                         <th>Tiêu đề</th>
                         <th>Phụ đề</th>
@@ -104,7 +103,6 @@
                 <tbody>
                     @foreach($home_banners as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td> </td>
                         <td><img src="{{url('/') .'/public' .$k->image_link ?? '' }}" width="150"></td>
                         <td> {{ $k->main_title?? '' }}</td>
                         <td> {{ $k->sub_title ?? '' }}</td>

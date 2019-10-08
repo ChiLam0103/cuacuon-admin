@@ -25,7 +25,6 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th width="10"> </th>
                         <th>Tên sản phẩm </th>
                         <th>Hình ảnh sản phẩm</th>
                         <th>Giá</th>
@@ -40,7 +39,6 @@
                 <tbody>
                     @foreach($products as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td> </td>
                         <td> {{ $k->name ?? '' }} </td>
                         <td><img src="{{url('/') .'/' . $k->image_link ?? '' }}" width="150"> </td>
                         <td> {{number_format($k->price) ?? '' }} đ</td>

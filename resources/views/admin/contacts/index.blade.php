@@ -57,7 +57,6 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th width="10"> </th>
                         <th> Tên </th>
                         <th> Email </th>
                         <th> Số điện thoại </th>
@@ -70,7 +69,6 @@
                 <tbody>
                     @foreach($contacts as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td> </td>
                         <td> {{ $k->name ?? '' }} </td>
                         <td> {{ $k->email ?? '' }} </td>
                         <td> {{ $k->phone ?? '' }} </td>
