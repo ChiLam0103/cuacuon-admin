@@ -44,8 +44,7 @@
     </script>
 </head>
 
-<body id="giao-dien-website-doanh-nghiep-dep-nhat-2018-suplo-company-2" class=" template-index"
-    cz-shortcut-listen="true">
+<body class=" template-index" cz-shortcut-listen="true">
     <!-- Trigger/Open The Modal -->
     <button id="popup-btn"></button>
 
