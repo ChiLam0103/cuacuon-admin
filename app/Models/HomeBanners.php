@@ -39,7 +39,7 @@ class HomeBanners extends Model
             DB::table('home_banners')
                 ->where('id', $id)
                 ->update([
-                    'image_link' => '/storage/home_banners/' . $filenametostore,
+                    'image_link' => 'public/storage/home_banners/' . $filenametostore,
                 ]);
         }
         return 200;
@@ -72,7 +72,7 @@ class HomeBanners extends Model
                 DB::table('home_banners')
                     ->where('id', $data->id)
                     ->update([
-                        'image_link' => '/storage/home_banners/' . $filenametostore,
+                        'image_link' => 'public/storage/home_banners/' . $filenametostore,
                     ]);
             }
             return 200;
