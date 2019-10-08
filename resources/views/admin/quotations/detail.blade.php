@@ -35,7 +35,8 @@
                         <td> {{ $k->email ?? '' }} </td>
                         <td> {{ $k->phone ?? '' }} </td>
                         <td> {{ $k->content ?? '' }} </td>
-                        <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
+                        <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -52,7 +53,7 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th>Hình ảnh đơn hàng</th>
+                        <th>Hình ảnh sản phẩm</th>
                         <th>Tên sản phẩm</th>
                         <th>Thương hiệu</th>
                         <th>Loại sản phẩm </th>
@@ -64,7 +65,7 @@
                 <tbody>
                     @foreach($products as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                    <td width="100"><img src="{{ $k->image_link ?? '' }}" width="100"> </td>
+                        <td width="100"><img src="{{ url('/'). '/' .  $k->image_link ?? '' }}" width="100"> </td>
                         <td> {{ $k->name ?? '' }} </td>
                         <td> {{ $k->brand_name ?? '' }} </td>
                         <td> {{ $k->type_name ?? '' }} </td>

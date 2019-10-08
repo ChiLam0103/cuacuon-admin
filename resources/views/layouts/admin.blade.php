@@ -30,6 +30,11 @@
         background-color: #f1d1cf;
         border-color: #f1d1cf;
     }
+
+    .dataTables_filter,
+    .dataTables_info {
+        display: none;
+    }
     </style>
     @yield('styles')
 </head>

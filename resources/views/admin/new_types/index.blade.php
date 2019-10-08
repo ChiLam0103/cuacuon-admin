@@ -3,7 +3,8 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm loại tin tức</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm loại tin
+            tức</button>
     </div>
 </div>
 @endcan
@@ -67,7 +68,7 @@
 </div>
 <div class="card">
     <div class="card-header">
-        Danh sách thương hiệu
+        Loại tin tức
     </div>
 
     <div class="card-body">
@@ -85,16 +86,21 @@
                     @foreach($new_types as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
                         <td> {{ $k->name ?? '' }} </td>
-                        <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
-                        <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
+                        <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}
+                        </td>
+                        <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}
+                        </td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="edit({{$k->id}},'{{$k->name}}')">
+                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit"
+                                onclick="edit({{$k->id}},'{{$k->name}}')">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan
                             @can('permission_delete')
-                            <form action="{{ route('admin.new_types.destroy', $k->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                            <form action="{{ route('admin.new_types.destroy', $k->id) }}" method="POST"
+                                onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
+                                style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -111,51 +117,51 @@
 @section('scripts')
 @parent
 <script>
-    function edit(id, name) {
-        $('#edit-id').val(id);
-        $('#edit-name').val(name);
-    }
-    $(function() {
-        let deleteButtonTrans = "{{ trans('global.datatables.delete') }}"
-        let deleteButton = {
-            text: deleteButtonTrans,
-            className: 'btn-danger',
-            action: function(e, dt, node, config) {
-                var ids = $.map(dt.rows({
-                    selected: true
-                }).nodes(), function(entry) {
-                    return $(entry).data('entry-id')
-                });
+function edit(id, name) {
+    $('#edit-id').val(id);
+    $('#edit-name').val(name);
+}
+$(function() {
+    let deleteButtonTrans = "{{ trans('global.datatables.delete') }}"
+    let deleteButton = {
+        text: deleteButtonTrans,
+        className: 'btn-danger',
+        action: function(e, dt, node, config) {
+            var ids = $.map(dt.rows({
+                selected: true
+            }).nodes(), function(entry) {
+                return $(entry).data('entry-id')
+            });
 
-                if (ids.length === 0) {
-                    alert("{{ trans('global.datatables.zero_selected') }}")
+            if (ids.length === 0) {
+                alert("{{ trans('global.datatables.zero_selected') }}")
 
-                    return
-                }
+                return
+            }
 
-                if (confirm("{{ trans('global.areYouSure') }}")) {
-                    $.ajax({
-                            headers: {
-                                "x-csrf-token": _token
-                            },
-                            method: 'POST',
-                            url: config.url,
-                            data: {
-                                ids: ids,
-                                _method: 'DELETE'
-                            }
-                        })
-                        .done(function() {
-                            location.reload()
-                        })
-                }
+            if (confirm("{{ trans('global.areYouSure') }}")) {
+                $.ajax({
+                        headers: {
+                            "x-csrf-token": _token
+                        },
+                        method: 'POST',
+                        url: config.url,
+                        data: {
+                            ids: ids,
+                            _method: 'DELETE'
+                        }
+                    })
+                    .done(function() {
+                        location.reload()
+                    })
             }
         }
-        let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-        $('.datatable:not(.ajaxTable)').DataTable({
-            buttons: dtButtons
-        })
+    }
+    let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+    $('.datatable:not(.ajaxTable)').DataTable({
+        buttons: dtButtons
     })
+})
 </script>
 @endsection
 @endsection
