@@ -289,7 +289,7 @@
                     <div class="grid">
 
                         <div id="owl-home-articles-slider-1" class="owl-carousel owl-theme">
-                            @foreach($products as $k)
+                            @foreach($products->take(3) as $k)
                             <div class="owl-item" style="width: 390px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.2s"
                                     data-wow-duration="0.75s"
@@ -340,6 +340,7 @@
                     </div>
                     <div class="grid">
                         <div id="owl-home-articles-slider" class="owl-carousel owl-theme">
+                        @foreach($news->take(3) as $k)
                             <div class="owl-item" style="width: 390px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.2s"
                                     data-wow-duration="0.75s"
@@ -353,21 +354,21 @@
                                         </div>
                                         <div class="article-info-wrapper">
                                             <div class="article-title">
-                                                <a href="#">Thay
-                                                    tiêu đề tin tức</a>
+                                                <a href="#">{{$k->title}}</a>
                                             </div>
                                             <div class="article-desc">
-                                                mô tả ngắn tin tức
+                                            {!!str_limit($k->content,250)!!}
                                             </div>
                                             <div class="article-info">
                                                 <div class="article-date">
-                                                    <i class="fas fa-calendar-alt"></i>1/1/2020
+                                                    <i class="fas fa-calendar-alt"></i> {{($k->created_at==null) || ($k->created_at=='0000-00-00')?'':date('d/m/Y', strtotime($k->created_at))}}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        @endforeach   
                         </div>
                     </div>
                 </div>

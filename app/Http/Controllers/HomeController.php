@@ -20,7 +20,8 @@ class HomeController extends Controller
     {
         $home_banners = HomeBanners::getAll();
         $products = Products::getAll();
-        return view('customer.index', compact('products', 'home_banners'));
+        $news = News::getAll();
+        return view('customer.index', compact('products', 'home_banners','news'));
     }
 
     public function products()
