@@ -98,40 +98,41 @@
                                         <div id="myModal2" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
                                                 <!-- Modal content-->
-                                                <div class="modal-content">
+                                                <div class="modal-content" style="border-radius: 5px;">
                                                     <div class="modal-header">
                                                         <button type="button" class="close"
                                                             data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Thông tin nhận tư vấn</h4>
+                                                        <h4 class="modal-title">Điền thông tin nhận tư vấn</h4>
                                                     </div>
                                                     <div class="modal-body container">
                                                         <label for="ContactFormName" class="hidden-label">Họ tên của
                                                             bạn</label>
                                                         <input type="text" id="ContactFormName"
                                                             class="input-full form-control" name="name"
-                                                            placeholder="Họ tên của bạn" autocapitalize="words"
-                                                            value="">
-
+                                                            placeholder="Họ tên của bạn" autocapitalize="words" value=""
+                                                            style="margin-bottom: 10px">
                                                         <label for="ContactFormEmail" class="hidden-label">Địa chỉ
                                                             email của bạn</label>
                                                         <input type="email" id="ContactFormEmail"
                                                             class="input-full form-control" name="email"
                                                             placeholder="Địa chỉ email của bạn" autocorrect="off"
-                                                            autocapitalize="off" value="">
+                                                            autocapitalize="off" value="" style="margin-bottom: 10px">
                                                         <label for="ContactFormPhone" class="hidden-label">Số điện
                                                             thoại của bạn</label>
                                                         <input type="tel" id="ContactFormPhone"
                                                             class="input-full form-control" name="phone"
                                                             placeholder="Số điện thoại của bạn" pattern="[0-9\-]*"
-                                                            value="">
+                                                            value="" style="margin-bottom: 10px">
 
                                                         <label for="ContactFormMessage" class="hidden-label">Nội
                                                             dung</label>
                                                         <textarea rows="5" id="ContactFormMessage" class="input-full"
-                                                            name="content" placeholder="Nội dung"></textarea>
+                                                            name="content" placeholder="Nội dung"
+                                                            style="margin-bottom: 10px"></textarea>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn ">Gửi</button>
+                                                    <div class="modal-footer" style="height: 40px">
+                                                        <input type="submit" class="btn right btnContactSubmit"
+                                                            value="Gửi">
                                                     </div>
                                                 </div>
                                             </div>

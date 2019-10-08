@@ -93,20 +93,21 @@
                                                                 bạn</label>
                                                             <input type="text" id="ContactFormName" class="input-full"
                                                                 name="name" placeholder="Họ tên của bạn"
-                                                                autocapitalize="words" value="">
+                                                                autocapitalize="words" value="" required>
 
                                                             <label for="ContactFormEmail" class="hidden-label">Địa chỉ
                                                                 email của bạn</label>
                                                             <input type="email" id="ContactFormEmail" class="input-full"
                                                                 name="email" placeholder="Địa chỉ email của bạn"
-                                                                autocorrect="off" autocapitalize="off" value="">
+                                                                autocorrect="off" autocapitalize="off" value=""
+                                                                required>
 
 
                                                             <label for="ContactFormPhone" class="hidden-label">Số điện
                                                                 thoại của bạn</label>
                                                             <input type="tel" id="ContactFormPhone" class="input-full"
                                                                 name="phone" placeholder="Số điện thoại của bạn"
-                                                                pattern="[0-9\-]*" value="">
+                                                                pattern="[0-9\-]*" value="" required>
 
                                                             <label for="ContactFormMessage" class="hidden-label">Nội
                                                                 dung</label>
