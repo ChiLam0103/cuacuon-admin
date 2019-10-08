@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brands;
+use App\Models\Contacts;
 use App\Models\HomeBanners;
 use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
-use App\Models\Contacts;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

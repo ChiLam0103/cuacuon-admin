@@ -158,12 +158,11 @@
                                     <div
                                         class="grid__item large--two-thirds medium--two-thirds small--one-whole pd-left5">
                                         <div class="product-actions clearfix">
-                                            <button type="button" name="buy" id="buy-now" class="btnBuyNow"
-                                                onclick="location.href='lien-he'">Nhận tư
-                                                vấn</button>
-                                            <button type="button" name="buy" id="buy-now" class="btnBuyNow"
-                                                onclick="location.href='bao-gia'">Báo
-                                                giá</button>
+                                            <button type="button" class="btnBuyNow"><a style="color: white"
+                                                    href="{{ url('/') . '/lien-he'}}">Nhận tư
+                                                    vấn</a></button>
+                                            <button type="button" class="btnBuyNow"><a style="color: white"
+                                                    href="{{ url('/') . '/bao-gia'}}">Báo giá</a></button>
                                         </div>
                                     </div>
 
