@@ -2,94 +2,30 @@
 @section('pageTitle', 'Trang chủ')
 @section('content')
 <div id="hero-slider">
+    @foreach($home_banners as $k)
     <div class="hero-slide slick-slide slick-current slick-active"
-        style="background-image: url(customer/img/ms_banner_img1.jpg); height: 500px; width: 1519px;">
+        style="background-image: url({{$k->image_link}}); height: 500px; width: 1519px;">
         <div class="hero-slide-content">
             <div class="wrapper">
                 <div class="hero-content text-center">
                     <div class="slide-message" data-animation="fadeInDown" data-delay="0.5s"
                         style="animation-delay: 0.5s;">
                         <h4>
-                            Đồng hành cùng sự phát triển của doanh nghiệp
+                            {{$k->main_title}}
                         </h4>
                         <p class="medium--hide small--hide">
-                            Suplo hỗ trợ khách hàng doanh nghiệp phát triển và gặt hái thành công bằng cách vạch
-                            định các kế hoạch, tư vấn về các chiến lược kinh doanh, giúp cải tổ đội ngũ nhân lực
+                            {{$k->sub_title}}
                         </p>
                     </div>
                     <div class="slide-button">
-                        <a href=# data-animation="fadeInUp" data-delay="1s" class="" tabindex="0"
+                        <a href='{{$k->button_link}}' data-animation="fadeInUp" data-delay="1s" class="" tabindex="0"
                             style="animation-delay: 1s;">Xem thêm</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="hero-slide slick-slide"
-        style="background-image: url(customer/img/ms_banner_img2.jpg); height: 500px; width: 1519px;">
-        <div class="hero-slide-content">
-            <div class="wrapper">
-                <div class="hero-content text-center">
-                    <div class="slide-message" data-animation="fadeInDown" data-delay="0.5s">
-                        <h4>
-                            Đồng hành cùng sự phát triển của doanh nghiệp
-                        </h4>
-                        <p class="medium--hide small--hide">
-                            Suplo hỗ trợ khách hàng doanh nghiệp phát triển và gặt hái thành công bằng cách vạch
-                            định các kế hoạch, tư vấn về các chiến lược kinh doanh, giúp cải tổ đội ngũ nhân lực
-                        </p>
-                    </div>
-                    <div class="slide-button">
-                        <a href=# data-animation="fadeInUp" data-delay="1s" tabindex="-1">Xem thêm</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-slide slick-slide"
-        style="background-image: url(customer/img/ms_banner_img3.jpg); height: 500px; width: 1519px;">
-        <div class="hero-slide-content">
-            <div class="wrapper">
-                <div class="hero-content text-center">
-                    <div class="slide-message" data-animation="fadeInDown" data-delay="0.5s">
-                        <h4>
-                            Đồng hành cùng sự phát triển của doanh nghiệp
-                        </h4>
-                        <p class="medium--hide small--hide">
-                            Suplo hỗ trợ khách hàng doanh nghiệp phát triển và gặt hái thành công bằng cách vạch
-                            định các kế hoạch, tư vấn về các chiến lược kinh doanh, giúp cải tổ đội ngũ nhân lực
-                        </p>
-                    </div>
-                    <div class="slide-button">
-                        <a href=# data-animation="fadeInUp" data-delay="1s" tabindex="-1">Xem thêm</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-slide slick-slide"
-        style="background-image: url(customer/img/ms_banner_img4.jpg); height: 500px; width: 1519px;"
-        data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide03"
-        aria-describedby="slick-slide-control03">
-        <div class="hero-slide-content">
-            <div class="wrapper">
-                <div class="hero-content text-center">
-                    <div class="slide-message" data-animation="fadeInDown" data-delay="0.5s">
-                        <h4>
-                            Đồng hành cùng sự phát triển của doanh nghiệp
-                        </h4>
-                        <p class="medium--hide small--hide">
-                            Suplo hỗ trợ khách hàng doanh nghiệp phát triển và gặt hái thành công bằng cách vạch
-                            định các kế hoạch, tư vấn về các chiến lược kinh doanh, giúp cải tổ đội ngũ nhân lực
-                        </p>
-                    </div>
-                    <div class="slide-button">
-                        <a href=# data-animation="fadeInUp" data-delay="1s" tabindex="-1">Xem thêm</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 <div id="PageContainer" class="is-moved-by-drawer">
     <main class="main-content" role="main">
