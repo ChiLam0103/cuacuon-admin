@@ -277,8 +277,8 @@
         </div>
     </header>
 
-    <div class="fixed-action-btn vertical">
-        <a id="first-fab" class="btn-floating" data-fabcolor="#45d1ff" href="tel:1234567">
+    <div class="fixed-action-btn" style="margin-bottom: 80px">
+        <a id="first-fab" class="btn-floating btn-large red" data-fabcolor="#45d1ff" href="tel:1234567">
             <i class="material-icons">local_phone</i>
         </a>
     </div>
@@ -340,9 +340,9 @@
     });
     </script>
     @yield('content')
-    <div id="back-to-top">
+    <!-- <div id="back-to-top">
         <i class="fas fa-angle-up"></i>
-    </div>
+    </div> -->
 
 
     <footer id="footer">
