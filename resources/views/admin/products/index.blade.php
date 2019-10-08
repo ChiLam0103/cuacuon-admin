@@ -40,7 +40,7 @@
                     @foreach($products as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
                         <td> {{ $k->name ?? '' }} </td>
-                        <td><img src="$k->image_link ?? '' }}" width="150"> </td>
+                        <td><img src="{{url('/') .'/' . $k->image_link ?? '' }}" width="150"> </td>
                         <td> {{number_format($k->price) ?? '' }} đ</td>
                         <td> {{ $k->brand_name ?? '' }}</td>
                         <td> {{ $k->type_name ?? '' }}</td>

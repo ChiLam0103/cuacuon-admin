@@ -103,7 +103,7 @@
                 <tbody>
                     @foreach($home_banners as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td><img src="{{$k->image_link ?? '' }}" width="150"></td>
+                        <td><img src="{{url('/') .'/' . $k->image_link ?? '' }}" width="150"></td>
                         <td> {{ $k->main_title?? '' }}</td>
                         <td> {{ $k->sub_title ?? '' }}</td>
                         <td> {{ $k->button_link ?? '' }}</td>
