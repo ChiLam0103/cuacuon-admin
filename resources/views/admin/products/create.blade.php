@@ -45,7 +45,8 @@
                     </div>
                     @foreach($ranges as $r)
                     <div class="range_id" style="display: none">
-                        <label class="checkbox-inline range_id"><input type="checkbox" name="range_id[]" value="{{$r->id}}">{{$r->size_name}}</label>
+                        <label class="checkbox-inline range_id"><input type="checkbox" name="range_id[]"
+                                value="{{$r->id}}">{{$r->size_name}}</label>
                     </div>
                     @endforeach
                     <div class="form-group">
@@ -53,7 +54,8 @@
                             Ảnh sản phẩm:
                         </label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" name="product_image" onchange="readURL(event, 1)">
+                            <input type="file" class="custom-file-input" id="customFile" name="product_image"
+                                onchange="readURL(event, 1)">
                             <label class="custom-file-label" for="customFile">
                                 Chọn hình ảnh
                             </label>
@@ -64,12 +66,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="title">Mô tả ngắn</label>
-                        <textarea type="text" name="short_description" class="form-control my-editor" rows="5"></textarea>
+                        <textarea type="text" name="short_description" class="form-control my-editor"
+                            rows="5"></textarea>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="title">Mô tả</label>
                         <textarea type="text" name="description" class="form-control my-editor" rows="5"></textarea>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -78,19 +81,19 @@
 @section('scripts')
 @parent
 <script>
-    //hiển thị hình ảnh khi chọn file
-    function readURL(event, id) {
-        var output = document.getElementById('img' + id);
-        output.src = URL.createObjectURL(event.target.files[0]);
-    };
-    $(".sltTypeNew").on('change', function(e) {
-        var value = $(this).val();
-        if (value == 1 || value == 2) {
-            $('.range_id').css('display', 'inline-block');
-        } else {
-            $('.range_id').css('display', 'none');
-        }
-    });
+//hiển thị hình ảnh khi chọn file
+function readURL(event, id) {
+    var output = document.getElementById('img' + id);
+    output.src = URL.createObjectURL(event.target.files[0]);
+};
+$(".sltTypeNew").on('change', function(e) {
+    var value = $(this).val();
+    if (value == 1 || value == 2) {
+        $('.range_id').css('display', 'inline-block');
+    } else {
+        $('.range_id').css('display', 'none');
+    }
+});
 </script>
 @endsection
 @endsection

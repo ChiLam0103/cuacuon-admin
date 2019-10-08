@@ -85,11 +85,11 @@
                         <textarea type="text" name="short_description" class="form-control my-editor"
                             rows="5">{{$product->short_description}}</textarea>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="title">Mô tả</label>
                         <textarea type="text" name="description" class="form-control my-editor"
                             rows="5">{{$product->description}}</textarea>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
