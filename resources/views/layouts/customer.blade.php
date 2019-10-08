@@ -10,7 +10,7 @@
     @foreach($seotags as $i)
     {!! $i->meta_tag!!}
     @endforeach
-    <link rel="shortcut icon" href="/customer/img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('public/customer/img/favicon.png') }}" type="image/png">
     <!-- Title and description ================================================== -->
     <title>
         @yield('pageTitle')
@@ -18,27 +18,27 @@
     <!-- Helpers ================================================== -->
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <!-- CSS ================================================== -->
-    <link href="/customer/css/style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/timber.scss.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/suplo-style.scss.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/owl.theme.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/owl.transitions.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/animate.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/slick.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/slick-theme.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/css/jquery-fab-button.min.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/customer/css/_build-product.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/style.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/timber.scss.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/suplo-style.scss.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/owl.theme.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/owl.transitions.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/animate.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/slick.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/slick-theme.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/css/jquery-fab-button.min.css') }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('public/customer/css/_build-product.css') }}" rel="stylesheet" type="text/css" media="all">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="/customer/js/jquery.min.js" type="text/javascript"></script>
-    <script src="/customer/js/owl.carousel.min.js" type="text/javascript"></script>
-    <script src="/customer/js/slick.min.js" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/owl.carousel.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/slick.min.js') }}" type="text/javascript"></script>
     <!-- Font Aweseome -->
-    <script defer="" src="/customer/js/all.js"></script>
-    <link rel="stylesheet" href="/customer/css/all.css">
-    <script src="/customer/js/wow.min.js"></script>
-    <script src="/customer/js/lazyload.js"></script>
+    <script defer="" src="{{ asset('public/customer/js/all.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('public/customer/css/all.css') }}">
+    <script src="{{ asset('public/customer/js/wow.min.js') }}"></script>
+    <script src="{{ asset('public/customer/js/lazyload.js') }}"></script>
     <script type="text/javascript" charset="utf-8">
     window.addEventListener("load", function(event) {
         lazyload();
@@ -163,23 +163,23 @@
             <li class="mobile-nav__item mobile-nav__search">
             </li>
             <li class="mobile-nav__item mobile-nav__item--active">
-                <a href="/" class="mobile-nav__link">Trang chủ</a>
+                <a href="" class="mobile-nav__link">Trang chủ</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="/gioi-thieu" class="mobile-nav__link">Giới thiệu</a>
+                <a href="gioi-thieu" class="mobile-nav__link">Giới thiệu</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="/bao-hanh" class="mobile-nav__link">Bảo hành</a>
+                <a href="bao-hanh" class="mobile-nav__link">Bảo hành</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="/san-pham" class="mobile-nav__link">Sản phẩm</a>
+                <a href="san-pham" class="mobile-nav__link">Sản phẩm</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="https://suplo-company-2.myharavan.com/pages/tat-ca-tin-tuc" class="mobile-nav__link">Tin
+                <a href="tin-tuc" class="mobile-nav__link">Tin
                     tức</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="https://suplo-company-2.myharavan.com/pages/lien-he" class="mobile-nav__link">Liên hệ</a>
+                <a href="lien-he" class="mobile-nav__link">Liên hệ</a>
             </li>
         </ul>
         <!-- //mobile-nav -->
@@ -209,36 +209,37 @@
 
                             <li class="active wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                                <a href="/">
-                                    <img src="/customer/img/logo.png" alt="Cửa cuốn" class="menu-logo"> </a>
+                                <a href="">
+                                    <img src="{{ asset('public/customer/img/logo.png') }}" alt="Cửa cuốn"
+                                        class="menu-logo"> </a>
                             </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <a href="/gioi-thieu">Giới thiệu </a>
+                                <a href="gioi-thieu">Giới thiệu </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <a href="/bao-hanh">Bảo hành </a>
+                                <a href="bao-hanh">Bảo hành </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                                <a href="/san-pham">Sản phẩm </a>
+                                <a href="san-pham">Sản phẩm </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: fadeInLeft;">
-                                <a href="/tin-tuc">Tin tức </a>
+                                <a href="tin-tuc">Tin tức </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.4s; animation-name: fadeInLeft;">
-                                <a href="/lien-he">Liên hệ </a>
+                                <a href="lien-he">Liên hệ </a>
 
                             </li>
                         </ul>
@@ -254,7 +255,7 @@
                             <div class="hd-logo text-left">
 
                                 <a href="/">
-                                    <img src="/customer/img/logo.png"
+                                    <img src="{{ asset('public/customer/img/logo.png') }}"
                                         alt="Giao diện website doanh nghiệp đẹp nhất 2018 - Suplo Company 2">
                                 </a>
 
@@ -485,12 +486,12 @@
     }
     </script>
 
-    <script src="/customer/js/api.jquery.js" type="text/javascript"></script>
-    <script src="/customer/js/option_selection.js" type="text/javascript"></script>
-    <script src="/customer/js/fastclick.min.js" type="text/javascript"></script>
-    <script src="/customer/js/script.js" type="text/javascript"></script>
-    <script src="/customer/js/timber.js" type="text/javascript"></script>
-    <script src="/customer/js/handlebars.min.js" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/api.jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/option_selection.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/fastclick.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/script.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/timber.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/handlebars.min.js') }}" type="text/javascript"></script>
     <!-- Custom script -->
 
     <script id="CartTemplate" type="text/template">
@@ -638,7 +639,7 @@
     </div>
 
 </script>
-    <script src="/customer/js/ajax-cart.js" type="text/javascript"></script>
+    <script src="{{ asset('public/customer/js/ajax-cart.js') }}" type="text/javascript"></script>
     <script>
     jQuery(function($) {
         ajaxCart.init({
@@ -1546,6 +1547,6 @@
 
 
 </body>
-<script src="/js/jquery-fab-button.min.js" type="text/javascript"></script>
+<script src="{{ asset('public/js/jquery-fab-button.min.js') }}" type="text/javascript"></script>
 
 </html>

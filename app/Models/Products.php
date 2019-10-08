@@ -163,7 +163,7 @@ class Products extends Model
             DB::table('products')
                 ->where('id', $data->id)
                 ->update([
-                    'image_link' => '/storage/product/' . $filenametostore,
+                    'image_link' => 'public/storage/product/' . $filenametostore,
                 ]);
         }
         return 200;
@@ -178,6 +178,6 @@ class Products extends Model
     }
     public static function getExport($data)
     {
-        return DB::table('products')->select(['id','name','price'])->get();
+        return DB::table('products')->select(['id', 'name', 'price'])->get();
     }
 }

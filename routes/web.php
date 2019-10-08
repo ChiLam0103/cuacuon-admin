@@ -10,12 +10,13 @@ Route::post('bao-gia', 'HomeController@postPriceProducts');
 Route::get('tin-tuc', 'HomeController@news');
 Route::get('gioi-thieu', 'HomeController@about');
 Route::get('lien-he', 'HomeController@contact');
-Route::get('bao-hanh', 'HomeController@warranty');
+Route::get('chinh-sach-bao-hanh', 'HomeController@warranty1');
+Route::get('huong-dan-kiem-tra-bao-hanh', 'HomeController@warranty2');
+Route::get('nhan-dien-san-pham-chinh-hang', 'HomeController@warranty3');
 Route::get('chi-tiet-san-pham/{id?}', 'HomeController@productDetail');
 Route::get('noi-dung-tin-tuc/{id?}', 'HomeController@newsDetail');
 Route::post('ajax/getProduct', 'HomeController@getProduct');
 Route::get('export', 'HomeController@export')->name('export');
-
 
 Auth::routes(['register' => false]);
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {

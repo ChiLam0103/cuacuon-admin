@@ -3,7 +3,7 @@
 @section('content')
 <div id="hero-slider">
     <div class="hero-slide slick-slide slick-current slick-active"
-        style="background-image: url(customer/img/ms_banner_img1.jpg); height: 500px; width: 1519px;">
+        style="background-image: url(public/customer/img/ms_banner_img1.jpg); height: 500px; width: 1519px;">
         <div class="hero-slide-content">
             <div class="wrapper">
                 <div class="hero-content text-center">
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="hero-slide slick-slide"
-        style="background-image: url(customer/img/ms_banner_img2.jpg); height: 500px; width: 1519px;">
+        style="background-image: url(public/customer/img/ms_banner_img2.jpg); height: 500px; width: 1519px;">
         <div class="hero-slide-content">
             <div class="wrapper">
                 <div class="hero-content text-center">
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="hero-slide slick-slide"
-        style="background-image: url(customer/img/ms_banner_img3.jpg); height: 500px; width: 1519px;">
+        style="background-image: url(public/customer/img/ms_banner_img3.jpg); height: 500px; width: 1519px;">
         <div class="hero-slide-content">
             <div class="wrapper">
                 <div class="hero-content text-center">
@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="hero-slide slick-slide"
-        style="background-image: url(customer/img/ms_banner_img4.jpg); height: 500px; width: 1519px;"
+        style="background-image: url(public/customer/img/ms_banner_img4.jpg); height: 500px; width: 1519px;"
         data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide03"
         aria-describedby="slick-slide-control03">
         <div class="hero-slide-content">
@@ -108,7 +108,8 @@
                             data-wow-delay="0.5s"
                             style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
                             <div class="haboutus-img">
-                                <img src="customer/img/haboutus_img.jpg" alt="Đồng hành cùng phát triển">
+                                <img src="{{ asset('public/customer/img/haboutus_img.jpg') }}"
+                                    alt="Đồng hành cùng phát triển">
                             </div>
                         </div>
                         <div class="grid__item wow fadeInLeft large--one-half medium--one-half small--one-whole"
@@ -226,7 +227,7 @@
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="customer/img/hservice_icon1.png" alt="Công nghệ tiên phong">
+                                    <img src="public/customer/img/hservice_icon1.png" alt="Công nghệ tiên phong">
                                 </div>
                                 <div class="hservice-title">
                                     <a
@@ -246,7 +247,7 @@
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="customer/img/hservice_icon2.png" alt="Nội dung số hấp dẫn">
+                                    <img src="public/customer/img/hservice_icon2.png" alt="Nội dung số hấp dẫn">
                                 </div>
                                 <div class="hservice-title">
                                     <a
@@ -266,7 +267,7 @@
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="customer/img/hservice_icon3.png" alt="Hoạch định chiến lược">
+                                    <img src="public/customer/img/hservice_icon3.png" alt="Hoạch định chiến lược">
                                 </div>
                                 <div class="hservice-title">
                                     <a
@@ -286,7 +287,7 @@
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="customer/img/hservice_icon4.png" alt="Vận hành tổ chức">
+                                    <img src="public/customer/img/hservice_icon4.png" alt="Vận hành tổ chức">
                                 </div>
                                 <div class="hservice-title">
                                     <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/van-hanh-to-chuc">Vận
@@ -305,7 +306,7 @@
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="customer/img/hservice_icon5.png" alt="Quản lý tài chính">
+                                    <img src="public/customer/img/hservice_icon5.png" alt="Quản lý tài chính">
                                 </div>
                                 <div class="hservice-title">
                                     <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/quan-ly-tai-chinh">Quản
@@ -322,7 +323,7 @@
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="customer/img/hservice_icon6.png" alt="Phát triển vượt bậc">
+                                    <img src="public/customer/img/hservice_icon6.png" alt="Phát triển vượt bậc">
                                 </div>
                                 <div class="hservice-title">
                                     <a
@@ -359,20 +360,18 @@
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                                     <div class="article-item">
                                         <div class="article-img">
-                                            <a
-                                                href="/chi-tiet-san-pham/{{$k->id}}">
+                                            <a href="chi-tiet-san-pham/{{$k->id}}">
                                                 <img src="{{$k->image_link}}" height="400"
                                                     alt="Thay đổi mô hình kinh doanh đã lạc hậu giúp tăng doanh thu cho doanh nghiệp">
                                             </a>
                                         </div>
                                         <div class="article-info-wrapper">
                                             <div class="article-title">
-                                                <a
-                                                    href="/chi-tiet-san-pham/{{$k->id}}">
+                                                <a href="chi-tiet-san-pham/{{$k->id}}">
                                                     {{$k->name}} - {{number_format($k->price)}} đ</a>
                                             </div>
-                                            <div class="article-desc">
-                                            {!!$k->short_description!!}
+                                            <div class="article-desc" style="height: 150px">
+                                                {!! substr($k->short_description,0, 300)!!}...
                                             </div>
                                             <div class="article-info" style="padding: 7px;">
                                                 <button type="button" name="buy" id="buy-now"
@@ -411,16 +410,14 @@
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                                     <div class="article-item">
                                         <div class="article-img">
-                                            <a
-                                                href="https://suplo-company-2.myharavan.com/blogs/news/thay-doi-mo-hinh-kinh-doanh-da-lac-hau-giup-tang-doanh-thu-cho-doanh-nghiep">
-                                                <img src="customer/img/6_large.jpg"
+                                            <a href="#">
+                                                <img src="public/customer/img/6_large.jpg"
                                                     alt="Thay đổi mô hình kinh doanh đã lạc hậu giúp tăng doanh thu cho doanh nghiệp">
                                             </a>
                                         </div>
                                         <div class="article-info-wrapper">
                                             <div class="article-title">
-                                                <a
-                                                    href="https://suplo-company-2.myharavan.com/blogs/news/thay-doi-mo-hinh-kinh-doanh-da-lac-hau-giup-tang-doanh-thu-cho-doanh-nghiep">Thay
+                                                <a href="#">Thay
                                                     tiêu đề tin tức</a>
                                             </div>
                                             <div class="article-desc">
