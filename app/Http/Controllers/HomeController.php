@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Brands;
+use App\Models\HomeBanners;
 use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
@@ -16,8 +17,9 @@ class HomeController extends Controller
 
     public function index()
     {
+        $home_banners=HomeBanners::getAll();
         $products = Products::getAll();
-        return view('customer.index', compact('products'));
+        return view('customer.index', compact('products','home_banners'));
     }
 
     public function products()
