@@ -4,7 +4,7 @@
 <div id="hero-slider">
     @foreach($home_banners as $k)
     <div class="hero-slide slick-slide slick-current slick-active"
-        style="background-image: url({{$k->image_link}}); height: 500px; width: 1519px;">
+        style="background-image: url({{$k->image_link}}), url('public/storage/banner-404.png'); height: 500px; width: 1519px;">
         <div class="hero-slide-content">
             <div class="wrapper">
                 <div class="hero-content text-center">
@@ -72,7 +72,7 @@
 
                             </div>
                             <div class="btn-viewmore">
-                                <a href=#>Về chúng tôi</a>
+                                <a href='gioi-thieu'>Về chúng tôi</a>
                             </div>
                         </div>
                     </div>
@@ -156,8 +156,6 @@
                         <span class="section-title-border"></span>
                     </div>
                     <div class="grid-uniform md-mg-left-10">
-
-
                         <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
                             data-wow-delay="0.2s" data-wow-duration="0.75s"
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
@@ -166,8 +164,7 @@
                                     <img src="public/customer/img/hservice_icon1.png" alt="Công nghệ tiên phong">
                                 </div>
                                 <div class="hservice-title">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/cong-nghe-tien-phong">Công
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Công
                                         nghệ tiên phong</a>
                                 </div>
                                 <div class="hservice-desc">
@@ -186,8 +183,7 @@
                                     <img src="public/customer/img/hservice_icon2.png" alt="Nội dung số hấp dẫn">
                                 </div>
                                 <div class="hservice-title">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/noi-dung-so-hap-dan">Nội
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Nội
                                         dung số hấp dẫn</a>
                                 </div>
                                 <div class="hservice-desc">
@@ -206,8 +202,7 @@
                                     <img src="public/customer/img/hservice_icon3.png" alt="Hoạch định chiến lược">
                                 </div>
                                 <div class="hservice-title">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/hoach-dinh-chien-luoc">Hoạch
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Hoạch
                                         định chiến lược</a>
                                 </div>
                                 <div class="hservice-desc">
@@ -226,7 +221,7 @@
                                     <img src="public/customer/img/hservice_icon4.png" alt="Vận hành tổ chức">
                                 </div>
                                 <div class="hservice-title">
-                                    <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/van-hanh-to-chuc">Vận
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Vận
                                         hành tổ chức</a>
                                 </div>
                                 <div class="hservice-desc">
@@ -245,7 +240,7 @@
                                     <img src="public/customer/img/hservice_icon5.png" alt="Quản lý tài chính">
                                 </div>
                                 <div class="hservice-title">
-                                    <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/quan-ly-tai-chinh">Quản
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Quản
                                         lý tài chính</a>
                                 </div>
                                 <div class="hservice-desc">
@@ -262,8 +257,7 @@
                                     <img src="public/customer/img/hservice_icon6.png" alt="Phát triển vượt bậc">
                                 </div>
                                 <div class="hservice-title">
-                                    <a
-                                        href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu/noi-dung-so-hap-dan">Phát
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Phát
                                         triển vượt bậc</a>
                                 </div>
                                 <div class="hservice-desc">

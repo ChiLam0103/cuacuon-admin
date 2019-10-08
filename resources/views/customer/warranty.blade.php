@@ -89,8 +89,6 @@ $(document).ready(function() {
         $(this).addClass('active');
         $('.grid .content').hide();
         var id = $(this).attr('id').split("_").pop();
-        // console.log($(".grid #content_2").show());
-
         $(".grid #content_" + id).show();
     });
 });

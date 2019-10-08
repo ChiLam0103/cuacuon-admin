@@ -277,7 +277,7 @@
         </div>
     </header>
 
-    <div class="fixed-action-btn" style="margin-bottom: 80px">
+    <div class="fixed-action-btn" style="margin-bottom: 60px">
         <a id="first-fab" class="btn-floating btn-large red" data-fabcolor="#45d1ff" href="tel:1234567">
             <i class="material-icons">local_phone</i>
         </a>

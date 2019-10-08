@@ -8,16 +8,16 @@
             <div class="inner text-center">
                 <div class="breadcrumb-big">
                     <h2>
-                        {{$product->name}}
+                        Chi tiết sản phẩm {{$product->name}}
                     </h2>
                 </div>
-                <div class="breadcrumb-small">
+                <!-- <div class="breadcrumb-small">
                     <a href="/" title="Quay trở về trang chủ">Trang chủ</a>
-                    <!-- <span aria-hidden="true">/</span>
-                    <a href="/collections/hot-products" title="">Sản phẩm nổi bật</a> -->
+                    <span aria-hidden="true">/</span>
+                    <a href="/collections/hot-products" title="">Sản phẩm nổi bật</a>
                     <span aria-hidden="true">/</span>
                     <span> {{$product->name}}</span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
