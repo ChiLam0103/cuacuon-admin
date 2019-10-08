@@ -12,6 +12,11 @@ class WarrantyTypes extends Model
         $data=DB::table('warranty_types')->orderBy('id','desc')->get();
         return $data;
     }
+    public static function getByID($id)
+    {
+        $data=DB::table('warranty_types')->where('id',$id)->first();
+        return $data;
+    }
     public static function create($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
