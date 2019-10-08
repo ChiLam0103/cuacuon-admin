@@ -83,7 +83,6 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th width="10"> </th>
                         <th> Tên độ tương thích </th>
                         <th> Diện tích tương ứng </th>
                         <th> Ngày tạo </th>
@@ -94,7 +93,6 @@
                 <tbody>
                     @foreach($ranges as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td> </td>
                         <td> {{ $k->size_name ?? '' }} </td>
                         <td> {{ $k->size ?? '' }} </td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
