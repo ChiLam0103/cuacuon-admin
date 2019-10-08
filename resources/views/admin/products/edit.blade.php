@@ -13,7 +13,7 @@
     @csrf
     <div class="card">
         <div class="card-header">
-            Thêm sản phẩm
+            Chỉnh sửa sản phẩm
             <button style="float: right;" class="btn btn-danger" type="submit"> Lưu</button>
         </div>
         <div class="card-body">

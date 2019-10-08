@@ -73,8 +73,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('warranty_types', 'WarrantyTypesController');
     Route::group(['prefix' => 'warranty_types'], function () {
         Route::get('/', 'WarrantyTypesController@index')->name('admin.warranty_types.index');
-        Route::post('create', 'WarrantyTypesController@postCreate')->name('admin.warranty_types.create');
-        Route::get('edit', 'WarrantyTypesController@edit')->name('admin.warranty_types.edit');
+        Route::post('create', 'WarrantyTypesController@postCreate');
+        Route::get('create', 'WarrantyTypesController@getCreate');
+        Route::post('create', 'WarrantyTypesController@postCreate');
+        Route::get('edit/{id?}', 'WarrantyTypesController@getEdit');
+        Route::post('edit', 'WarrantyTypesController@postEdit');
     });
     //seo_tags
     Route::resource('seo_tags', 'SeoTagsController');
