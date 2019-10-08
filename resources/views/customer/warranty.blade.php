@@ -30,7 +30,6 @@
                             <article
                                 class="float-right grid__item large--nine-twelfths medium--one-whole small--one-whole"
                                 itemscope="" itemtype="http://schema.org/Article">
-
                                 <div class="article-content">
                                     <div class="article-head">
                                         <h1>Kế hoạch đưa doanh nghiệp phát triển và thành công trong các lĩnh vực</h1>
@@ -97,17 +96,7 @@
                                             </h3>
                                         </div>
                                         <ul class="no-bullets">
-                                            <li class="active">
-                                                <svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true"
-                                                    data-prefix="fas" data-icon="caret-right" role="img"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"
-                                                    data-fa-i2svg="">
-                                                    <path fill="currentColor"
-                                                        d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z">
-                                                    </path>
-                                                </svg><!-- <i class="fas fa-caret-right"></i> -->
-                                                <a href="/blogs/cac-du-an-noi-bat">Chính sách bảo hành</a>
-                                            </li>
+                                        @foreach($warranty as $k)
                                             <li class="">
                                                 <svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true"
                                                     data-prefix="fas" data-icon="caret-right" role="img"
@@ -117,19 +106,9 @@
                                                         d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z">
                                                     </path>
                                                 </svg><!-- <i class="fas fa-caret-right"></i> -->
-                                                <a href="/blogs/cac-dich-vu">Hướng dẫn kiểm tra bảo hành</a>
+                                                <a href="/blogs/cac-du-an-noi-bat">{{$k->name}}</a>
                                             </li>
-                                            <li class="">
-                                                <svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true"
-                                                    data-prefix="fas" data-icon="caret-right" role="img"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"
-                                                    data-fa-i2svg="">
-                                                    <path fill="currentColor"
-                                                        d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z">
-                                                    </path>
-                                                </svg><!-- <i class="fas fa-caret-right"></i> -->
-                                                <a href="/blogs/thong-tin-tuyen-dung">Nhận diện sản phẩm chính hãng</a>
-                                            </li>
+                                        @endforeach
                                         </ul>
                                     </div>
                                 </div>

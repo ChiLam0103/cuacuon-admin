@@ -18,7 +18,7 @@
 @endif
 <!-- Modal thêm-->
 <div id="create" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -31,6 +31,10 @@
                         <label for="title">Tên chính sách bảo hành*</label>
                         <input type="text" name="name" class="form-control" value="">
                     </div>
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                                <label for="title">Mô tả</label>
+                                    <textarea name="content" class="form-control my-editor"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -42,7 +46,7 @@
 </div>
 <!-- Modal chinh sua-->
 <div id="edit" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -55,6 +59,10 @@
                         <input name="id" id="edit-id" type="hidden">
                         <label for="title">Tên chính sách bảo hành*</label>
                         <input type="text" name="name" id="edit-name" class="form-control" value="">
+                    </div>
+                    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                                <label for="title">Mô tả</label>
+                                    <textarea name="content" class="form-control my-editor"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
