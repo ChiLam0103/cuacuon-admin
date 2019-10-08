@@ -65,7 +65,6 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th width="10"> </th>
                         <th>Tiêu đề</th>
                         <th>Người tạo</th>
                         <th>Loại tin tức</th>
@@ -77,7 +76,6 @@
                 <tbody>
                     @foreach($news as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td> </td>
                         <td> {{ $k->title ?? '' }} </td>
                         <td> {{ $k->created_by ?? '' }}</td>
                         <td> {{ $k->new_type_name ?? '' }}</td>

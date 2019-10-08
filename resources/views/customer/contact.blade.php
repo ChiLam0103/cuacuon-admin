@@ -75,28 +75,29 @@
                                                 <div
                                                     class="grid__item large--one-half medium--one-half small--one-whole">
                                                     <div class="form-vertical clearfix">
-                                                        <form accept-charset="UTF-8" action="/contact"
-                                                            class="contact-form" method="post">
+                                                    @if (\Session::has('success'))
+                                                    <div class="alert alert-success">
+                                                        {!! \Session::get('success') !!}
+                                                    </div>
+                                                    @elseif((\Session::has('fail')))
+                                                    <div class="alert alert-error">
+                                                        {!! \Session::get('fail') !!}
+                                                    </div>
+                                                    @endif
+                                                    <form action="{{ url('lien-he') }}" method="post" enctype="multipart/form-data">
+                                                    @csrf
                                                             <input name="form_type" type="hidden" value="contact">
                                                             <input name="utf8" type="hidden" value="✓">
-
-
-
-
-
-
-
-
                                                             <label for="ContactFormName" class="hidden-label">Họ tên của
                                                                 bạn</label>
                                                             <input type="text" id="ContactFormName" class="input-full"
-                                                                name="contact[name]" placeholder="Họ tên của bạn"
+                                                                name="name" placeholder="Họ tên của bạn"
                                                                 autocapitalize="words" value="">
 
                                                             <label for="ContactFormEmail" class="hidden-label">Địa chỉ
                                                                 email của bạn</label>
                                                             <input type="email" id="ContactFormEmail" class="input-full"
-                                                                name="contact[email]"
+                                                                name="email"
                                                                 placeholder="Địa chỉ email của bạn" autocorrect="off"
                                                                 autocapitalize="off" value="">
 
@@ -104,19 +105,18 @@
                                                             <label for="ContactFormPhone" class="hidden-label">Số điện
                                                                 thoại của bạn</label>
                                                             <input type="tel" id="ContactFormPhone" class="input-full"
-                                                                name="contact[phone]"
+                                                                name="phone"
                                                                 placeholder="Số điện thoại của bạn" pattern="[0-9\-]*"
                                                                 value="">
 
                                                             <label for="ContactFormMessage" class="hidden-label">Nội
                                                                 dung</label>
                                                             <textarea rows="10" id="ContactFormMessage"
-                                                                class="input-full" name="contact[body]"
+                                                                class="input-full" name="content"
                                                                 placeholder="Nội dung"></textarea>
 
                                                             <input type="submit" class="btn right btnContactSubmit"
                                                                 value="Gửi">
-
                                                         </form>
                                                     </div>
                                                 </div>

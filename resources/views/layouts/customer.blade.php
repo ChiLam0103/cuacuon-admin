@@ -175,8 +175,7 @@
                 <a href="san-pham" class="mobile-nav__link">Sản phẩm</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="tin-tuc" class="mobile-nav__link">Tin
-                    tức</a>
+                <a href="tin-tuc" class="mobile-nav__link">Tin tức</a>
             </li>
             <li class="mobile-nav__item">
                 <a href="lien-he" class="mobile-nav__link">Liên hệ</a>
@@ -209,37 +208,37 @@
 
                             <li class="active wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                                <a href="">
+                                <a href="{{url('/')}}">
                                     <img src="{{ asset('public/customer/img/logo.png') }}" alt="Cửa cuốn"
                                         class="menu-logo"> </a>
                             </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <a href="gioi-thieu">Giới thiệu </a>
+                                <a href="{{url('gioi-thieu')}}">Giới thiệu </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <a href="bao-hanh">Bảo hành </a>
+                                <a href="{{url('bao-hanh')}}">Bảo hành </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                                <a href="san-pham">Sản phẩm </a>
+                                <a href="{{url('san-pham')}}">Sản phẩm </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: fadeInLeft;">
-                                <a href="tin-tuc">Tin tức </a>
+                                <a href="{{url('tin-tuc')}}">Tin tức </a>
 
                             </li>
 
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.4s; animation-name: fadeInLeft;">
-                                <a href="lien-he">Liên hệ </a>
+                                <a href="{{url('lien-he')}}">Liên hệ </a>
 
                             </li>
                         </ul>

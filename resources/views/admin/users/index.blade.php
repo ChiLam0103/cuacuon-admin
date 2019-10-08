@@ -19,9 +19,6 @@
             <table class=" table table-bordered table-striped table-hover datatable">
                 <thead>
                     <tr>
-                        <th width="10">
-
-                        </th>
                         <th>
                             {{ trans('global.user.fields.name') }}
                         </th>
@@ -42,9 +39,6 @@
                 <tbody>
                     @foreach($users as $key => $user)
                         <tr data-entry-id="{{ $user->id }}">
-                            <td>
-
-                            </td>
                             <td>
                                 {{ $user->name ?? '' }}
                             </td>

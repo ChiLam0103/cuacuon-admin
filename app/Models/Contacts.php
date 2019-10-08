@@ -27,6 +27,19 @@ class Contacts extends Model
         ]);
         return 200;
     }
+    public static function create($data)
+    {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        DB::table('contacts')
+        ->insert([
+            'name'=>$data->name,
+            'email'=>$data->email,
+            'phone'=>$data->email,
+            'content'=>$data->email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ]);
+        return 200;
+    }
     public static function destroy($id)
     {
         DB::table('contacts')

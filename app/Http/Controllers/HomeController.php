@@ -7,6 +7,7 @@ use App\Models\HomeBanners;
 use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
+use App\Models\Contacts;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -59,7 +60,15 @@ class HomeController extends Controller
     {
         return view('customer.contact');
     }
-
+    public function postContact(Request $request)
+    {
+        $data = Contacts::create($request);
+        if ($data == 200) {
+            return redirect()->back()->with('success', 'Bạn đã gửi thông tin liên hệ với chúng tôi thành công');
+        } else {
+            return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
+        }
+    }
     public function newsDetail($id)
     {
         $new = News::getById($id);
