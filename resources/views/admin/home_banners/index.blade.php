@@ -51,7 +51,7 @@
                                 Chọn hình ảnh
                             </label>
                         </div>
-                        <img id="img1" width="200" height="200" src="/storage/not-found.jpeg">
+                        <img id="img1" width="200" height="200" src="public/storage/not-found.jpeg">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -103,7 +103,7 @@
                 <tbody>
                     @foreach($home_banners as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
-                        <td><img src="{{url('/') .'/public' .$k->image_link ?? '' }}" width="150"></td>
+                        <td><img src="{{$k->image_link ?? '' }}" width="150"></td>
                         <td> {{ $k->main_title?? '' }}</td>
                         <td> {{ $k->sub_title ?? '' }}</td>
                         <td> {{ $k->button_link ?? '' }}</td>
