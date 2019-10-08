@@ -278,7 +278,7 @@
         </div>
     </header>
 
-    <div class="fixed-action-btn vertical" style="bottom: 100px; right: 24px;">
+    <div class="fixed-action-btn vertical">
         <a class="btn-floating btn-large red">
             <i class="material-icons">apps</i>
         </a>
@@ -434,15 +434,15 @@
 
                                     <li class="wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
-                                        <a href='/gioi-thieu'>Giới thiệu</a></li>
+                                        <a href='gioi-thieu'>Giới thiệu</a></li>
 
                                     <li class="wow fadeInRight" data-wow-delay="0.4s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                                        <a href="/bao-hanh">Bảo hành</a></li>
+                                        <a href="bao-hanh">Bảo hành</a></li>
 
                                     <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
-                                        <a href=#>Liên hệ</a></li>
+                                        <a href='lien-he'>Liên hệ</a></li>
 
                                 </ul>
                             </div>
