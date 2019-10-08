@@ -36,46 +36,55 @@
                                                 <h1>Tất cả sản phẩm</h1>
                                             </div>
                                         </div>
-                                        <div class="grid__item large--one-third medium--one-whole small--one-whole">
+                                        <!-- <div class="grid__item large--one-third medium--one-whole small--one-whole">
                                             <div class="collection-sorting-wrapper">
-                                                <!-- /snippets/collection-sorting.liquid -->
-                                                <div class="form-horizontal text-right">
-                                                    <label for="SortBy">Sắp xếp</label>
-                                                    <select name="SortBy" id="SortBy">
-                                                        <option value="manual">Tùy chọn</option>
-                                                        <option value="best-selling">Sản phẩm bán chạy</option>
-                                                        <option value="title-ascending">Theo bảng chữ cái từ A-Z</option>
-                                                        <option value="title-descending">Theo bảng chữ cái từ Z-A</option>
-                                                        <option value="price-ascending">Giá từ thấp tới cao</option>
-                                                        <option value="price-descending">Giá từ cao tới thấp</option>
-                                                        <option value="created-descending">Mới nhất</option>
-                                                        <option value="created-ascending">Cũ nhất</option>
-                                                    </select>
-                                                </div>
-
-                                            </div>
+                                        <div class="form-horizontal text-right">
+                                            <label for="SortBy">Sắp xếp</label>
+                                            <select name="SortBy" id="SortBy">
+                                                <option value="manual">Tùy chọn</option>
+                                                <option value="best-selling">Sản phẩm bán chạy</option>
+                                                <option value="title-ascending">Theo bảng chữ cái từ A-Z
+                                                </option>
+                                                <option value="title-descending">Theo bảng chữ cái từ Z-A
+                                                </option>
+                                                <option value="price-ascending">Giá từ thấp tới cao</option>
+                                                <option value="price-descending">Giá từ cao tới thấp</option>
+                                                <option value="created-descending">Mới nhất</option>
+                                                <option value="created-ascending">Cũ nhất</option>
+                                            </select>
                                         </div>
+
+                                    </div>
+                                </div> -->
                                     </div>
 
                                 </div>
                                 <div class="collection-body">
                                     <div class="grid-uniform md-mg-left-15 product-list">
                                         @foreach($products as $k)
-                                        <div class="grid__item large--one-third medium--one-third small--one-half md-pd-left15">
+                                        <div
+                                            class="grid__item large--one-third medium--one-third small--one-half md-pd-left15">
                                             <div class="product-item">
                                                 <div class="product-img">
                                                     <a href="/chi-tiet-san-pham/{{$k->id}}">
-                                                        <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
+                                                        <img id="1016170018" height="300" src="{{$k->image_link}}"
+                                                            alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
                                                     </a>
                                                     <!-- <div class="tag-saleoff text-center">
                                                         -30%
                                                     </div> -->
                                                     <div class="product-actions text-center clearfix">
                                                         <div>
-                                                            
-                                                            <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"><span>Nhận tư vấn</span></button>
-                                                            <button type="button" class="btnBuyNow buy-now medium--hide small--hide" data-id="1030768709"  onclick="location.href='/bao-gia'"><span>Báo giá</span></button>
-                                                            
+
+                                                            <button type="button"
+                                                                class="btnBuyNow buy-now medium--hide small--hide"
+                                                                data-id="1030768709"><span>Nhận tư vấn</span></button>
+                                                            <button type="button"
+                                                                class="btnBuyNow buy-now medium--hide small--hide"
+                                                                data-id="1030768709"
+                                                                onclick="location.href='/bao-gia'"><span>Báo
+                                                                    giá</span></button>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,23 +110,6 @@
                         <div class="grid__item large--one-quarter medium--one-whole small--one-whole">
                             <div class="collection-sidebar-wrapper">
                                 <div class="grid">
-                                    <div class="grid__item large--one-whole medium--one-half small--one-whole">
-                                        <div class="collection-categories">
-                                            <button class="accordion cs-title col-sb-trigger active">
-                                                <span>Danh mục</span>
-                                            </button>
-                                            <div class="panel" style="max-height: 370px;">
-                                                <ul class="no-bullets">
-                                                    <li>
-                                                        <a href="https://suplo-company-2.myharavan.com/collections/all">Sản phẩm mới nhập</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://suplo-company-2.myharavan.com/collections/all">Sản phẩm bán chạy</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="grid__item large--one-whole medium--one-half small--one-whole">
                                         <div class="collection-filter-vendor">
                                             <button class="accordion cs-title col-sb-trigger active">
@@ -146,7 +138,8 @@
                                                 <ul class="no-bullets filter-type clearfix">
                                                     @foreach($types as $k)
                                                     <li>
-                                                        <label data-filter="Máy lọc nước" class="filter-vendor__item may-loc-nuoc">
+                                                        <label data-filter="Máy lọc nước"
+                                                            class="filter-vendor__item may-loc-nuoc">
                                                             <input type="checkbox" value="{{$k->id}}">
                                                             <span>{{$k->name}}</span>
                                                         </label>
