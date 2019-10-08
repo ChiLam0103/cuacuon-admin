@@ -310,10 +310,10 @@
                                                 {!! substr($k->short_description,0, 300)!!}...
                                             </div>
                                             <div class="article-info" style="padding: 7px;">
-                                                <button type="button"
+                                                <!-- <button type="button"
                                                     style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
                                                         style="color: white" href="{{ url('/') . '/lien-he'}}">Nhận tư
-                                                        vấn</a></button>
+                                                        vấn</a></button> -->
                                                 <button type="button"
                                                     style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
                                                         style="color: white" href="{{ url('/') . '/bao-gia'}}">Báo
@@ -341,7 +341,7 @@
                     </div>
                     <div class="grid">
                         <div id="owl-home-articles-slider" class="owl-carousel owl-theme">
-                        @foreach($news->take(3) as $k)
+                            @foreach($news->take(3) as $k)
                             <div class="owl-item" style="width: 390px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.2s"
                                     data-wow-duration="0.75s"
@@ -358,18 +358,19 @@
                                                 <a href="#">{{$k->title}}</a>
                                             </div>
                                             <div class="article-desc">
-                                            {!!str_limit($k->content,250)!!}
+                                                {!!str_limit($k->content,250)!!}
                                             </div>
                                             <div class="article-info">
                                                 <div class="article-date">
-                                                    <i class="fas fa-calendar-alt"></i> {{($k->created_at==null) || ($k->created_at=='0000-00-00')?'':date('d/m/Y', strtotime($k->created_at))}}
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    {{($k->created_at==null) || ($k->created_at=='0000-00-00')?'':date('d/m/Y', strtotime($k->created_at))}}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach   
+                            @endforeach
                         </div>
                     </div>
                 </div>

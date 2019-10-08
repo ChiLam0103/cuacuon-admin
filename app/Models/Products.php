@@ -24,7 +24,7 @@ class Products extends Model
         $data = DB::table('products as p')
             ->orderBy('id', 'desc')
             ->select('p.*')
-            ->get();
+            ->take(4)->get();
         return $data;
     }
 

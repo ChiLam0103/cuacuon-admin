@@ -158,9 +158,9 @@
                                     <div
                                         class="grid__item large--two-thirds medium--two-thirds small--one-whole pd-left5">
                                         <div class="product-actions clearfix">
-                                            <button type="button" class="btnBuyNow"><a style="color: white"
+                                            <!-- <button type="button" class="btnBuyNow"><a style="color: white"
                                                     href="{{ url('/') . '/lien-he'}}">Nhận tư
-                                                    vấn</a></button>
+                                                    vấn</a></button> -->
                                             <button type="button" class="btnBuyNow"><a style="color: white"
                                                     href="{{ url('/') . '/bao-gia'}}">Báo giá</a></button>
                                         </div>
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="grid">
-                    <div class="grid__item large--nine-twelfths medium--one-whole small--one-whole">
+                    <!-- <div class="grid__item large--nine-twelfths medium--one-whole small--one-whole">
                         <div class="product-description-wrapper">
                             <div class="tab clearfix">
 
@@ -184,37 +184,22 @@
                                 {!!$product->description!!}
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+                    @foreach($get5prods as $k)
                     <div class="grid__item large--three-twelfths medium--one-whole small--one-whole">
                         <section id="related-products">
                             <div class="home-section-head clearfix">
-                                <h2>Sản phẩm mới</h2>
+                                <h2><a style="color: white"
+                                        href="{{url('/')}}/chi-tiet-san-pham/{{$k->id}}">{{$k->name}}</a></h2>
                             </div>
                             <div class="home-section-body">
-                                <ul class="no-bullets">
-                                    @foreach($get5prods as $k)
-                                    <li class="grid mg-left-15 rsp-item">
-                                        <div
-                                            class="grid__item large--one-third medium--one-quarter small--one-quarter pd-left15">
-                                            <div class="rsp-img">
-                                                <a href="{{url('/')}}/chi-tiet-san-pham/{{$k->id}}">
-                                                    <img src="{{url('/') . '/'.$k->image_link}}"
-                                                        alt="Bộ Lọc Thay Thế Pureit">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="grid__item large--two-thirds medium--three-quarters small--three-quarters pd-left15">
-                                            <div class="rsp-title">
-                                                <a href="{{url('/')}}/chi-tiet-san-pham/{{$k->id}}">{{$k->name}}</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    @endforeach
-                                </ul>
+                                <a href="{{url('/')}}/chi-tiet-san-pham/{{$k->id}}">
+                                    <img src="{{url('/') . '/'.$k->image_link}}" alt="Bộ Lọc Thay Thế Pureit">
+                                </a>
                             </div>
                         </section>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -75,10 +75,10 @@
                                                     </div> -->
                                                     <div class="product-actions text-center clearfix">
                                                         <div>
-
+                                                            <!--
                                                             <button type="button" class="medium--hide small--hide"><a
                                                                     style="color: white" href="lien-he">Nhận tư
-                                                                    vấn</a></button>
+                                                                    vấn</a></button> -->
                                                             <button type="button" class="medium--hide small--hide"><a
                                                                     style=" color: white" href="bao-gia">Báo
                                                                     giá</a></button>
