@@ -12,11 +12,11 @@
                             Bảo hành
                         </h2>
                     </div>
-                    <div class="breadcrumb-small">
+                    <!-- <div class="breadcrumb-small">
                         <a href="/" title="Quay trở về trang chủ">Trang chủ</a>
                         <span aria-hidden="true">/</span>
                         <span>Chính sách bảo hành</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                                             </h3>
                                         </div>
                                         <ul class="no-bullets">
-                                        @foreach($warranty as $k)
+                                            @foreach($warranty as $k)
                                             <li class="">
                                                 <svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true"
                                                     data-prefix="fas" data-icon="caret-right" role="img"
@@ -108,7 +108,7 @@
                                                 </svg><!-- <i class="fas fa-caret-right"></i> -->
                                                 <a href="/blogs/cac-du-an-noi-bat">{{$k->name}}</a>
                                             </li>
-                                        @endforeach
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

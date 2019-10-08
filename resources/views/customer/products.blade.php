@@ -11,11 +11,11 @@
                         Tất cả sản phẩm
                     </h2>
                 </div>
-                <div class="breadcrumb-small">
+                <!-- <div class="breadcrumb-small">
                     <a href="#" title="Quay trở về trang chủ">Trang chủ</a>
                     <span aria-hidden="true">/</span>
                     <span>Tất cả sản phẩm</span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

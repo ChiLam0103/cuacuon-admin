@@ -12,11 +12,11 @@
                             Liên hệ
                         </h2>
                     </div>
-                    <div class="breadcrumb-small">
+                    <!-- <div class="breadcrumb-small">
                         <a href="/" title="Quay trở về trang chủ">Trang chủ</a>
                         <span aria-hidden="true">/</span>
                         <span>Liên hệ</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -75,17 +75,18 @@
                                                 <div
                                                     class="grid__item large--one-half medium--one-half small--one-whole">
                                                     <div class="form-vertical clearfix">
-                                                    @if (\Session::has('success'))
-                                                    <div class="alert alert-success">
-                                                        {!! \Session::get('success') !!}
-                                                    </div>
-                                                    @elseif((\Session::has('fail')))
-                                                    <div class="alert alert-error">
-                                                        {!! \Session::get('fail') !!}
-                                                    </div>
-                                                    @endif
-                                                    <form action="{{ url('lien-he') }}" method="post" enctype="multipart/form-data">
-                                                    @csrf
+                                                        @if (\Session::has('success'))
+                                                        <div class="alert alert-success">
+                                                            {!! \Session::get('success') !!}
+                                                        </div>
+                                                        @elseif((\Session::has('fail')))
+                                                        <div class="alert alert-error">
+                                                            {!! \Session::get('fail') !!}
+                                                        </div>
+                                                        @endif
+                                                        <form action="{{ url('lien-he') }}" method="post"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
                                                             <input name="form_type" type="hidden" value="contact">
                                                             <input name="utf8" type="hidden" value="✓">
                                                             <label for="ContactFormName" class="hidden-label">Họ tên của
@@ -97,17 +98,15 @@
                                                             <label for="ContactFormEmail" class="hidden-label">Địa chỉ
                                                                 email của bạn</label>
                                                             <input type="email" id="ContactFormEmail" class="input-full"
-                                                                name="email"
-                                                                placeholder="Địa chỉ email của bạn" autocorrect="off"
-                                                                autocapitalize="off" value="">
+                                                                name="email" placeholder="Địa chỉ email của bạn"
+                                                                autocorrect="off" autocapitalize="off" value="">
 
 
                                                             <label for="ContactFormPhone" class="hidden-label">Số điện
                                                                 thoại của bạn</label>
                                                             <input type="tel" id="ContactFormPhone" class="input-full"
-                                                                name="phone"
-                                                                placeholder="Số điện thoại của bạn" pattern="[0-9\-]*"
-                                                                value="">
+                                                                name="phone" placeholder="Số điện thoại của bạn"
+                                                                pattern="[0-9\-]*" value="">
 
                                                             <label for="ContactFormMessage" class="hidden-label">Nội
                                                                 dung</label>
