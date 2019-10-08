@@ -278,22 +278,11 @@
     </header>
 
     <div class="fixed-action-btn vertical">
-        <a class="btn-floating btn-large red">
-            <i class="material-icons">apps</i>
+        <a id="first-fab" class="btn-floating" data-fabcolor="#45d1ff" href="tel:1234567">
+            <i class="material-icons">local_phone</i>
         </a>
-        <ul>
-            <li>
-                <a id="first-fab" class="btn-floating" data-fabcolor="#45d1ff" href="tel:1234567">
-                    <i class="material-icons">local_phone</i>
-                </a>
-            </li>
-            <li>
-                <a id="second-fab" class="btn-floating" data-fabcolor="#7345ff">
-                    <div id="fb-root"></div>
-                </a>
-            </li>
-        </ul>
     </div>
+    <div id="fb-root"></div>
     <!-- Load Facebook SDK for JavaScript -->
     <script>
     window.fbAsyncInit = function() {

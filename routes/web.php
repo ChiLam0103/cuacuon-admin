@@ -4,6 +4,7 @@
 
 // Route::redirect('/home', '/admin');
 Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 Route::get('san-pham', 'HomeController@products');
 Route::get('bao-gia', 'HomeController@priceProducts');
 Route::post('bao-gia', 'HomeController@postPriceProducts');
