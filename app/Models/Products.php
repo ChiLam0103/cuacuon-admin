@@ -18,6 +18,16 @@ class Products extends Model
             ->get();
         return $data;
     }
+
+    public static function get5Prods()
+    {
+        $data = DB::table('products as p')
+            ->orderBy('id', 'desc')
+            ->select('p.*')
+            ->get();
+        return $data;
+    }
+
     public static function get_CuaCuon()
     {
         $data = DB::table('products as p')

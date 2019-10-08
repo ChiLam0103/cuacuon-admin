@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Brands;
 use App\Models\HomeBanners;
 use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
 use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
@@ -17,9 +17,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $home_banners=HomeBanners::getAll();
+        $home_banners = HomeBanners::getAll();
         $products = Products::getAll();
-        return view('customer.index', compact('products','home_banners'));
+        return view('customer.index', compact('products', 'home_banners'));
     }
 
     public function products()
@@ -41,8 +41,8 @@ class HomeController extends Controller
     }
     public function news()
     {
-        $news=News::getAll();
-        return view('customer.news',compact('news'));
+        $news = News::getAll();
+        return view('customer.news', compact('news'));
     }
 
     public function about()
@@ -62,16 +62,15 @@ class HomeController extends Controller
 
     public function newsDetail($id)
     {
-        $new=News::getById($id);
+        $new = News::getById($id);
         return view('customer.news-detail', compact('new'));
     }
 
     public function productDetail($id)
     {
         $product = Products::getProductId($id);
-        return view('customer.product-detail', compact('product'));
-        $products = Products::getProductId($id);
-        return view('customer.product-detail', compact('products', 'brands', 'types'));
+        $get5prods = Products::get5Prods();
+        return view('customer.product-detail', compact('product', 'get5prods'));
     }
     public function postPriceProducts(Request $request)
     {
@@ -127,7 +126,6 @@ class HomeController extends Controller
         }
     }
 
-
     //ajax
     public function getProduct(Request $request)
     {
@@ -180,9 +178,9 @@ class HomeController extends Controller
     public function export(Request $request)
     {
         $data = Products::getExport($request);
-        
-        return Excel::create('bao-gia', function($excel) use ($data) {
-            $excel->sheet('báo giá', function($sheet) use ($data) {
+
+        return Excel::create('bao-gia', function ($excel) use ($data) {
+            $excel->sheet('báo giá', function ($sheet) use ($data) {
                 $sheet->loadView('customer.export', [
                     'listResult' => $data,
                 ]);

@@ -91,7 +91,7 @@
 
                                                 <div class="product-item-info text-center">
                                                     <div class="product-title">
-                                                        <a href="/chi-tiet-san-pham/{{$k->id}}">Máy
+                                                        <a href="/chi-tiet-san-pham/{{$k->id}}">
                                                             {{$k->name}}</a>
                                                     </div>
                                                     <!-- <div class="product-price clearfix">
