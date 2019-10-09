@@ -52,8 +52,7 @@
     <button id="popup-btn"></button>
 
     <!-- The Modal -->
-    <div id="popup-subscribe" class="popup" style="display: none;">
-        <!-- Modal content -->
+    <!-- <div id="popup-subscribe" class="popup" style="display: none;">
         <div id="popup-modal" class="popup-content  animate down">
             <span class="close-popup">
                 <i class="fa fa-times" aria-hidden="true"></i>
@@ -96,22 +95,6 @@
                                             target="_blank">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
-                                        <a href="https://plus.google.com/" class="popup-social-network" target="_blank">
-                                            <i class="fab fa-google-plus-g"></i>
-                                        </a>
-                                        <a href="https://www.instagram.com/" class="popup-social-network"
-                                            target="_blank">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                        <a href="https://twitter.com/" class="popup-social-network" target="_blank">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                        <a href="https://www.youtube.com/" class="popup-social-network" target="_blank">
-                                            <i class="fab fa-youtube"></i>
-                                        </a>
-                                        <a href="https://vn.linkedin.com/" class="popup-social-network" target="_blank">
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </form>
@@ -120,8 +103,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script>
+    </div> -->
+    <!-- <script>
     var modal = document.getElementById('popup-subscribe');
     var span = document.getElementsByClassName("close-popup")[0];
 
@@ -148,7 +131,7 @@
             modal.style.display = "none";
         }, 500)
     }
-    </script>
+    </script> -->
 
     <div id="NavDrawer" class="drawer drawer--right">
         <div class="drawer__header">
@@ -170,10 +153,10 @@
                 <a href="gioi-thieu" class="mobile-nav__link">Giới thiệu</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="bao-hanh" class="mobile-nav__link">Bảo hành</a>
+                <a href="san-pham" class="mobile-nav__link">Sản phẩm</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="san-pham" class="mobile-nav__link">Sản phẩm</a>
+                <a href="bao-hanh" class="mobile-nav__link">Bảo hành</a>
             </li>
             <li class="mobile-nav__item">
                 <a href="tin-tuc" class="mobile-nav__link">Tin tức</a>
@@ -206,7 +189,6 @@
                 <div class="wrapper">
                     <div class="inner">
                         <ul class="no-bullets">
-
                             <li class="active wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: fadeInLeft;">
                                 <a href="{{url('/')}}">
@@ -216,31 +198,22 @@
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
                                 <a href="{{url('gioi-thieu')}}">Giới thiệu </a>
-
                             </li>
-
-                            <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
-                                style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <a href="{{url('bao-hanh')}}">Bảo hành </a>
-
-                            </li>
-
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
                                 <a href="{{url('san-pham')}}">Sản phẩm </a>
-
                             </li>
-
+                            <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
+                                style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                                <a href="{{url('bao-hanh')}}">Bảo hành </a>
+                            </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: fadeInLeft;">
                                 <a href="{{url('tin-tuc')}}">Tin tức </a>
-
                             </li>
-
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="1.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 1.4s; animation-name: fadeInLeft;">
                                 <a href="{{url('lien-he')}}">Liên hệ </a>
-
                             </li>
                         </ul>
                     </div>
