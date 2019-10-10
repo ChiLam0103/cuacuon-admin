@@ -45,8 +45,8 @@
                                                     <div class="article-item">
                                                         <div class="article-img">
                                                             <a href="noi-dung-tin-tuc/{{$k->id}}">
-                                                                <img src="//file.hstatic.net/1000278915/article/service_04_large.jpg"
-                                                                    alt="Kế hoạch đưa doanh nghiệp phát triển và thành công trong các lĩnh vực">
+                                                            <img id="img1"height="400" src="{{url('/') .'/' . $k->image_link}}" onerror="
+                                                            this.onerror=null;this.src='public/storage/not-found.jpeg' ;">
                                                             </a>
                                                         </div>
                                                         <div class="article-info-wrapper">
