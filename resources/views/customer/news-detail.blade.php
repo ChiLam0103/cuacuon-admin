@@ -9,14 +9,14 @@
                 <div class="inner text-center">
                     <div class="breadcrumb-big">
                         <h2>
-                            Tất cả tin tức
+                            {{$new->title}}
                         </h2>
                     </div>
-                    <div class="breadcrumb-small">
+                    <!-- <div class="breadcrumb-small">
                         <a href="/" title="Quay trở về trang chủ">Trang chủ</a>
                         <span aria-hidden="true">/</span>
                         <span>Tất cả tin tức</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
