@@ -13,6 +13,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductsExport;
 
 class HomeController extends Controller
 {
@@ -187,17 +188,8 @@ class HomeController extends Controller
         </div>";
         echo $output;
     }
-    public function export(Request $request)
+    public function export()
     {
-        $data = Products::getExport($request);
-
-        return Excel::create('bao-gia', function ($excel) use ($data) {
-            $excel->sheet('báo giá', function ($sheet) use ($data) {
-                $sheet->loadView('customer.export', [
-                    'listResult' => $data,
-                ]);
-                $sheet->setOrientation('landscape');
-            });
-        })->download('xlsx');
+        return Excel::download(new ProductsExport(), 'don-hang.xlsx');
     }
 }

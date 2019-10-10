@@ -13,12 +13,20 @@ class Products extends Model
         $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->orderBy('id', 'desc')
+            ->orderBy('p.id', 'desc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name')
             ->get();
         return $data;
     }
-
+    public static function getExport()
+    {
+        $data = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->select('p.name','p.price', 'b.name as brand_name', 't.name as type_name')
+            ->get();
+        return $data;
+    }
     public static function get5Prods()
     {
         $data = DB::table('products as p')
@@ -185,9 +193,5 @@ class Products extends Model
         DB::table('compatibility')
             ->where('product_id', $id)->delete();
         return 200;
-    }
-    public static function getExport($data)
-    {
-        return DB::table('products')->select(['id', 'name', 'price'])->get();
     }
 }

@@ -62,13 +62,11 @@
                                 <div class="collection-body">
                                     <div class="grid-uniform md-mg-left-15 product-list">
                                         @foreach($products as $k)
-                                        <div
-                                            class="grid__item large--one-third medium--one-third small--one-half md-pd-left15">
+                                        <div class="grid__item large--one-third medium--one-third small--one-half md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
                                             <div class="product-item">
                                                 <div class="product-img">
                                                     <a href="chi-tiet-san-pham/{{$k->id}}">
-                                                        <img id="1016170018" height="300" src="{{$k->image_link}}"
-                                                            alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
+                                                        <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
                                                     </a>
                                                     <!-- <div class="tag-saleoff text-center">
                                                         -30%
@@ -79,8 +77,7 @@
                                                             <button type="button" class="medium--hide small--hide"><a
                                                                     style="color: white" href="lien-he">Nhận tư
                                                                     vấn</a></button> -->
-                                                            <button type="button" class="medium--hide small--hide"><a
-                                                                    style=" color: white" href="bao-gia">Báo
+                                                            <button type="button" class="medium--hide small--hide"><a style=" color: white" href="bao-gia">Báo
                                                                     giá</a></button>
 
                                                         </div>
@@ -113,12 +110,12 @@
                                             <button class="accordion cs-title col-sb-trigger active">
                                                 <span>Thương hiệu</span>
                                             </button>
-                                            <div class="panel sidebar-sort" style="max-height: 221px;">
+                                            <div class="panel sidebar-sort" style="max-height: 100%">
                                                 <ul class="no-bullets filter-vendor clearfix">
                                                     @foreach($brands as $k)
                                                     <li>
                                                         <label data-filter="Pureit" class="filter-vendor__item pureit">
-                                                            <input type="checkbox" value="{{$k->id}}">
+                                                            <input name="ckBrands" type="checkbox" value="{{$k->id}}">
                                                             <span>{{$k->name}}</span>
                                                         </label>
                                                     </li>
@@ -132,13 +129,12 @@
                                             <button class="accordion cs-title col-sb-trigger active">
                                                 <span>Loại sản phẩm</span>
                                             </button>
-                                            <div class="panel sidebar-sort" style="max-height: 118px;">
+                                            <div class="panel sidebar-sort" style="max-height: 100%;">
                                                 <ul class="no-bullets filter-type clearfix">
                                                     @foreach($types as $k)
                                                     <li>
-                                                        <label data-filter="Máy lọc nước"
-                                                            class="filter-vendor__item may-loc-nuoc">
-                                                            <input type="checkbox" value="{{$k->id}}">
+                                                        <label data-filter="Máy lọc nước" class="filter-vendor__item may-loc-nuoc">
+                                                            <input name="ckTypes" type="checkbox" value="{{$k->id}}">
                                                             <span>{{$k->name}}</span>
                                                         </label>
                                                     </li>
@@ -157,4 +153,29 @@
 
     </main>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("input[type=checkbox]").change(function() {
+            var numberOfChecked = $('input:checkbox:checked').length;
+            if (numberOfChecked == 0) {
+                $('.product-list .grid__item').show();
+            } else {
+                if ($(this).is(":checked")) {
+                    if (numberOfChecked == 1) {
+                        $('.product-list .grid__item').hide();
+                    }
+                    var val = $(this).val();
+                    var name = $(this).attr('name');
+                    if(name=='ckBrands'){
+                        $('.product-list  .brand_'+val).show();
+                    }
+                    if(name=='ckTypes'){
+                        $('.product-list .type_'+val).show();
+                    }
+                }
+            }
+        });
+    });
+</script>
 @endsection

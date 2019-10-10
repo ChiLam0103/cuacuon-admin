@@ -12,6 +12,6 @@ class ProductsExport implements FromCollection
     */
     public function collection()
     {
-        return Products::getAll();
+        return Products::getExport();
     }
 }
