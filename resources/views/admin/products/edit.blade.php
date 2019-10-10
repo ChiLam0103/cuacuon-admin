@@ -76,7 +76,7 @@
                         </div>
                         <img id="img1" width="200" height="200" onclick="openImgModal({{$product->id}})"
                             src="{{url('/') .'/' . $product->image_link}}" onerror="
-                            this.onerror=null;this.src='/storage/not-found.jpeg' ;">
+                            this.onerror=null;this.src='public/storage/not-found.jpeg' ;">
                     </div>
                 </div>
                 <div class="col-md-6">

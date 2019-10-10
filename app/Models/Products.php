@@ -124,7 +124,7 @@ class Products extends Model
             DB::table('products')
                 ->where('id', $id)
                 ->update([
-                    'image_link' => '/storage/product/' . $filenametostore,
+                    'image_link' => 'public/storage/product/' . $filenametostore,
                 ]);
         }
         return 200;

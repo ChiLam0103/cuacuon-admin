@@ -3,7 +3,7 @@
 @can('permission_create')
 <div style="margin-bottom: 10px;" class="row">
     <div class="col-lg-12">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">Thêm tin tức</button>
+        <button type="button" class="btn btn-success"onclick="window.location.href='{{url('admin/news/create')}}'">Thêm tin tức</button>
     </div>
 </div>
 @endcan
@@ -16,46 +16,6 @@
     {!! \Session::get('fail') !!}
 </div>
 @endif
-<!-- Modal thêm-->
-<div id="create" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Thêm tin tức</h4>
-            </div>
-            <form action="{{ route('admin.news.create') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Tên tiêu đề*</label>
-                                <input type="text" name="title" class="form-control" value="" required>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Loại tin tức</label>
-                                <select class="form-control sltTypeNew" name="new_type">
-                                    @foreach($new_types as $k)
-                                    <option value="{{$k->id}}">{{$k->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <label for="title">Mô tả</label>
-                                <textarea name="content" class="form-control my-editor" required></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-danger">Lưu</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <div class="card">
     <div class="card-header">
         Danh sách tin tức
@@ -109,6 +69,11 @@
 @section('scripts')
 @parent
 <script>
+//hiển thị hình ảnh khi chọn file
+function readURL(event, id) {
+    var output = document.getElementById('img' + id);
+    output.src = URL.createObjectURL(event.target.files[0]);
+};
 $(document).ready(function() {
     $(document).on('click', '#btnEdit', function() {
         var id = $(this).data('id');
