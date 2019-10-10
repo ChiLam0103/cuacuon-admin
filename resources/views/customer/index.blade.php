@@ -342,9 +342,9 @@
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                                     <div class="article-item">
                                         <div class="article-img">
-                                            <a href="#">
-                                                <img src="public/customer/img/6_large.jpg"
-                                                    alt="Thay đổi mô hình kinh doanh đã lạc hậu giúp tăng doanh thu cho doanh nghiệp">
+                                        <a href="noi-dung-tin-tuc/{{$k->id}}">
+                                                <img id="img1"height="400" src="{{url('/') .'/' . $k->image_link}}" onerror="
+                                                this.onerror=null;this.src='public/storage/not-found.jpeg' ;">
                                             </a>
                                         </div>
                                         <div class="article-info-wrapper">
@@ -352,7 +352,7 @@
                                                 <a href="#">{{$k->title}}</a>
                                             </div>
                                             <div class="article-desc">
-                                                {!!str_limit($k->content,250)!!}
+                                                {!!str_limit($k->sub_content,250)!!}
                                             </div>
                                             <div class="article-info">
                                                 <div class="article-date">
