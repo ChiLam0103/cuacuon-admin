@@ -349,7 +349,7 @@
                                         </div>
                                         <div class="article-info-wrapper">
                                             <div class="article-title">
-                                                <a href="#">{{$k->title}}</a>
+                                                <a href="noi-dung-tin-tuc/{{$k->id}}">{{$k->title}}</a>
                                             </div>
                                             <div class="article-desc">
                                                 {!!str_limit($k->sub_content,250)!!}
