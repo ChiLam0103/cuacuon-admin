@@ -60,7 +60,7 @@
                                 Chọn hình ảnh
                             </label>
                         </div>
-                        <img id="img1" width="200" height="200" src="public/storage/not-found.jpeg">
+                        <img id="img1" width="200" height="200" src="../../public/storage/not-found.jpeg">
                     </div>
                 </div>
                 <div class="col-md-6">

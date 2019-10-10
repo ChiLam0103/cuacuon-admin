@@ -47,7 +47,7 @@
                         </label>
                     </div>
                     <img id="img1" width="200" height="200" onclick="openImgModal({{$news->id}})" src="{{url('/') .'/' . $news->image_link}}" onerror="
-                            this.onerror=null;this.src='public/storage/not-found.jpeg' ;">
+                            this.onerror=null;this.src='../../public/storage/not-found.jpeg' ;">
                 </div>
                 <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                     <label for="title">Mô tả</label>
