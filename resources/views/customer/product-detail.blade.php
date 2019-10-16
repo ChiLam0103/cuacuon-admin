@@ -173,18 +173,19 @@
                 </div>
 
                 <div class="grid">
-                    <!-- <div class="grid__item large--nine-twelfths medium--one-whole small--one-whole">
+                    <div class="grid__item large--nine-twelfths medium--one-whole small--one-whole"
+                        style="width:100%;margin-bottom: 10px">
                         <div class="product-description-wrapper">
                             <div class="tab clearfix">
 
-                                <button class="pro-tablinks" onclick="openProTabs(event, &#39;protab2&#39;)">Mô tả sản
-                                    phẩm</button>
+                                <button class="pro-tablinks" onclick="openProTabs(event, &#39;protab2&#39;)"
+                                    style="background: none">Sản phẩm liên quan</button>
                             </div>
-                            <div id="protab1" class="pro-tabcontent" style="display: block;">
+                            <!-- <div id="protab1" class="pro-tabcontent" style="display: block;">
                                 {!!$product->description!!}
-                            </div>
+                            </div> -->
                         </div>
-                    </div> -->
+                    </div>
                     @foreach($get5prods as $k)
                     <div class="grid__item large--three-twelfths medium--one-whole small--one-whole">
                         <section id="related-products">

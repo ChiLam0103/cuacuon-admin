@@ -52,28 +52,22 @@
                             data-wow-delay="0.5s"
                             style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
                             <div class="haboutus-desc">
-
-
                                 <p>
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp. Với sự chuyên nghiệp và am hiểu của
                                     mình, Suplo tự tin đồng hành cùng khách hàng và đối tác cùng nhau phát triển bền
                                     vững.
                                 </p>
-
-
                                 <p>
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác trong kinh doanh và quản lý doanh nghiệp. Với sự chuyên nghiệp và am hiểu của
                                     mình, Suplo tự tin đồng hành cùng khách hàng và đối tác cùng nhau phát triển bền
                                     vững.
                                 </p>
-
-
                             </div>
-                            <div class="btn-viewmore">
+                            <!-- <div class="btn-viewmore">
                                 <a href='gioi-thieu'>Về chúng tôi</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -342,8 +336,9 @@
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                                     <div class="article-item">
                                         <div class="article-img">
-                                        <a href="noi-dung-tin-tuc/{{$k->id}}">
-                                                <img id="img1"height="400" src="{{url('/') .'/' . $k->image_link}}" onerror="
+                                            <a href="noi-dung-tin-tuc/{{$k->id}}">
+                                                <img id="img1" height="400" src="{{url('/') .'/' . $k->image_link}}"
+                                                    onerror="
                                                 this.onerror=null;this.src='public/storage/not-found.jpeg' ;">
                                             </a>
                                         </div>

@@ -6,9 +6,9 @@
             <div class="card p-4">
                 <div class="card-body">
                     @if(\Session::has('message'))
-                        <p class="alert alert-info">
-                            {{ \Session::get('message') }}
-                        </p>
+                    <p class="alert alert-info">
+                        {{ \Session::get('message') }}
+                    </p>
                     @endif
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -24,13 +24,15 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                             </div>
-                            <input name="email" type="text" value="admin@admin.com" class="form-control" placeholder="{{ trans('global.login_email') }}">
+                            <input name="email" type="text" value="admin@admin.com" class="form-control"
+                                placeholder="{{ trans('global.login_email') }}">
                         </div>
                         <div class="input-group mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
-                            <input name="password" type="password" value="password" class="form-control"  placeholder="{{ trans('global.login_password') }}">
+                            <input name="password" type="password" value="password" class="form-control"
+                                placeholder="{{ trans('global.login_password') }}">
                         </div>
                         <div class="row">
                             <div class="col-6">
@@ -39,11 +41,11 @@
                                     <input name="remember" type="checkbox" /> {{ trans('global.remember_me') }}
                                 </label>
                             </div>
-                            <div class="col-6 text-right">
+                            <!-- <div class="col-6 text-right">
                                 <a class="btn btn-link px-0" href="{{ route('password.request') }}">
                                     {{ trans('global.forgot_password') }}
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>

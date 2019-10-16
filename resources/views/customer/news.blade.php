@@ -29,7 +29,7 @@
                 <div class="wrapper">
                     <div class="inner">
                         <div class="grid">
-                            <div class="grid__item large--nine-twelfths medium--one-whole small--one-whole float-right">
+                            <div class="grid__item medium--one-whole small--one-whole">
                                 <div class="blog-content">
                                     <div class="blog-content-wrapper">
                                         <div class="blog-head">
@@ -41,11 +41,13 @@
                                             <div class="grid-uniform">
                                                 @foreach($news as $k)
                                                 <div
-                                                    class="grid__item large--one-half medium--one-half small--one-whole">
+                                                    class="grid__item large--one-third medium--one-third small--one-whole md-pd-left15 ">
                                                     <div class="article-item">
                                                         <div class="article-img">
                                                             <a href="noi-dung-tin-tuc/{{$k->id}}">
-                                                            <img id="img1"height="400" src="{{url('/') .'/' . $k->image_link}}" onerror="
+                                                                <img id="img1" height="400"
+                                                                    src="{{url('/') .'/' . $k->image_link}}"
+                                                                    onerror="
                                                             this.onerror=null;this.src='public/storage/not-found.jpeg' ;">
                                                             </a>
                                                         </div>

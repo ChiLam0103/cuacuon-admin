@@ -156,6 +156,9 @@
                 <a href="san-pham" class="mobile-nav__link">Sản phẩm</a>
             </li>
             <li class="mobile-nav__item">
+                <a href="bao-gia" class="mobile-nav__link">Báo giá</a>
+            </li>
+            <li class="mobile-nav__item">
                 <a href="bao-hanh" class="mobile-nav__link">Bảo hành</a>
             </li>
             <li class="mobile-nav__item">
@@ -188,12 +191,12 @@
             <div class="desktop-header-navbar">
                 <div class="wrapper">
                     <div class="inner">
-                        <ul class="no-bullets">
+                        <ul class="no-bullets" style="font-size: 18px">
                             <li class="active wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.2s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: fadeInLeft;">
                                 <a href="{{url('/')}}">
                                     <img src="{{ asset('public/customer/img/logo.png') }}" alt="Cửa cuốn"
-                                        class="menu-logo"> </a>
+                                        class="menu-logo" style="height: 40px; max-width: 200px"> </a>
                             </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
@@ -202,6 +205,10 @@
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
                                 <a href="{{url('san-pham')}}">Sản phẩm </a>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
+                                style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                                <a href="{{url('bao-gia')}}">Báo giá </a>
                             </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.4s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
@@ -327,14 +334,14 @@
                         <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInLeft"
                             style="visibility: hidden; animation-name: none;">
                             <div class="ft-contact">
-                                <h3 class="ft-title">
+                                <!-- <h3 class="ft-title">
                                     Về chúng tôi
-                                </h3>
-                                <div class="ft-contact-desc">
+                                </h3> -->
+                                <!-- <div class="ft-contact-desc">
                                     Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
                                     tác
                                     trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -393,19 +400,25 @@
                         <div class="grid__item large--one-half medium--one-whole small--one-whole float-right">
                             <div class="ft-copyrights-link text-right">
                                 <ul class="no-bullets">
-
                                     <li class="wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                                         <a href='gioi-thieu'>Giới thiệu</a></li>
-
                                     <li class="wow fadeInRight" data-wow-delay="0.4s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
                                         <a href="bao-hanh">Bảo hành</a></li>
-
                                     <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
                                         <a href='lien-he'>Liên hệ</a></li>
-
+                                    <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
+                                        style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
+                                        <a href='https://www.facebook.com/cuacuonthehemoi'><img style="height: 25px"
+                                                src="{{ asset('public/customer/img/facebook.png') }}"></a>
+                                    </li>
+                                    <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
+                                        style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
+                                        <a href='lien-he'><img style="height: 25px"
+                                                src="{{ asset('public/customer/img/youtube.png') }}"></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
