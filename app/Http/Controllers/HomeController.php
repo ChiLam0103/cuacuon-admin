@@ -9,6 +9,7 @@ use App\Models\News;
 use App\Models\Products;
 use App\Models\Types;
 use App\Models\WarrantyTypes;
+use App\Models\Statistics;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,8 @@ class HomeController extends Controller
         $home_banners = HomeBanners::getAll();
         $products = Products::getAll();
         $news = News::getAll();
-        return view('customer.index', compact('products', 'home_banners','news'));
+        $statistics = Statistics::getAll();
+        return view('customer.index', compact('products', 'home_banners', 'news','statistics'));
     }
 
     public function products()
@@ -56,7 +58,7 @@ class HomeController extends Controller
 
     public function warranty()
     {
-        $warranty=WarrantyTypes::getAll();
+        $warranty = WarrantyTypes::getAll();
         return view('customer.warranty', compact('warranty'));
     }
 
@@ -89,6 +91,11 @@ class HomeController extends Controller
     {
         try {
             date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $cuacuon_id = $request->cuacuon_id == null ? null : $request->cuacuon_id;
+            $motor_id = $request->motor_id == null ? null : $request->motor_id;
+            $binhluudien_id = $request->binhluudien_id == null ? null : $request->binhluudien_id;
+            $phukien_id = $request->phukien_id == null ? null : $request->phukien_id;
+            
             $contact_id = DB::table('contacts')->insertGetId([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -133,6 +140,7 @@ class HomeController extends Controller
                     'created_at' => date('Y-m-d H:i:s'),
                 ]);
             }
+
             return redirect()->back()->with('success', 'Bạn đã gửi thông tin tư vấn cho chúng tôi thành công');
         } catch (Exception $ex) {
             return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');

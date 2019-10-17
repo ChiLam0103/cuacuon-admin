@@ -111,9 +111,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('edit', 'NewsController@postEdit');
         Route::post('ajax/getedit', 'NewsController@ajaxGetEdit');
     });
+    //quotations
     Route::resource('quotations', 'QuotationsController');
     Route::group(['prefix' => 'quotations'], function () {
         Route::get('/', 'QuotationsController@index')->name('admin.quotations.index');
         Route::get('detail/{id?}', 'QuotationsController@detail')->name('admin.quotations.detail');
+    });
+    //statistics
+    Route::resource('statistics', 'StatisticsController');
+    Route::group(['prefix' => 'statistics'], function () {
+        Route::get('/', 'StatisticsController@index')->name('admin.statistics.index');
+        Route::post('create', 'StatisticsController@postCreate')->name('admin.statistics.create');
+        Route::get('edit', 'StatisticsController@edit')->name('admin.statistics.edit');
     });
 });

@@ -86,59 +86,19 @@
             <div class="wrapper">
                 <div class="inner">
                     <div class="grid-uniform md-mg-left-10">
-
-
+                    @foreach($statistics as $k)
                         <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
                             data-wow-duration="0.75s" data-wow-delay="0.2s"
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                             <div class="hau-statistic-number">
-                                <span data-count="2500">0</span>+
+                                <span data-count="{{$k->number}}">0</span>{{$k->value}}
                             </div>
                             <div class="hau-stastic-border"></div>
                             <div class="hau-statistic-text">
-                                Dự án đã hoàn thành
+                                {{$k->content}}
                             </div>
                         </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
-                            data-wow-duration="0.75s" data-wow-delay="0.4s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                            <div class="hau-statistic-number">
-                                <span data-count="1500">0</span>+
-                            </div>
-                            <div class="hau-stastic-border"></div>
-                            <div class="hau-statistic-text">
-                                Nhân viên kinh nghiệm
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
-                            data-wow-duration="0.75s" data-wow-delay="0.6s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
-                            <div class="hau-statistic-number">
-                                <span data-count="90">0</span>%
-                            </div>
-                            <div class="hau-stastic-border"></div>
-                            <div class="hau-statistic-text">
-                                Khách hàng hài lòng
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
-                            data-wow-duration="0.75s" data-wow-delay="0.8s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
-                            <div class="hau-statistic-number">
-                                <span data-count="100">0</span>+
-                            </div>
-                            <div class="hau-stastic-border"></div>
-                            <div class="hau-statistic-text">
-                                Giải thưởng uy tín
-                            </div>
-                        </div>
-
+                    @endforeach
                     </div>
                 </div>
             </div>
