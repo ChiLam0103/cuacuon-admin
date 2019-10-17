@@ -186,7 +186,7 @@
         <div id="CartContainer"></div>
     </div>
 
-    <header id="header">
+    <header id="header" style="border-bottom: 3px solid #11b5e6">
         <div class="desktop-header medium--hide small--hide">
             <div class="desktop-header-navbar">
                 <div class="wrapper">

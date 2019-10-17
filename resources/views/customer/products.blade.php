@@ -25,9 +25,8 @@
         <section id="collection-wrapper">
             <div class="wrapper">
                 <div class="inner">
-                    <div class="grid">
+                    <div class="grid" style="width: 130%; margin-left:-100px">
                         <div class="grid__item large--three-quarters medium--one-whole small--one-whole float-right">
-
                             <div class="collection-content-wrapper">
                                 <div class="collection-head">
                                     <div class="grid">
@@ -57,16 +56,17 @@
                                     </div>
                                 </div> -->
                                     </div>
-
                                 </div>
                                 <div class="collection-body">
                                     <div class="grid-uniform md-mg-left-15 product-list">
                                         @foreach($products as $k)
-                                        <div class="grid__item large--one-third medium--one-third small--one-half md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
+                                        <div
+                                            class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
                                             <div class="product-item">
                                                 <div class="product-img">
                                                     <a href="chi-tiet-san-pham/{{$k->id}}">
-                                                        <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
+                                                        <img id="1016170018" height="300" src="{{$k->image_link}}"
+                                                            alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
                                                     </a>
                                                     <!-- <div class="tag-saleoff text-center">
                                                         -30%
@@ -77,8 +77,8 @@
                                                             <button type="button" class="medium--hide small--hide"><a
                                                                     style="color: white" href="lien-he">Nhận tư
                                                                     vấn</a></button> -->
-                                                            <button type="button" class="medium--hide small--hide"><a style=" color: white" href="bao-gia">Báo
-                                                                    giá</a></button>
+                                                            <!-- <button type="button" class="medium--hide small--hide"><a style=" color: white" href="bao-gia">Báo
+                                                                    giá</a></button> -->
 
                                                         </div>
                                                     </div>
@@ -133,7 +133,8 @@
                                                 <ul class="no-bullets filter-type clearfix">
                                                     @foreach($types as $k)
                                                     <li>
-                                                        <label data-filter="Máy lọc nước" class="filter-vendor__item may-loc-nuoc">
+                                                        <label data-filter="Máy lọc nước"
+                                                            class="filter-vendor__item may-loc-nuoc">
                                                             <input name="ckTypes" type="checkbox" value="{{$k->id}}">
                                                             <span>{{$k->name}}</span>
                                                         </label>
@@ -155,27 +156,27 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $("input[type=checkbox]").change(function() {
-            var numberOfChecked = $('input:checkbox:checked').length;
-            if (numberOfChecked == 0) {
-                $('.product-list .grid__item').show();
-            } else {
-                if ($(this).is(":checked")) {
-                    if (numberOfChecked == 1) {
-                        $('.product-list .grid__item').hide();
-                    }
-                    var val = $(this).val();
-                    var name = $(this).attr('name');
-                    if(name=='ckBrands'){
-                        $('.product-list  .brand_'+val).show();
-                    }
-                    if(name=='ckTypes'){
-                        $('.product-list .type_'+val).show();
-                    }
+$(document).ready(function() {
+    $("input[type=checkbox]").change(function() {
+        var numberOfChecked = $('input:checkbox:checked').length;
+        if (numberOfChecked == 0) {
+            $('.product-list .grid__item').show();
+        } else {
+            if ($(this).is(":checked")) {
+                if (numberOfChecked == 1) {
+                    $('.product-list .grid__item').hide();
+                }
+                var val = $(this).val();
+                var name = $(this).attr('name');
+                if (name == 'ckBrands') {
+                    $('.product-list  .brand_' + val).show();
+                }
+                if (name == 'ckTypes') {
+                    $('.product-list .type_' + val).show();
                 }
             }
-        });
+        }
     });
+});
 </script>
 @endsection

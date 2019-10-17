@@ -177,7 +177,6 @@
                         style="width:100%;margin-bottom: 10px">
                         <div class="product-description-wrapper">
                             <div class="tab clearfix">
-
                                 <button class="pro-tablinks" onclick="openProTabs(event, &#39;protab2&#39;)"
                                     style="background: none">Sản phẩm liên quan</button>
                             </div>
