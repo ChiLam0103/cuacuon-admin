@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProductsExport;
 use App\Models\Brands;
 use App\Models\Contacts;
 use App\Models\HomeBanners;
@@ -14,7 +15,6 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ProductsExport;
 
 class HomeController extends Controller
 {
@@ -84,7 +84,7 @@ class HomeController extends Controller
     public function productDetail($id)
     {
         $product = Products::getProductId($id);
-        $get5prods = Products::get5Prods();
+        $get5prods = Products::get5Prods($product->brand_id, $product->type_id);
         return view('customer.product-detail', compact('product', 'get5prods'));
     }
     public function postPriceProducts(Request $request)

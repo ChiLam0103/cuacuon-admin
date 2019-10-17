@@ -23,13 +23,15 @@ class Products extends Model
         $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->select('p.name','p.price', 'b.name as brand_name', 't.name as type_name')
+            ->select('p.name', 'p.price', 'b.name as brand_name', 't.name as type_name')
             ->get();
         return $data;
     }
-    public static function get5Prods()
+    public static function get5Prods($brand, $type)
     {
         $data = DB::table('products as p')
+            ->where('p.brand_id', $brand)
+            ->where('p.type_id', $type)
             ->orderBy('id', 'desc')
             ->select('p.*')
             ->take(4)->get();
