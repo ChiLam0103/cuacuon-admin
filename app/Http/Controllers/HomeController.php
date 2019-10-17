@@ -11,6 +11,7 @@ use App\Models\Products;
 use App\Models\Types;
 use App\Models\WarrantyTypes;
 use App\Models\Statistics;
+use App\Models\Services;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,8 @@ class HomeController extends Controller
         $products = Products::getAll();
         $news = News::getAll();
         $statistics = Statistics::getAll();
-        return view('customer.index', compact('products', 'home_banners', 'news','statistics'));
+        $services = Services::getAll();
+        return view('customer.index', compact('products', 'home_banners', 'news','statistics','services'));
     }
 
     public function products()

@@ -110,26 +110,25 @@
                         <span class="section-title-border"></span>
                     </div>
                     <div class="grid-uniform md-mg-left-10">
+                        @foreach($services as $k)
                         <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
                             data-wow-delay="0.2s" data-wow-duration="0.75s"
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="public/customer/img/hservice_icon1.png" alt="Công nghệ tiên phong">
+                                    <img  src="{{url('/') .'/' . $k->image_link}}"
+                                                    onerror="
+                                                this.onerror=null;this.src='public/storage/not-found.jpeg' ;" alt="{{$k->title}}">
                                 </div>
                                 <div class="hservice-title">
-                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Công
-                                        nghệ tiên phong</a>
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">{{$k->title}}</a>
                                 </div>
-                                <div class="hservice-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
+                                <div class="hservice-desc">{{$k->content}}</div>
                             </div>
                         </div>
+                        @endforeach
 
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
+                        <!-- <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
                             data-wow-delay="0.4s" data-wow-duration="0.75s"
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
                             <div class="hservice-item text-center">
@@ -219,7 +218,7 @@
                                     tác trong kinh doanh và quản lý doanh nghiệp.
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -246,7 +245,7 @@
                                         <div class="article-img">
                                             <a href="chi-tiet-san-pham/{{$k->id}}">
                                                 <img src="{{$k->image_link}}" height="400"
-                                                    alt="Thay đổi mô hình kinh doanh đã lạc hậu giúp tăng doanh thu cho doanh nghiệp">
+                                                    alt="{{$k->name}}">
                                             </a>
                                         </div>
                                         <div class="article-info-wrapper">

@@ -124,4 +124,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('create', 'StatisticsController@postCreate')->name('admin.statistics.create');
         Route::get('edit', 'StatisticsController@edit')->name('admin.statistics.edit');
     });
+    //services
+    Route::resource('services', 'ServicesController');
+    Route::group(['prefix' => 'services'], function () {
+        Route::get('/', 'ServicesController@index')->name('admin.services.index');
+        Route::get('create', 'ServicesController@getCreate');
+        Route::post('create', 'ServicesController@postCreate');
+        Route::get('edit/{id?}', 'ServicesController@edit');
+        Route::post('edit', 'ServicesController@postEdit');
+    });
 });
