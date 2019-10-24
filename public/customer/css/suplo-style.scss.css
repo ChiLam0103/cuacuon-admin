@@ -1882,7 +1882,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* --------- PAGE ---------- */
 #page-wrapper {
-  padding: 50px 0px; }
+  padding: 25px 0px; }
   #page-wrapper h1 {
     color: #637281;
     padding: 0px 0px 15px 0px;

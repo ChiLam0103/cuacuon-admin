@@ -27,7 +27,7 @@ class HomeController extends Controller
         $news = News::getAll();
         $statistics = Statistics::getAll();
         $services = Services::getAll();
-        return view('customer.index', compact('products', 'home_banners', 'news','statistics','services'));
+        return view('customer.index', compact('products', 'home_banners', 'news', 'statistics', 'services'));
     }
 
     public function products()
@@ -97,7 +97,7 @@ class HomeController extends Controller
             $motor_id = $request->motor_id == null ? null : $request->motor_id;
             $binhluudien_id = $request->binhluudien_id == null ? null : $request->binhluudien_id;
             $phukien_id = $request->phukien_id == null ? null : $request->phukien_id;
-            
+
             $contact_id = DB::table('contacts')->insertGetId([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -154,6 +154,7 @@ class HomeController extends Controller
     {
         $type_id = 'cuacuon_id';
         $output = '';
+        $choose_product='';
         $data = DB::table('products as p')
             ->leftJoin('compatibility as c', 'c.product_id', '=', 'p.id')
             ->leftJoin('ranges as r', 'c.range_id', '=', 'r.id')
@@ -168,25 +169,24 @@ class HomeController extends Controller
             $type_id = 'binhluudien_id';
         } else if ($data->type_id == 4) {
             $type_id = 'phukien_id';
+            $choose_product="<button type='button' class='build-product btn-choose-product' onclick='openChooseProductPopup(this, 4)'>Chọn sản phẩm</button>";
         }
+
+        
         $output .= "<div class='item-image w20'>
         <a href='#'>
         <img src='$data->image_link'>
         </a>
+        $choose_product
         </div>
         <div class='item-info-2 w40'>
         <div class='name added-name'>
         <a href='#'>
         " . $data->name . "
         </a>
+        
         </div>
-        <div class='price added-price'>" . number_format($data->price) . "đ</div>
-        <div class='quantity added-quantity'>
-        <button type='button' class='sub-quantity' onclick='sub(this," . $data->type_id . "," . $data->size . ")'>-</button>
         <input type='hidden' name='$type_id' id='$type_id' value='$data->id'>
-        <input type='number' id='number' name='quantity_$type_id' class='choose-item-quantity' value='1' onkeyup='checkNumber(this," . $data->type_id . "," . $data->size . ")' onfocusout='checkNumber(this," . $data->type_id . "," . $data->size . ")'>
-        <button type='button' class='add-quantity' onclick='add(this," . $data->type_id . "," . $data->size . ")'>+</button>
-        </div>
         </div>
         <div class='item-total-price w20'>
         " . number_format($data->price) . "đ
@@ -197,6 +197,49 @@ class HomeController extends Controller
         </button>
         </div>";
         echo $output;
+    }
+    public function filterProduct(Request $request)
+    {
+        $selected = array_count_values($request->selected);
+        foreach($selected as $k){
+            i;
+        }
+        return $selected;
+        // $output = '';
+        // $output .= '
+        // <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15">
+        //     <div class="product-item">
+        //         <div class="product-img">
+        //             <a href="chi-tiet-san-pham/{{$k->id}}">
+        //                 <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
+        //             </a>
+        //             <!-- <div class="tag-saleoff text-center">
+        //                 -30%
+        //             </div> -->
+        //             <div class="product-actions text-center clearfix">
+        //                 <div>
+        //                     <!--
+        //                     <button type="button" class="medium--hide small--hide"><a
+        //                             style="color: white" href="lien-he">Nhận tư
+        //                             vấn</a></button> -->
+        //                     <!-- <button type="button" class="medium--hide small--hide"><a style=" color: white" href="bao-gia">Báo
+        //                             giá</a></butt
+        //                 </div>
+        //             </div>
+
+        //         <div class="product-item-info text-center">
+        //             <div class="product-title">
+        //                 <a href="/chi-tiet-san-pham/{{$k->id}}">
+        //                     {{$k->name}}</a>
+        //             </div>
+        //             <!-- <div class="product-price clearfix">
+        //                 <span class="current-price">{{number_format($k->price)}} đ</span>
+        //             </div> -->
+        //         </div>
+        //     </div>
+        // </div>';
+        // $output .=$counts;
+        // echo $selected;
     }
     public function export()
     {

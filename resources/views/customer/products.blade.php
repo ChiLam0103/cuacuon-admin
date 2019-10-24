@@ -157,30 +157,23 @@
         var selected = [];
         $("input[type=checkbox]").change(function() {
             var sThisVal = (this.checked ? $(this).val() : "");
-            selected.push($(this).val());
+            selected.push($(this).attr('name')+'_'+$(this).val());
             var numberOfChecked = $('input:checkbox:checked').length;
             var name = $('input:checkbox:checked').attr('name');
-            //array_count_values(selected);
-
             if (numberOfChecked == 0) {
                 $('.product-list .grid__item').show();
-                console.log(1);
             } else {
                 $('.product-list .grid__item').hide();
-                var count = {};
-                $.each(selected, function() {
-                    var num = this[0]; // Get number
-                    count[num] = count[num] + 1 || 1; // Increment counter for each value
-                });
-                $.each(count, function(key, val) {
-                    if (val % 2 == 0) {
-                    } else {
-                        if (name == 'ckBrands') {
-                            $('.product-list  .brand_' + key).show();
-                        }
-                        if (name == 'ckTypes') {
-                            $('.product-list .type_' + key).show();
-                        }
+                $.ajax({
+                    url: '{{ url("ajax/filterProduct") }}',
+                    method: "POST",
+                    data: {
+                        selected: selected,
+                        _token: "{{csrf_token()}}"
+                    },
+                    success: function(data) {
+                    console.log(data);
+
                     }
                 });
             }
