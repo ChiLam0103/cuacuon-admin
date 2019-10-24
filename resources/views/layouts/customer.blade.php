@@ -152,8 +152,48 @@
             <li class="mobile-nav__item">
                 <a href="gioi-thieu" class="mobile-nav__link">Giới thiệu</a>
             </li>
-            <li class="mobile-nav__item">
-                <a href="san-pham" class="mobile-nav__link">Sản phẩm</a>
+            <li class="mobile-nav__item" aria-haspopup="true">
+                <div class="mobile-nav__has-sublist">
+                    <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu" class="mobile-nav__link">Sản
+                        phẩm</a>
+                    <div class="mobile-nav__toggle">
+                        <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                            <span class="icon icon-plus" aria-hidden="true"></span>
+                            <span class="fallback-text">See More</span>
+                        </button>
+                        <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                            <span class="icon icon-minus" aria-hidden="true"></span>
+                            <span class="fallback-text">"Đóng"</span>
+                        </button>
+                    </div>
+                </div>
+                <ul class="mobile-nav__sublist">
+                    <?php $seotags = (App\Models\Types::getAll())?>
+                    @foreach($seotags as $i)
+                    <li class="mobile-nav__item" aria-haspopup="true">
+                        <div class="mobile-nav__has-sublist">
+                            <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu"
+                                class="mobile-nav__link">Lá cửa</a>
+                            <div class="mobile-nav__toggle">
+                                <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                                    <span class="icon icon-plus" aria-hidden="true"></span>
+                                    <span class="fallback-text">See More</span>
+                                </button>
+                                <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                                    <span class="icon icon-minus" aria-hidden="true"></span>
+                                    <span class="fallback-text">"Đóng"</span>
+                                </button>
+                            </div>
+                        </div>
+                        <ul class="mobile-nav__sublist">
+                            <li class="mobile-nav__item  mobile-nav__item--active">
+                                <a href=# class="mobile-nav__link">Mita door</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endforeach
+
+                </ul>
             </li>
             <li class="mobile-nav__item">
                 <a href="bao-gia" class="mobile-nav__link">Báo giá</a>
@@ -202,9 +242,29 @@
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: fadeInLeft;">
                                 <a href="{{url('gioi-thieu')}}">Giới thiệu </a>
                             </li>
-                            <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
-                                style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                                <a href="{{url('san-pham')}}">Sản phẩm </a>
+                            <li class="wow fadeInLeft dropdown" data-wow-duration="0.75s" data-wow-delay="0.8s"
+                                style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                                <a href="#">Sản phẩm
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="no-bullets">
+                                    <?php $seotags = (App\Models\Types::getAll())?>
+                                    @foreach($seotags as $i)
+                                    <li class="has-child">
+                                        <i class="fas fa-caret-right"></i>
+                                        <a href="#">{{$i->name}}
+                                            <i class="fas fa-angle-right"></i></a>
+                                        <ul class="no-bullets">
+                                            <?php $brands = (App\Models\Brands::getByType($i->id))?>
+                                            @foreach($brands as $i)
+                                            <li>
+                                                <i class="fas fa-caret-right"></i>
+                                                <a href=#>{{$i->name}}</a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                    @endforeach
+                                </ul>
                             </li>
                             <li class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay="0.6s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: fadeInLeft;">
@@ -235,8 +295,7 @@
                             <div class="hd-logo text-left">
 
                                 <a href="/">
-                                    <img src="{{ asset('public/customer/img/logo.png') }}"
-                                        alt="Giao diện website doanh nghiệp đẹp nhất 2018 - Suplo Company 2">
+                                    <img src="{{ asset('public/customer/img/logo.png') }}" alt="as">
                                 </a>
 
                             </div>
@@ -321,9 +380,9 @@
     });
     </script>
     @yield('content')
-    <!-- <div id="back-to-top">
+    <div id="back-to-top">
         <i class="fas fa-angle-up"></i>
-    </div> -->
+    </div>
 
 
     <footer id="footer">
@@ -334,14 +393,55 @@
                         <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInLeft"
                             style="visibility: hidden; animation-name: none;">
                             <div class="ft-contact">
-                                <!-- <h3 class="ft-title">
-                                    Về chúng tôi
-                                </h3> -->
-                                <!-- <div class="ft-contact-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác
-                                    trong kinh doanh và quản lý doanh nghiệp.
-                                </div> -->
+                                <h3 class="ft-title">
+                                    Thông tin liên hệ
+                                </h3>
+                                <div class="ft-contact-address">
+                                    <span class="ft-contact-icon"><svg class="svg-inline--fa fa-map-marker-alt fa-w-12"
+                                            aria-hidden="true" data-prefix="fas" data-icon="map-marker-alt" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                            <path fill="currentColor"
+                                                d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
+                                            </path>
+                                        </svg>
+                                        <!-- <i class="fas fa-map-marker-alt"></i> --></span>
+                                    <div class="ft-contact-detail">
+                                        Địa chỉ: Số 1 Lương Yên, Q.Hai Bà Trưng, Hà Nội
+                                    </div>
+                                </div>
+                                <div class="ft-contact-tel">
+                                    <span class="ft-contact-icon"><svg class="svg-inline--fa fa-phone fa-w-16"
+                                            aria-hidden="true" data-prefix="fas" data-icon="phone" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                            <path fill="currentColor"
+                                                d="M493.397 24.615l-104-23.997c-11.314-2.611-22.879 3.252-27.456 13.931l-48 111.997a24 24 0 0 0 6.862 28.029l60.617 49.596c-35.973 76.675-98.938 140.508-177.249 177.248l-49.596-60.616a24 24 0 0 0-28.029-6.862l-111.997 48C3.873 366.516-1.994 378.08.618 389.397l23.997 104C27.109 504.204 36.748 512 48 512c256.087 0 464-207.532 464-464 0-11.176-7.714-20.873-18.603-23.385z">
+                                            </path>
+                                        </svg>
+                                        <!-- <i class="fas fa-phone"></i> --></span>
+                                    <div class="ft-contact-detail">
+                                        Số điện thoại: <a href="tel:(+84) 934 323 882">(+84) 934 323 882</a>
+                                    </div>
+                                </div>
+                                <div class="ft-contact-email">
+                                    <span class="ft-contact-icon"><svg class="svg-inline--fa fa-envelope fa-w-16"
+                                            aria-hidden="true" data-prefix="fas" data-icon="envelope" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                            <path fill="currentColor"
+                                                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z">
+                                            </path>
+                                        </svg>
+                                        <!-- <i class="fas fa-envelope"></i> --></span>
+                                    <div class="ft-contact-detail">
+                                        Email: <a href="mailto:support@suplo.vn">support@suplo.vn</a>
+                                    </div>
+                                </div>
+                                <div class="ft-contact-email">
+                                    <span class="ft-contact-icon">
+                                        <i class="fas fa-barcode"></i></span>
+                                    <div class="ft-contact-detail">
+                                        Mã số thuế: <a href="mailto:support@suplo.vn">support@suplo.vn</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -360,31 +460,9 @@
                         <div class="grid__item large--one-quarter medium--one-half small--one-whole wow fadeInLeft"
                             style="visibility: hidden; animation-name: none;">
                             <div class="ft-contact">
-                                <h3 class="ft-title">
-                                    Thông tin liên hệ
-                                </h3>
                                 <div class="ft-contact-address">
-                                    <span class="ft-contact-icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
                                     <div class="ft-contact-detail">
-                                        Địa chỉ: Số 1 Lương Yên, Q.Hai Bà Trưng, Hà Nội
-                                    </div>
-                                </div>
-                                <div class="ft-contact-tel">
-                                    <span class="ft-contact-icon">
-                                        <i class="fas fa-phone"></i>
-                                    </span>
-                                    <div class="ft-contact-detail">
-                                        Số điện thoại: <a href="tel:(+84) 934 323 882">(+84) 934 323 882</a>
-                                    </div>
-                                </div>
-                                <div class="ft-contact-email">
-                                    <span class="ft-contact-icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </span>
-                                    <div class="ft-contact-detail">
-                                        Email: <a href="mailto:support@suplo.vn">support@suplo.vn</a>
+                                        <img src="{{ asset('public/customer/img/logo2.png') }}" alt="as">
                                     </div>
                                 </div>
                             </div>

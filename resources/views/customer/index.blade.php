@@ -365,6 +365,72 @@
                 </div>
             </div>
         </section>
+        <section id="home-brands">
+            <div class="wrapper">
+                <div class="inner">
+                    <div class="section-title wow fadeInDown text-center"
+                        style="visibility: hidden; animation-name: none;">
+                        <h2>
+                            Đối tác của chúng tôi
+                        </h2>
+                        <span class="section-title-border"></span>
+                    </div>
+                    <div class="grid">
+                        <div id="owl-brands-slider" class="owl-carousel">
+
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.2s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="./img/brand_img1.png" alt="Logo hãng 1"></a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.4s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="./img/brand_img2.png" alt="Logo hãng 2"></a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.6s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="./img/brand_img3.png" alt="Logo hãng 3"></a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.8s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="./img/brand_img4.png" alt="Logo hãng 4"></a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="1s" data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="./img/brand_img5.png" alt="Logo hãng 5"></a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="1.2s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="./img/brand_img6.png" alt="Logo hãng 6"></a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="1.4s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1.4s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="./img/brand_img7.png" alt="Logo hãng 7"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </div>
 @endsection
