@@ -316,8 +316,12 @@
             </div>
         </div>
     </header>
-
-    <div class="fixed-action-btn" style="margin-bottom: 70px">
+    <style>
+    .fb_dialog {
+        margin-bottom: 70px !important;
+    }
+    </style>
+    <div class="fixed-action-btn" style="margin-bottom: 140px">
         <a id="first-fab" class="btn-floating btn-large red" data-fabcolor="#45d1ff" href="tel:1234567">
             <i class="material-icons">local_phone</i>
         </a>
