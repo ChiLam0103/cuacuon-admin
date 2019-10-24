@@ -13,7 +13,7 @@ class Products extends Model
         $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-            ->orderBy('p.id', 'desc')
+            ->orderBy('p.type_id', 'asc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name')
             ->get();
         return $data;

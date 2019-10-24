@@ -109,6 +109,20 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ url('admin/statistics') }}"
+                    class="nav-link {{ request()->is('admin/statistics') || request()->is('admin/statistics/*') ? 'active' : '' }}">
+                    <i class="fas fa-chart-bar nav-icon"></i>
+                    Số liệu thống kê
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/services') }}"
+                    class="nav-link {{ request()->is('admin/services') || request()->is('admin/services/*') ? 'active' : '' }}">
+                    <i class="fas fa-check-double nav-icon"></i>
+                    Các dịch vụ
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link"
                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-sign-out-alt">

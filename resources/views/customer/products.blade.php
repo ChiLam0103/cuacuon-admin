@@ -60,13 +60,11 @@
                                 <div class="collection-body">
                                     <div class="grid-uniform md-mg-left-15 product-list">
                                         @foreach($products as $k)
-                                        <div
-                                            class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
+                                        <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
                                             <div class="product-item">
                                                 <div class="product-img">
                                                     <a href="chi-tiet-san-pham/{{$k->id}}">
-                                                        <img id="1016170018" height="300" src="{{$k->image_link}}"
-                                                            alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
+                                                        <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
                                                     </a>
                                                     <!-- <div class="tag-saleoff text-center">
                                                         -30%
@@ -114,7 +112,7 @@
                                                 <ul class="no-bullets filter-vendor clearfix">
                                                     @foreach($brands as $k)
                                                     <li>
-                                                        <label data-filter="Pureit" class="filter-vendor__item pureit">
+                                                        <label data-filter="Pureit" class="filter-vendor__item pureit checkboxes">
                                                             <input name="ckBrands" type="checkbox" value="{{$k->id}}">
                                                             <span>{{$k->name}}</span>
                                                         </label>
@@ -133,8 +131,7 @@
                                                 <ul class="no-bullets filter-type clearfix">
                                                     @foreach($types as $k)
                                                     <li>
-                                                        <label data-filter="Máy lọc nước"
-                                                            class="filter-vendor__item may-loc-nuoc">
+                                                        <label data-filter="Máy lọc nước" class="filter-vendor__item may-loc-nuoc checkboxes">
                                                             <input name="ckTypes" type="checkbox" value="{{$k->id}}">
                                                             <span>{{$k->name}}</span>
                                                         </label>
@@ -156,27 +153,38 @@
 </div>
 
 <script>
-$(document).ready(function() {
-    $("input[type=checkbox]").change(function() {
-        var numberOfChecked = $('input:checkbox:checked').length;
-        if (numberOfChecked == 0) {
-            $('.product-list .grid__item').show();
-        } else {
-            if ($(this).is(":checked")) {
-                if (numberOfChecked == 1) {
-                    $('.product-list .grid__item').hide();
-                }
-                var val = $(this).val();
-                var name = $(this).attr('name');
-                if (name == 'ckBrands') {
-                    $('.product-list  .brand_' + val).show();
-                }
-                if (name == 'ckTypes') {
-                    $('.product-list .type_' + val).show();
-                }
+    $(document).ready(function() {
+        var selected = [];
+        $("input[type=checkbox]").change(function() {
+            var sThisVal = (this.checked ? $(this).val() : "");
+            selected.push($(this).val());
+            var numberOfChecked = $('input:checkbox:checked').length;
+            var name = $('input:checkbox:checked').attr('name');
+            //array_count_values(selected);
+
+            if (numberOfChecked == 0) {
+                $('.product-list .grid__item').show();
+                console.log(1);
+            } else {
+                $('.product-list .grid__item').hide();
+                var count = {};
+                $.each(selected, function() {
+                    var num = this[0]; // Get number
+                    count[num] = count[num] + 1 || 1; // Increment counter for each value
+                });
+                $.each(count, function(key, val) {
+                    if (val % 2 == 0) {
+                    } else {
+                        if (name == 'ckBrands') {
+                            $('.product-list  .brand_' + key).show();
+                        }
+                        if (name == 'ckTypes') {
+                            $('.product-list .type_' + key).show();
+                        }
+                    }
+                });
             }
-        }
+        });
     });
-});
 </script>
 @endsection

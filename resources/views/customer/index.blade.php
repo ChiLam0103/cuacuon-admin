@@ -80,59 +80,19 @@
             <div class="wrapper">
                 <div class="inner">
                     <div class="grid-uniform md-mg-left-10">
-
-
+                    @foreach($statistics as $k)
                         <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
                             data-wow-duration="0.75s" data-wow-delay="0.2s"
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                             <div class="hau-statistic-number">
-                                <span data-count="2500">0</span>+
+                                <span data-count="{{$k->number}}">0</span>{{$k->value}}
                             </div>
                             <div class="hau-stastic-border"></div>
                             <div class="hau-statistic-text">
-                                Dự án đã hoàn thành
+                                {{$k->content}}
                             </div>
                         </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
-                            data-wow-duration="0.75s" data-wow-delay="0.4s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                            <div class="hau-statistic-number">
-                                <span data-count="1500">0</span>+
-                            </div>
-                            <div class="hau-stastic-border"></div>
-                            <div class="hau-statistic-text">
-                                Nhân viên kinh nghiệm
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
-                            data-wow-duration="0.75s" data-wow-delay="0.6s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
-                            <div class="hau-statistic-number">
-                                <span data-count="90">0</span>%
-                            </div>
-                            <div class="hau-stastic-border"></div>
-                            <div class="hau-statistic-text">
-                                Khách hàng hài lòng
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 mg-bottom-30 large--one-quarter medium--one-quarter small--one-half text-center"
-                            data-wow-duration="0.75s" data-wow-delay="0.8s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
-                            <div class="hau-statistic-number">
-                                <span data-count="100">0</span>+
-                            </div>
-                            <div class="hau-stastic-border"></div>
-                            <div class="hau-statistic-text">
-                                Giải thưởng uy tín
-                            </div>
-                        </div>
-
+                    @endforeach
                     </div>
                 </div>
             </div>
@@ -150,116 +110,23 @@
                         <span class="section-title-border"></span>
                     </div>
                     <div class="grid-uniform md-mg-left-10">
+                        @foreach($services as $k)
                         <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
                             data-wow-delay="0.2s" data-wow-duration="0.75s"
                             style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
                             <div class="hservice-item text-center">
                                 <div class="hservice-img">
-                                    <img src="public/customer/img/hservice_icon1.png" alt="Công nghệ tiên phong">
+                                    <img  src="{{url('/') .'/' . $k->image_link}}"
+                                                    onerror="
+                                                this.onerror=null;this.src='public/storage/not-found.jpeg' ;" alt="{{$k->title}}">
                                 </div>
                                 <div class="hservice-title">
-                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Công
-                                        nghệ tiên phong</a>
+                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">{{$k->title}}</a>
                                 </div>
-                                <div class="hservice-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
+                                <div class="hservice-desc">{{$k->content}}</div>
                             </div>
                         </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
-                            data-wow-delay="0.4s" data-wow-duration="0.75s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                            <div class="hservice-item text-center">
-                                <div class="hservice-img">
-                                    <img src="public/customer/img/hservice_icon2.png" alt="Nội dung số hấp dẫn">
-                                </div>
-                                <div class="hservice-title">
-                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Nội
-                                        dung số hấp dẫn</a>
-                                </div>
-                                <div class="hservice-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
-                            data-wow-delay="0.6s" data-wow-duration="0.75s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
-                            <div class="hservice-item text-center">
-                                <div class="hservice-img">
-                                    <img src="public/customer/img/hservice_icon3.png" alt="Hoạch định chiến lược">
-                                </div>
-                                <div class="hservice-title">
-                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Hoạch
-                                        định chiến lược</a>
-                                </div>
-                                <div class="hservice-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
-                            data-wow-delay="0.8s" data-wow-duration="0.75s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
-                            <div class="hservice-item text-center">
-                                <div class="hservice-img">
-                                    <img src="public/customer/img/hservice_icon4.png" alt="Vận hành tổ chức">
-                                </div>
-                                <div class="hservice-title">
-                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Vận
-                                        hành tổ chức</a>
-                                </div>
-                                <div class="hservice-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
-                            data-wow-delay="1s" data-wow-duration="0.75s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1s; animation-name: none;">
-                            <div class="hservice-item text-center">
-                                <div class="hservice-img">
-                                    <img src="public/customer/img/hservice_icon5.png" alt="Quản lý tài chính">
-                                </div>
-                                <div class="hservice-title">
-                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Quản
-                                        lý tài chính</a>
-                                </div>
-                                <div class="hservice-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__item wow fadeInUp md-pd-left10 large--one-third medium--one-half small--one-whole"
-                            data-wow-delay="1.2s" data-wow-duration="0.75s"
-                            style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: none;">
-                            <div class="hservice-item text-center">
-                                <div class="hservice-img">
-                                    <img src="public/customer/img/hservice_icon6.png" alt="Phát triển vượt bậc">
-                                </div>
-                                <div class="hservice-title">
-                                    <a href="#" onclick="(function(e){e.preventDefault();})(event)">Phát
-                                        triển vượt bậc</a>
-                                </div>
-                                <div class="hservice-desc">
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp.
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -286,7 +153,7 @@
                                         <div class="article-img">
                                             <a href="chi-tiet-san-pham/{{$k->id}}">
                                                 <img src="{{$k->image_link}}" height="400"
-                                                    alt="Thay đổi mô hình kinh doanh đã lạc hậu giúp tăng doanh thu cho doanh nghiệp">
+                                                    alt="{{$k->name}}">
                                             </a>
                                         </div>
                                         <div class="article-info-wrapper">

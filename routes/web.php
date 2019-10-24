@@ -15,6 +15,7 @@ Route::get('bao-hanh', 'HomeController@warranty');
 Route::get('chi-tiet-san-pham/{id?}', 'HomeController@productDetail');
 Route::get('noi-dung-tin-tuc/{id?}', 'HomeController@newsDetail');
 Route::post('ajax/getProduct', 'HomeController@getProduct');
+Route::post('ajax/filterProduct', 'HomeController@filterProduct');
 Route::get('export', 'HomeController@export')->name('export');
 
 Auth::routes(['register' => false]);
@@ -111,9 +112,26 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('edit', 'NewsController@postEdit');
         Route::post('ajax/getedit', 'NewsController@ajaxGetEdit');
     });
+    //quotations
     Route::resource('quotations', 'QuotationsController');
     Route::group(['prefix' => 'quotations'], function () {
         Route::get('/', 'QuotationsController@index')->name('admin.quotations.index');
         Route::get('detail/{id?}', 'QuotationsController@detail')->name('admin.quotations.detail');
+    });
+    //statistics
+    Route::resource('statistics', 'StatisticsController');
+    Route::group(['prefix' => 'statistics'], function () {
+        Route::get('/', 'StatisticsController@index')->name('admin.statistics.index');
+        Route::post('create', 'StatisticsController@postCreate')->name('admin.statistics.create');
+        Route::get('edit', 'StatisticsController@edit')->name('admin.statistics.edit');
+    });
+    //services
+    Route::resource('services', 'ServicesController');
+    Route::group(['prefix' => 'services'], function () {
+        Route::get('/', 'ServicesController@index')->name('admin.services.index');
+        Route::get('create', 'ServicesController@getCreate');
+        Route::post('create', 'ServicesController@postCreate');
+        Route::get('edit/{id?}', 'ServicesController@edit');
+        Route::post('edit', 'ServicesController@postEdit');
     });
 });
