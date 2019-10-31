@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brands;
+use App\Models\Types;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
@@ -11,7 +12,8 @@ class BrandsController extends Controller
     public function index()
     {
         $brands = Brands::getAll();
-        return view('admin.brands.index', compact('brands'));
+        $types = Types::getAll();
+        return view('admin.brands.index', compact('brands', 'types'));
     }
     public function postCreate(Request $request)
     {
@@ -39,6 +41,16 @@ class BrandsController extends Controller
             return redirect()->back()->with('success', 'Bạn đã xóa thương hiệu thành công');
         } else {
             return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
+        }
+    }
+    //ajax
+    public function ajaxGetBrands($id)
+    {
+        try {
+            $res = Brands::ajaxGetBrands($id);
+            return $res;
+        } catch (\Exception $ex) {
+            return $ex;
         }
     }
 }

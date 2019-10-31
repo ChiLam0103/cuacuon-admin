@@ -34,7 +34,7 @@ class Quotations extends Model
         ->join('products as p','p.id','=','dq.product_id')
         ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
         ->leftJoin('types as t', 't.id', '=', 'p.type_id')
-        ->select('dq.quantity','p.*', 'b.name as brand_name', 't.name as type_name')
+        ->select('dq.quantity','dq.width','dq.height','p.*', 'b.name as brand_name', 't.name as type_name')
         ->where('pq.id',$id)
         ->orderBy('pq.id','desc')->get();
         return $data;

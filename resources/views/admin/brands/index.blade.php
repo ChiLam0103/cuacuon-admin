@@ -31,6 +31,14 @@
                         <label for="title">Tên thương hiệu*</label>
                         <input type="text" name="name" class="form-control" value="">
                     </div>
+                    <div class="form-group ">
+                        <label for="title">Loại sản phẩm</label>
+                        <select class="form-control sltTypeNew" name="type_id">
+                            @foreach($types as $t)
+                            <option value="{{$t->id}}">{{$t->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -56,6 +64,14 @@
                         <label for="title">Tên thương hiệu*</label>
                         <input type="text" name="name" id="edit-name" class="form-control" value="">
                     </div>
+                    <div class="form-group ">
+                        <label for="title">Loại sản phẩm</label>
+                        <select class="form-control sltTypeNew" name="type_id" id="edit-type_id">
+                            @foreach($types as $t)
+                            <option value="{{$t->id}}">{{$t->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -76,6 +92,7 @@
                 <thead>
                     <tr>
                         <th> Tên thương hiệu </th>
+                        <th> Loại sản phẩm </th>
                         <th> Ngày tạo </th>
                         <th> Ngày chỉnh sửa </th>
                         <th> &nbsp; </th>
@@ -85,11 +102,12 @@
                     @foreach($brands as $key => $k)
                     <tr data-entry-id="{{ $k->id }}">
                         <td> {{ $k->name ?? '' }} </td>
+                        <td> {{ $k->type_name ?? '' }} </td>
                         <td>{{($k->created_at==null) || ($k->created_at=='0000-00-00 00:00:00')?'':date('d/m/Y H:i:s', strtotime($k->created_at))}}</td>
                         <td>{{($k->updated_at==null)|| ($k->updated_at=='0000-00-00 00:00:00')?'': date('d/m/Y H:i:s', strtotime($k->updated_at))}}</td>
                         <td>
                             @can('permission_edit')
-                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="editBrands({{$k->id}},'{{$k->name}}')">
+                            <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#edit" onclick="editBrands({{$k->id}},'{{$k->name}}',{{$k->type_id}})">
                                 {{ trans('global.edit') }}
                             </a>
                             @endcan
@@ -111,9 +129,10 @@
 @section('scripts')
 @parent
 <script>
-    function editBrands(id, name) {
+    function editBrands(id, name,type_id) {
         $('#edit-id').val(id);
         $('#edit-name').val(name);
+        $('#edit-type_id').val(type_id);
     }
     $(function() {
         let deleteButtonTrans = "{{ trans('global.datatables.delete') }}"

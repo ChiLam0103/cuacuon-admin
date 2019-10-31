@@ -493,14 +493,14 @@ var ajaxCart = (function(module, $) {
 	qtySelectors = function() {
 		// Change number inputs to JS ones, similar to ajax cart but without API integration.
 		// Make sure to add the existing name and id to the new input element
-		var numInputs = $('input[type="number"]');
+		var numInputs = $('.js-qty__num');
 
 		if (numInputs.length) {
 			numInputs.each(function() {
 				var $el = $(this),
-						currentQty = $el.val(),
-						inputName = $el.attr('name'),
-						inputId = $el.attr('id');
+							currentQty = $el.val();
+						// inputName = $el.attr('name'),
+						// inputId = $el.attr('id');
 
 				var itemAdd = currentQty + 1,
 						itemMinus = currentQty - 1,
@@ -513,8 +513,8 @@ var ajaxCart = (function(module, $) {
 							itemQty: itemQty,
 							itemAdd: itemAdd,
 							itemMinus: itemMinus,
-							inputName: inputName,
-							inputId: inputId
+							// inputName: inputName,
+							// inputId: inputId
 						};
 
 				// Append new quantity selector then remove original

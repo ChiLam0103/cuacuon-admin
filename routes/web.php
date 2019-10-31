@@ -6,7 +6,6 @@
 Route::get('/', 'HomeController@index');
 Route::get('san-pham', 'HomeController@products');
 Route::get('bao-gia', 'HomeController@priceProducts');
-Route::post('bao-gia', 'HomeController@postPriceProducts');
 Route::get('tin-tuc', 'HomeController@news');
 Route::get('gioi-thieu', 'HomeController@about');
 Route::get('lien-he', 'HomeController@contact');
@@ -16,7 +15,8 @@ Route::get('chi-tiet-san-pham/{id?}', 'HomeController@productDetail');
 Route::get('noi-dung-tin-tuc/{id?}', 'HomeController@newsDetail');
 Route::post('ajax/getProduct', 'HomeController@getProduct');
 Route::post('ajax/filterProduct', 'HomeController@filterProduct');
-Route::get('export', 'HomeController@export')->name('export');
+Route::post('exportExcel', 'HomeController@exportExcel');
+Route::post('receiveAdvice', 'HomeController@receiveAdvice');
 
 Auth::routes(['register' => false]);
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -62,6 +62,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('create', 'ProductsController@postCreate');
         Route::get('edit/{id?}', 'ProductsController@getEdit');
         Route::post('edit', 'ProductsController@postEdit');
+    });
+    //product_style
+    Route::resource('product_style', 'ProductStyleController');
+    Route::group(['prefix' => 'product_style'], function () {
+        Route::get('/', 'ProductStyleController@index')->name('admin.product_style.index');
+        Route::post('create', 'ProductStyleController@postCreate')->name('admin.product_style.create');
+        Route::get('edit', 'ProductStyleController@edit')->name('admin.product_style.edit');
     });
     //ranges
     Route::resource('ranges', 'RangesController');
@@ -133,5 +140,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
         Route::post('create', 'ServicesController@postCreate');
         Route::get('edit/{id?}', 'ServicesController@edit');
         Route::post('edit', 'ServicesController@postEdit');
+    });
+    //ajax
+    Route::group(['prefix' => 'ajax'], function () {
+        Route::get('brands/{type_id?}', 'BrandsController@ajaxGetBrands');
     });
 });

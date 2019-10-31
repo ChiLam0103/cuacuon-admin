@@ -28,15 +28,7 @@
                         <label for="title">Giá sản phẩm*</label>
                         <input type="text" name="price" class="form-control" value="{{$product->price}}" required>
                     </div>
-                    <div class="form-group ">
-                        <label for="title">Thương hiệu</label>
-                        <select class="form-control" name="brand_id">
-                            @foreach($brands as $b)
-                            <option value="{{$b->id}}" @if($b->id==$product->brand_id) selected @endif>{{$b->name}}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
+                   
                     <div class="form-group ">
                         <label for="title">Loại sản phẩm</label>
                         <select class="form-control sltTypeNew" name="type_id">
@@ -63,6 +55,23 @@
                         </label>
                     </div>
                     @endforeach
+                    <div class="form-group ">
+                        <label for="title">Kiểu sản phẩm</label>
+                        <select class="form-control" name="style_id">
+                            @foreach($product_style as $t)
+                            <option value="{{$t->id}}" @if($t->id==$product->style_id) selected @endif>{{$t->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="title">Thương hiệu</label>
+                        <select class="form-control" name="brand_id" id="brand_id">
+                            @foreach($brands as $b)
+                            <option value="{{$b->id}}" @if($b->id==$product->brand_id) selected @endif>{{$b->name}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">
                             Ảnh sản phẩm:
@@ -110,6 +119,23 @@ $(".sltTypeNew").on('change', function(e) {
     } else {
         $('.range_id').css('display', 'none');
     }
+      //hiển thị thương hiệu sau khi chọn loại sản phẩm
+        $.ajax({
+            type: "GET",
+            url: '../../ajax/brands/' + value,
+            success: function(data) {
+                $("#brand_id").empty();
+                data.forEach(function(item) {
+                    $("#brand_id").append("<option value = '" + item.id + "'>" + item.text + "</option>");
+                })
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+
+                console.log('jqXHR:');
+                console.log(jqXHR);
+
+            }
+        })
 });
 </script>
 @endsection

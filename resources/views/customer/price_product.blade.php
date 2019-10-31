@@ -21,6 +21,8 @@
         </div>
     </div>
 </section>
+<form method="post" enctype="multipart/form-data">
+ @csrf
 <!-- nhập kích thước cửa -->
 <main class="main-content" role="main">
     <div id="page-wrapper">
@@ -44,13 +46,11 @@
 
                             <div class="container" style="display: flex;">
                                 <span style="padding-top: 5px;">Chiều rộng(m):</span>
-                                <input type="number" class="form-control" name="name" placeholder="Chiều rộng(m)" value="1">
+                                <input type="number" class="form-control" name="width" placeholder="Chiều rộng(m)" value="1">
 
                                 <span style="padding-top: 5px;margin-left:20px">Chiều cao(m):</span>
-                                <input type="number" class=" form-control" name="email" placeholder="Chiều cao(m)" value="1"  >
+                                <input type="number" class=" form-control" name="height" placeholder="Chiều cao(m)" value="1">
 
-                                <span style="padding-top: 5px;margin-left:20px">Số lượng:</span>
-                                <input type="number" class="form-control" name="phone" placeholder="Số lượng" value="1"  >
                             </div>
                         </div>
                     </div>
@@ -65,64 +65,62 @@
         <div class="wrapper">
             <div class="inner">
                 <div class="grid">
-                    <form action="{{ url('/bao-gia') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="grid__item large--one-whole">
-                            <div class="page-contact-wrapper">
-                                @if (\Session::has('success'))
-                                <div class="alert alert-success">
-                                    {!! \Session::get('success') !!}
-                                </div>
-                                @elseif((\Session::has('fail')))
-                                <div class="alert alert-error">
-                                    {!! \Session::get('fail') !!}
-                                </div>
-                                @endif
-                                <div class="page-head wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
-                                    <h1>Chọn sản phẩm</h1>
-                                </div>
-                                <div class="page-head wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                                    <div class="list-product">
-                                        <div class="item">
-                                            <div class="item-name">1. Cửa cuốn</div>
-                                            <div class="choose-item" id="item-1">
-                                                <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 1)">
-                                                    Chọn sản phẩm
-                                                </button>
-                                            </div>
+
+                    <div class="grid__item large--one-whole">
+                        <div class="page-contact-wrapper">
+                            @if (\Session::has('success'))
+                            <div class="alert alert-success">
+                                {!! \Session::get('success') !!}
+                            </div>
+                            @elseif((\Session::has('fail')))
+                            <div class="alert alert-error">
+                                {!! \Session::get('fail') !!}
+                            </div>
+                            @endif
+                            <div class="page-head wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+                                <h1>Chọn sản phẩm</h1>
+                            </div>
+                            <div class="page-head wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.4s">
+                                <div class="list-product" id="list-product">
+                                    <div class="item">
+                                        <div class="item-name">1. Cửa cuốn</div>
+                                        <div class="choose-item" id="item-1">
+                                            <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 1)">
+                                                Chọn sản phẩm
+                                            </button>
                                         </div>
-                                        <div class="item">
-                                            <div class="item-name">2. Motor</div>
-                                            <div class="choose-item" id="item-2">
-                                                <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 2)">
-                                                    Chọn sản phẩm
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="item-name">3. Bình lưu điện</div>
-                                            <div class="choose-item" id="item-3">
-                                                <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 3)">
-                                                    Chọn sản phẩm
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="item-name">4. Phụ kiện cửa cuốn</div>
-                                            <div class="choose-item" id="item-4">
-                                                <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 4)">
-                                                    Chọn sản phẩm
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="build-product" onclick="rebuildProduct()"><i class="fa fa-recycle"></i> Build
-                                            lại
-                                        </button>
                                     </div>
+                                    <div class="item">
+                                        <div class="item-name">2. Motor</div>
+                                        <div class="choose-item" id="item-2">
+                                            <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 2)">
+                                                Chọn sản phẩm
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="item-name">3. Bình lưu điện</div>
+                                        <div class="choose-item" id="item-3">
+                                            <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 3)">
+                                                Chọn sản phẩm
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="item-name">4. Phụ kiện cửa cuốn</div>
+                                        <div class="choose-item" id="item-4">
+                                            <button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, 4)">
+                                                Chọn sản phẩm
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="build-product" onclick="rebuildProduct()"><i class="fa fa-recycle"></i> Build
+                                        lại
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,20 +144,18 @@
                             </div>
                             @endif
                             <div class="page-head wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
-                                <h1>Nhập thông tin để đưuọc giá tốt nhất</h1>
+                                <h1>Nhập thông tin để được giá tốt nhất</h1>
                             </div>
-
                             <div class="container">
-                                <label for="ContactFormName">Họ tên :</label>
-                                <input type="text" id="ContactFormName" class=" form-control" name="name" placeholder="Họ tên của bạn" autocapitalize="words" value="" style="margin-bottom: 10px;margin-right:10px">
-                                <label for="ContactFormPhone">Số điện thoại :</label>
-                                <input type="tel" id="ContactFormPhone" class=" form-control" name="phone" placeholder="Số điện thoại của bạn" pattern="[0-9\-]*" value="" style="margin-bottom: 10px;margin-right:10px">
-                                <label for="ContactFormEmail">Email :</label>
-                                <input type="email" id="ContactFormEmail" class=" form-control" name="email" placeholder="Địa chỉ email của bạn" autocorrect="off" autocapitalize="off" value="" style="margin-bottom: 10px;margin-right:10px">
-                                <a href="{{url('export')}}"> <button type="button" class="build-product"><i class="fa fa-download"></i> Tải file Excel </button></a>
-                                <button type="button" class="build-product" data-toggle="modal" data-target="#myModal2"><i class="fa fa-download"></i> Nhận tư vấn
-                                </button>
+                                <label>Họ tên : <span class="alert-danger" id="errorName"></span></label>
+                                <input type="text" class="input-full" id="name" name="name" placeholder="Nhập họ tên của bạn" required>
+                                <label>Số điện thoại : <span class="alert-danger" id="errorPhone"></span></label>
+                                <input type="number" class="input-full" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn" required data-inputmask="'alias':'number','mask':' 999 999 9999','placeholder':''" data-mask="" >
+                                <label>Email : <span class="alert-danger" id="errorEmail"></span></label>
+                                <input type="email" class="input-full" id="email" name="email" placeholder="Nhập địa chỉ email của bạn" required>
 
+                                <button type="submit" formaction="exportExcel" id="exportExcel" class="build-product" disabled><i class="fa fa-download" disabled></i> Tải file Excel </button>
+                                <button type="submit" formaction="receiveAdvice" id="receiveAdvice" class="build-product"  disabled><i class="fa fa-phone" disabled></i> Nhận tư vấn </button>
                             </div>
                         </div>
                     </div>
@@ -168,6 +164,7 @@
         </div>
     </div>
 </main>
+</form>
 </div>
 <!-- Modal cua cuon -->
 <div id="popup-choose-cuacuon" class="popup" style="display: none;">
@@ -182,9 +179,16 @@
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
+                <?php $brands = (App\Models\Brands::getByType(1))?>
                     @foreach($brands as $k)
                     <div class="sub-item">
                         <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
+                    </div>
+                    @endforeach
+                    <?php $brands = (App\Models\ProductStyle::getByType(1))?>
+                    @foreach($brands as $k)
+                    <div class="sub-item" >
+                        <div class="w100 sub-item-chooser2" data-id="{{$k->id}}" style="width:95%;background:white !important;padding-left: 2em;">{{$k->name}}</div>
                     </div>
                     @endforeach
                 </div>
@@ -229,6 +233,7 @@
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
+                <?php $brands = (App\Models\Brands::getByType(2))?>
                     @foreach($brands as $k)
                     <div class="sub-item">
                         <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
@@ -237,7 +242,7 @@
                 </div>
                 <div class="w60 item-right">
                     @foreach($products_motor as $k)
-                    <div class="item-chosen brand_{{$k->brand_id}}"" >
+                    <div class="item-chosen brand_{{$k->brand_id}}" >
                         <div class=" item-image w20">
                         <a href="#">
                             <img src="{{$k->image_link}}">
@@ -279,6 +284,7 @@
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
+                <?php $brands = (App\Models\Brands::getByType(3))?>
                     @foreach($brands as $k)
                     <div class="sub-item">
                         <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
@@ -287,7 +293,7 @@
                 </div>
                 <div class="w60 item-right">
                     @foreach($products_binhluudien as $k)
-                    <div class="item-chosen brand_{{$k->brand_id}}"">
+                    <div class="item-chosen brand_{{$k->brand_id}}">
                         <div class=" item-image w20">
                         <a href="#">
                             <img src="{{$k->image_link}}">
@@ -329,6 +335,7 @@
             </div>
             <div class="choose-item-body">
                 <div class="w40 item-left">
+                <?php $brands = (App\Models\Brands::getByType(4))?>
                     @foreach($brands as $k)
                     <div class="sub-item">
                         <div class="w100 sub-item-chooser" data-id="{{$k->id}}" style="width:95%;background:white !important">{{$k->name}}</div>
@@ -337,7 +344,7 @@
                 </div>
                 <div class="w60 item-right">
                     @foreach($products_phukien as $k)
-                    <div class="item-chosen brand_{{$k->brand_id}}"">
+                    <div class="item-chosen brand_{{$k->brand_id}}">
                         <div class=" item-image w20">
                         <a href="#">
                             <img src="{{$k->image_link}}">
@@ -367,7 +374,62 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script>
     var currentChoose = "";
+
     jQuery(document).ready(function() {
+
+        $('input').change(function() {
+            var name = $("#name").val().trim();
+            var phone = $("#phone").val().trim();
+            var email = $("#email").val().trim();
+            var flag = 0;
+
+            if (!validateEmail(email)) {
+                $("#errorEmail").html('Hãy nhập địa chỉ email hợp lệ! Ví dụ: abc@gmail.com');
+                flag++;
+            } else {
+                $("#errorEmail").html('');
+            }
+            if (checkPhoneNumber(phone) != true) {
+                $("#errorPhone").html('Hãy nhập số điện thoại hợp lệ! Ví dụ: 0987654321');
+                flag++;
+            } else {
+                $("#errorPhone").html('');
+            }
+            if (flag == 0 && (name !='' && phone!='' &&email!='')) {
+                $("#exportExcel").removeAttr('disabled');
+                $("#receiveAdvice").removeAttr('disabled');
+            } else {
+                $("#exportExcel").attr('disabled', 'disabled');
+                $("#receiveAdvice").attr('disabled', 'disabled');
+            }
+        });
+        $('input').keyup(function() {
+            var name = $("#name").val().trim();
+            var phone = $("#phone").val().trim();
+            var email = $("#email").val().trim();
+            var flag = 0;
+
+            if (!validateEmail(email)) {
+                $("#errorEmail").html('Hãy nhập địa chỉ email hợp lệ! Ví dụ: abc@gmail.com');
+                flag++;
+            } else {
+                $("#errorEmail").html('');
+            }
+            if (checkPhoneNumber(phone) != true) {
+                $("#errorPhone").html('Hãy nhập số điện thoại hợp lệ! Ví dụ: 0987654321');
+                flag++;
+            } else {
+                $("#errorPhone").html('');
+            }
+            if (flag == 0 && (name !='' && phone!='' &&email!='')) {
+                $("#exportExcel").removeAttr('disabled');
+                $("#receiveAdvice").removeAttr('disabled');
+            } else {
+                $("#exportExcel").attr('disabled', 'disabled');
+                $("#receiveAdvice").attr('disabled', 'disabled');
+            }
+        });
+
         $('#popup-choose-binhluudien .add-to-cart-no').hide();
         $('#popup-choose-motor .add-to-cart-no').hide();
         jQuery('.close-popup').click(function(event) {
@@ -386,7 +448,37 @@
             jQuery(".item-chosen").hide();
             jQuery(".brand_" + brand_id).show();
         });
+        jQuery('.sub-item-chooser2').click(function(event) {
+            event.preventDefault();
+            jQuery(".sub-item-chooser2").removeClass("active");
+            $(this).toggleClass("active");
+            var brand_id = $(this).attr("data-id");
+            jQuery(".item-chosen").hide();
+            jQuery(".brand_" + brand_id).show();
+        });
     });
+    //hàm kiểm tra email
+    function validateEmail(email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test(email);
+    }
+    //kiểm tra số điện thoại
+    function checkPhoneNumber(phone) {
+        var flag = false;
+        phone = phone.replace('(+84)', '0');
+        phone = phone.replace('+84', '0');
+        phone = phone.replace('0084', '0');
+        phone = phone.replace(/ /g, '');
+        if (phone != '') {
+            var firstNumber = phone.substring(0, 2);
+            if ((firstNumber == '09' || firstNumber == '08' || firstNumber == '07' || firstNumber == '05' || firstNumber == '03') && phone.length == 10) {
+                if (phone.match(/^\d{10}/)) {
+                    flag = true;
+                }
+            }
+        }
+        return flag;
+    }
 
     function addToCart(id) {
         jQuery(".popup").removeClass("show");
@@ -409,7 +501,7 @@
         currentChoose = "item-" + parent;
         jQuery(".item-chosen").show();
     }
-
+    //thêm sản phẩm vào bằng ajax
     function generateCartData(id) {
         $.ajax({
             url: '{{ url("ajax/getProduct") }}',
@@ -509,8 +601,7 @@
     }
 
     function genBtnChooseProduct(parent) {
-        return '<button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, ' +
-            parent + ')">Chọn sản phẩm</button>';
+        return `<button type="button" class="build-product btn-choose-product" onclick="openChooseProductPopup(this, ` + parent + `)">Chọn sản phẩm</button>`;
     }
 
     function removeCart(ele, parent) {
@@ -518,10 +609,9 @@
     }
 
     function rebuildProduct() {
-        window.location.reload();
-        // while (document.getElementsByClassName("remove-cart").length > 0) {
-        //     document.getElementsByClassName("remove-cart")[0].click();
-        // }
+        while (document.getElementsByClassName("remove-cart").length > 0) {
+            document.getElementsByClassName("remove-cart")[0].click();
+        }
     }
 </script>
 @endsection

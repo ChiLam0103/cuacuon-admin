@@ -58,7 +58,8 @@
                         <th>Thương hiệu</th>
                         <th>Loại sản phẩm </th>
                         <th>Giá</th>
-                        <th>Số lượng</th>
+                        <th>Chiều rộng</th>
+                        <th>Chiều dài</th>
                         <th>Tổng tiền</th>
                     </tr>
                 </thead>
@@ -70,8 +71,9 @@
                         <td> {{ $k->brand_name ?? '' }} </td>
                         <td> {{ $k->type_name ?? '' }} </td>
                         <td> {{number_format($k->price) ?? '' }} đ</td>
-                        <td> {{ $k->quantity ?? '' }} </td>
-                        <td>{{number_format($k->price*$k->quantity) ?? '' }} đ</td>
+                        <td> {{ $k->width ?? '' }} </td>
+                        <td> {{ $k->height ?? '' }} </td>
+                        <td>{{number_format($k->price) ?? '' }} đ</td>
                     </tr>
                     @endforeach
                 </tbody>

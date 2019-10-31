@@ -28,34 +28,37 @@
                         <input type="text" name="price" class="form-control" value="" required>
                     </div>
                     <div class="form-group ">
-                        <label for="title">Thương hiệu</label>
-                        <select class="form-control" name="brand_id">
-                            @foreach($brands as $b)
-                            <option value="{{$b->id}}">{{$b->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group ">
                         <label for="title">Loại sản phẩm</label>
-                        <select class="form-control sltTypeNew" name="type_id">
+                        <select class="form-control sltTypeNew" name="type_id"> 
                             @foreach($types as $t)
                             <option value="{{$t->id}}">{{$t->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     @foreach($ranges as $r)
-                    <div class="range_id" style="display: none">
-                        <label class="checkbox-inline range_id"><input type="checkbox" name="range_id[]"
-                                value="{{$r->id}}">{{$r->size_name}}</label>
+                    <div class="range_id" style="display: inline-block">
+                        <label class="checkbox-inline range_id"><input type="checkbox" name="range_id[]" value="{{$r->id}}">{{$r->size_name}}</label>
                     </div>
                     @endforeach
+                    <div class="form-group ">
+                        <label for="title">Kiểu sản phẩm</label>
+                        <select class="form-control" name="style_id">
+                            @foreach($product_style as $t)
+                            <option value="{{$t->id}}">{{$t->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="title">Thương hiệu</label>
+                        <select class="form-control" name="brand_id" id="brand_id">
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">
                             Ảnh sản phẩm:
                         </label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" name="product_image"
-                                onchange="readURL(event, 1)">
+                            <input type="file" class="custom-file-input" id="customFile" name="product_image" onchange="readURL(event, 1)">
                             <label class="custom-file-label" for="customFile">
                                 Chọn hình ảnh
                             </label>
@@ -66,8 +69,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="title">Mô tả ngắn</label>
-                        <textarea type="text" name="short_description" class="form-control my-editor"
-                            rows="5"></textarea>
+                        <textarea type="text" name="short_description" class="form-control my-editor" rows="5"></textarea>
                     </div>
                     <!-- <div class="form-group">
                         <label for="title">Mô tả</label>
@@ -81,19 +83,39 @@
 @section('scripts')
 @parent
 <script>
-//hiển thị hình ảnh khi chọn file
-function readURL(event, id) {
-    var output = document.getElementById('img' + id);
-    output.src = URL.createObjectURL(event.target.files[0]);
-};
-$(".sltTypeNew").on('change', function(e) {
-    var value = $(this).val();
-    if (value == 1 || value == 2) {
-        $('.range_id').css('display', 'inline-block');
-    } else {
-        $('.range_id').css('display', 'none');
-    }
-});
+    //hiển thị hình ảnh khi chọn file
+    function readURL(event, id) {
+        var output = document.getElementById('img' + id);
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+    $(".sltTypeNew").on('change', function(e) {
+        var value = $(this).val();
+        if (value == 1 || value == 2) {
+            $('.range_id').css('display', 'inline-block');
+        } else {
+            $('.range_id').css('display', 'none');
+        }
+         //hiển thị thương hiệu sau khi chọn loại sản phẩm
+        $.ajax({
+            type: "GET",
+            url: '../ajax/brands/' + value,
+            success: function(data) {
+                $("#brand_id").empty();
+                data.forEach(function(item) {
+                    $("#brand_id").append("<option value = '" + item.id + "'>" + item.text + "</option>");
+                })
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+
+                console.log('jqXHR:');
+                console.log(jqXHR);
+
+            }
+        })
+    });
+
 </script>
+
+
 @endsection
 @endsection

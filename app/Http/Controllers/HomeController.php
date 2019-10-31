@@ -16,6 +16,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use PHPExcel_Worksheet_Drawing;
 
 class HomeController extends Controller
 {
@@ -44,8 +45,7 @@ class HomeController extends Controller
         $products_binhluudien = Products::get_BinhLuuDien();
         $products_phukien = Products::get_PhuKien();
         $types = Types::getAll();
-        $brands = Brands::getAll();
-        return view('customer.price_product', compact('products_cuacuon', 'products_motor', 'products_binhluudien', 'products_phukien', 'types', 'brands'));
+        return view('customer.price_product', compact('products_cuacuon', 'products_motor', 'products_binhluudien', 'products_phukien', 'types'));
     }
     public function news()
     {
@@ -89,72 +89,14 @@ class HomeController extends Controller
         $get5prods = Products::get5Prods($product->brand_id, $product->type_id);
         return view('customer.product-detail', compact('product', 'get5prods'));
     }
-    public function postPriceProducts(Request $request)
-    {
-        try {
-            date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $cuacuon_id = $request->cuacuon_id == null ? null : $request->cuacuon_id;
-            $motor_id = $request->motor_id == null ? null : $request->motor_id;
-            $binhluudien_id = $request->binhluudien_id == null ? null : $request->binhluudien_id;
-            $phukien_id = $request->phukien_id == null ? null : $request->phukien_id;
 
-            $contact_id = DB::table('contacts')->insertGetId([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'content' => $request->content,
-                'status' => 0,
-                'created_at' => date('Y-m-d H:i:s'),
-            ]);
-            $quotation_id = DB::table('price_quotation')->insertGetId([
-                'contact_id' => $contact_id,
-                'created_at' => date('Y-m-d H:i:s'),
-            ]);
-            if ($request->cuacuon_id) {
-                DB::table('detail_quotation')->insert([
-                    'quotation_id' => $quotation_id,
-                    'product_id' => $request->cuacuon_id,
-                    'quantity' => $request->quantity_cuacuon_id,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
-            }
-            if ($request->motor_id) {
-                DB::table('detail_quotation')->insert([
-                    'quotation_id' => $quotation_id,
-                    'product_id' => $request->motor_id,
-                    'quantity' => $request->quantity_motor_id,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
-            }
-            if ($request->binhluudien_id) {
-                DB::table('detail_quotation')->insert([
-                    'quotation_id' => $quotation_id,
-                    'product_id' => $request->binhluudien_id,
-                    'quantity' => $request->quantity_binhluudien_id,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
-            }
-            if ($request->phukien_id) {
-                DB::table('detail_quotation')->insert([
-                    'quotation_id' => $quotation_id,
-                    'product_id' => $request->phukien_id,
-                    'quantity' => $request->quantity_phukien_id,
-                    'created_at' => date('Y-m-d H:i:s'),
-                ]);
-            }
-
-            return redirect()->back()->with('success', 'Bạn đã gửi thông tin tư vấn cho chúng tôi thành công');
-        } catch (Exception $ex) {
-            return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
-        }
-    }
 
     //ajax
     public function getProduct(Request $request)
     {
         $type_id = 'cuacuon_id';
         $output = '';
-        $choose_product='';
+        $choose_product = '';
         $data = DB::table('products as p')
             ->leftJoin('compatibility as c', 'c.product_id', '=', 'p.id')
             ->leftJoin('ranges as r', 'c.range_id', '=', 'r.id')
@@ -169,10 +111,10 @@ class HomeController extends Controller
             $type_id = 'binhluudien_id';
         } else if ($data->type_id == 4) {
             $type_id = 'phukien_id';
-            $choose_product="<button type='button' class='build-product btn-choose-product' onclick='openChooseProductPopup(this, 4)'>Chọn sản phẩm</button>";
+            $choose_product = "<button type='button' class='build-product btn-choose-product' onclick='openChooseProductPopup(this, 4)'>Chọn sản phẩm</button>";
         }
 
-        
+
         $output .= "<div class='item-image w20'>
         <a href='#'>
         <img src='$data->image_link'>
@@ -198,51 +140,51 @@ class HomeController extends Controller
         </div>";
         echo $output;
     }
-    public function filterProduct(Request $request)
-    {
-        $selected = array_count_values($request->selected);
-        foreach($selected as $k){
-            i;
-        }
-        return $selected;
-        // $output = '';
-        // $output .= '
-        // <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15">
-        //     <div class="product-item">
-        //         <div class="product-img">
-        //             <a href="chi-tiet-san-pham/{{$k->id}}">
-        //                 <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
-        //             </a>
-        //             <!-- <div class="tag-saleoff text-center">
-        //                 -30%
-        //             </div> -->
-        //             <div class="product-actions text-center clearfix">
-        //                 <div>
-        //                     <!--
-        //                     <button type="button" class="medium--hide small--hide"><a
-        //                             style="color: white" href="lien-he">Nhận tư
-        //                             vấn</a></button> -->
-        //                     <!-- <button type="button" class="medium--hide small--hide"><a style=" color: white" href="bao-gia">Báo
-        //                             giá</a></butt
-        //                 </div>
-        //             </div>
 
-        //         <div class="product-item-info text-center">
-        //             <div class="product-title">
-        //                 <a href="/chi-tiet-san-pham/{{$k->id}}">
-        //                     {{$k->name}}</a>
-        //             </div>
-        //             <!-- <div class="product-price clearfix">
-        //                 <span class="current-price">{{number_format($k->price)}} đ</span>
-        //             </div> -->
-        //         </div>
-        //     </div>
-        // </div>';
-        // $output .=$counts;
-        // echo $selected;
-    }
-    public function export()
+    public function exportExcel(Request $request)
     {
-        return Excel::download(new ProductsExport(), 'don-hang.xlsx');
+        // dd($request);
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date = date('Y-m-d H:i:s');
+        $infoCustomer = $request;
+        $listResult = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->leftJoin('product_style as ps', 'ps.id', '=', 'p.style_id')
+            ->where(function ($query) use ($request) {
+                $query->where('p.id', '=', $request->cuacuon_id)
+                    ->orWhere('p.id', '=',   $request->motor_id)
+                    ->orWhere('p.id', '=',   $request->binhluudien_id)
+                    ->orWhere('p.id', '=',   $request->phukien_id);
+            })
+            ->select('p.id', 'p.name', 'p.price', 'b.name as brand_name', 't.name as type_name', 'ps.name as style_name')
+            ->get();
+        //  dd(number_format($listResult->sum('price')));
+        Contacts::saveInfoCustomer($request);
+        return Excel::create('bao-gia', function ($excel) use ($listResult, $date, $infoCustomer) {
+            $excel->sheet('báo giá', function ($sheet) use ($listResult, $date, $infoCustomer) {
+                $objDrawing = new PHPExcel_Worksheet_Drawing;
+                $objDrawing->setPath(public_path('customer/img/logo.png')); //your image path
+                $objDrawing->setCoordinates('A1');
+                $objDrawing->setHeight(50); // Thiết lập chiều cao hình ảnh
+                $objDrawing->setWorksheet($sheet);
+                $sheet->loadView('customer.debt', [
+                    'listResult' => $listResult,
+                    'date' => $date,
+                    'infoCustomer' => $infoCustomer
+                ]);
+                $sheet->setOrientation('landscape');
+            });
+        })->download('xlsx');
     }
+    public function receiveAdvice(Request $request)
+    {
+        try {
+            Contacts::saveInfoCustomer($request);
+            return redirect()->back()->with('success', 'Bạn đã gửi thông tin tư vấn cho chúng tôi thành công');
+        } catch (Exception $ex) {
+            return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ use App\Models\Products;
 use App\Models\Brands;
 use App\Models\Types;
 use App\Models\Ranges;
+use App\Models\ProductStyle;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -22,7 +23,8 @@ class ProductsController extends Controller
         $brands = Brands::getAll();
         $types = Types::getAll();
         $ranges = Ranges::getAll();
-        return view('admin.products.create', compact('brands', 'types', 'ranges'));
+        $product_style = ProductStyle::getAll();
+        return view('admin.products.create', compact('brands', 'types', 'ranges','product_style'));
     }
     public function postCreate(Request $request)
     {
@@ -39,11 +41,12 @@ class ProductsController extends Controller
     {
         $product = Products::getProductId($id);
         $range_product = Ranges::findProductID($id);
-        $brands = Brands::getAll();
+        $brands = Brands::getByType($product->type_id);
         $types = Types::getAll();
         $ranges = Ranges::getAll();
         $checked = 0;
-        return view('admin.products.edit', compact('product', 'brands', 'types', 'ranges', 'range_product', 'checked'));
+        $product_style = ProductStyle::getAll();
+        return view('admin.products.edit', compact('product', 'brands', 'types', 'ranges', 'range_product', 'checked','product_style'));
     }
     public function postEdit(Request $request)
     {

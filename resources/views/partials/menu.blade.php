@@ -29,6 +29,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ url('admin/product_style') }}"
+                            class="nav-link {{ request()->is('admin/product_style') || request()->is('admin/product_style/*') ? 'active' : '' }}">
+                            <i class="fas fa-cogs nav-icon"></i>
+                            Kiểu sản phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ url('admin/ranges')  }}"
                             class="nav-link {{ request()->is('admin/ranges') || request()->is('admin/ranges/*') ? 'active' : '' }}">
                             <i class="fas fa-expand-arrows-alt nav-icon"></i>
