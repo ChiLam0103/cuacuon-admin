@@ -244,7 +244,7 @@
                             </li>
                             <li class="wow fadeInLeft dropdown" data-wow-duration="0.75s" data-wow-delay="0.8s"
                                 style="visibility: visible; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                                <a href="#">Sản phẩm
+                                <a href="{{url('san-pham')}}">Sản phẩm
                                     <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="no-bullets">
                                     <?php $seotags = (App\Models\Types::getAll())?>

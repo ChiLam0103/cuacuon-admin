@@ -19,6 +19,18 @@ class Products extends Model
             ->get();
         return $data;
     }
+    public static function getProduct_Type($id)
+    {
+        $data = DB::table('products as p')
+            ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
+            ->leftJoin('types as t', 't.id', '=', 'p.type_id')
+            ->leftJoin('product_style as ps', 'ps.id', '=', 'p.style_id')
+            ->where('t.id',$id)
+            ->orderBy('p.type_id', 'asc')
+            ->select('p.*', 'b.name as brand_name', 't.name as type_name','ps.name as style_name')
+            ->get();
+        return $data;
+    }
     public static function getExport()
     {
         $data = DB::table('products as p')

@@ -3108,7 +3108,7 @@ input.btn {
     .product-item .product-item-info .product-title > a, .seen-item .product-item-info .product-title > a {
       display: inline-block;
       color: #637281;
-      height: 38px; }
+      height: 1.5em; }
       .product-item .product-item-info .product-title > a:hover, .seen-item .product-item-info .product-title > a:hover {
         color: #11b5e6; }
     .product-item .product-item-info .product-price > span, .seen-item .product-item-info .product-price > span {

@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use PHPExcel_Worksheet_Drawing;
+use App\Mail\MailNotify;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -33,10 +35,10 @@ class HomeController extends Controller
 
     public function products()
     {
-        $brands = Brands::getAll();
         $products = Products::getAll();
-        $types = Types::getAll();
-        return view('customer.products', compact('products', 'brands', 'types'));
+        $brands = Brands::getAll();
+        $types = Types::getAll_TypeID();
+        return view('customer.products', compact('products','brands', 'types'));
     }
     public function priceProducts()
     {
@@ -160,8 +162,8 @@ class HomeController extends Controller
             ->select('p.id', 'p.name', 'p.price', 'b.name as brand_name', 't.name as type_name', 'ps.name as style_name')
             ->get();
         //  dd(number_format($listResult->sum('price')));
-        Contacts::saveInfoCustomer($request);
-        return Excel::create('bao-gia', function ($excel) use ($listResult, $date, $infoCustomer) {
+       Contacts::saveInfoCustomer($request);
+        $attachment= Excel::create('bao-gia '. '(' . date('dmY') . ')', function ($excel) use ($listResult, $date, $infoCustomer) {
             $excel->sheet('báo giá', function ($sheet) use ($listResult, $date, $infoCustomer) {
                 $objDrawing = new PHPExcel_Worksheet_Drawing;
                 $objDrawing->setPath(public_path('customer/img/logo.png')); //your image path
@@ -176,6 +178,12 @@ class HomeController extends Controller
                 $sheet->setOrientation('landscape');
             });
         })->download('xlsx');
+
+        //sendmail
+        $subject = "Báo giá Anshin";
+        $message = 'Xin chào: ' . $request->name . 'chúng tôi gửi cho bạn file báo giá đính kèm bên dưới! ';
+        Mail::to($request->email)->send(new MailNotify($subject, $message,$attachment));
+        return redirect()->back()->with('success', 'Bạn đã gửi thông tin tư vấn cho chúng tôi thành công');
     }
     public function receiveAdvice(Request $request)
     {
@@ -186,5 +194,4 @@ class HomeController extends Controller
             return redirect()->back()->with('fail', 'Có lỗi xảy ra, vui lòng kiểm tra lại');
         }
     }
-
 }

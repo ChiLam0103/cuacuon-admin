@@ -1,6 +1,10 @@
 @extends('layouts.customer')
 @section('pageTitle', 'Danh sách sản phẩm')
 @section('content')
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <section id="breadcrumb-wrapper2" class="breadcrumb-w-img">
     <div class="breadcrumb-overlay"></div>
     <div class="breadcrumb-content">
@@ -11,15 +15,91 @@
                         Tất cả sản phẩm
                     </h2>
                 </div>
-                <!-- <div class="breadcrumb-small">
+                <div class="breadcrumb-small">
                     <a href="#" title="Quay trở về trang chủ">Trang chủ</a>
                     <span aria-hidden="true">/</span>
                     <span>Tất cả sản phẩm</span>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="container">
+    <div class="row" id="collection-wrapper">
+        <div class="collection-head col-md-12">
+            <div class="collection-title">
+                <h1>Tất cả sản phẩm</h1>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel with-nav-tabs panel-primary">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        @foreach($types as $k)
+                        <li data-id="{{$k->id}}" @if($k->id==1) class="active" @endif ><a href="#tab_{{$k->id}}" data-toggle="tab">{{$k->name}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        @foreach($types as $k)
+                        <div class="tab-pane fade  @if($k->id==1) active @endif" id="tab_{{$k->id}}" >
+                            <div class="collection-body">
+                                <div class="grid-uniform  product-list">
+                                    <?php $products = (App\Models\Products::getProduct_Type($k->id)) ?>
+                                    @foreach($products as $k)
+                                    <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
+                                        <div class="product-item">
+                                            <div class="product-img">
+                                                <a href="chi-tiet-san-pham/{{$k->id}}">
+                                                    <img id="1016170018" height="200" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
+                                                </a>
+                                            </div>
+                                            <div class="product-item-info text-center">
+                                                <div class="product-title">
+                                                    <a href="/chi-tiet-san-pham/{{$k->id}}">
+                                                        {{$k->name}}</a>
+                                                </div>
+                                                <div class="product-price clearfix">
+                                                    <span class="current-price">{{number_format($k->price)}} đ</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        <!-- <div class="tab-pane fade" id="tab_2">Primary 2</div>
+                        <div class="tab-pane fade" id="tab_3">Primary 3</div>
+                        <div class="tab-pane fade" id="tab4primary">Primary 4</div>
+                        <div class="tab-pane fade" id="tab5primary">Primary 5</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// $('li').on('click', function(e) { 
+//     var targetID = $(this).attr('data-id');
+//     alert(targetID);
+// });
+
+</script>
+
+
+
+
+
+
+
+
+
+
 <div id="PageContainer" class="is-moved-by-drawer">
     <main class="main-content" role="main">
         <section id="collection-wrapper">
@@ -58,7 +138,7 @@
                                     </div>
                                 </div>
                                 <div class="collection-body">
-                                    <div class="grid-uniform md-mg-left-15 product-list">
+                                    <div class="grid-uniform  product-list">
                                         @foreach($products as $k)
                                         <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
                                             <div class="product-item">
@@ -157,7 +237,7 @@
         var selected = [];
         $("input[type=checkbox]").change(function() {
             var sThisVal = (this.checked ? $(this).val() : "");
-            selected.push($(this).attr('name')+'_'+$(this).val());
+            selected.push($(this).attr('name') + '_' + $(this).val());
             var numberOfChecked = $('input:checkbox:checked').length;
             var name = $('input:checkbox:checked').attr('name');
             if (numberOfChecked == 0) {
@@ -172,7 +252,7 @@
                         _token: "{{csrf_token()}}"
                     },
                     success: function(data) {
-                    console.log(data);
+                        console.log(data);
 
                     }
                 });

@@ -12,6 +12,11 @@ class Types extends Model
         $data = DB::table('types')->get();
         return $data;
     }
+    public static function getAll_TypeID()
+    {
+        $data = DB::table('types as t')->leftJoin('brands as b','b.type_id','=','t.id')->select('t.*','b.type_id')->orderBy('t.id')->get();
+        return $data;
+    }
     public static function create($data)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
