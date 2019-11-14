@@ -45,52 +45,41 @@
                     <div class="tab-content" id='load-data'>
                         @foreach($types as $t)
                         <div class="tab-pane fade in @if($t->id==1) active @endif" id="tab_{{$t->id}}">
-                            <div class="panel sidebar-sort" style="max-height: 100%">
-                                <ul class="no-bullets filter-vendor clearfix" style="display: flex;">
-                                <?php $brands = (App\Models\Brands::getByType($t->id))?>
-                                    @foreach($brands as $b)
-                                    <li style="margin-right: 1em;">
-                                        <label class="filter-vendor__item pureit checkboxes">
-                                            <input name="ckBrands" type="checkbox" value="{{$b->id}}">
-                                            <span>{{$b->name}}</span>
-                                        </label>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
                             <div class="collection-body">
                                 <div class="grid-uniform  product-list">
-                                    @foreach($products as $p)
-                                    <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15">
-                                        <div class="product-item">
-                                            <div class="product-img">
-                                                <a href="chi-tiet-san-pham/{{$p->id}}">
-                                                    <img height="200" src="{{$p->image_link}}" alt="{{$p->name}}">
-                                                </a>
-                                            </div>
-                                            <div class="product-item-info text-center">
-                                                <div class="product-title">
-                                                    <a href="/chi-tiet-san-pham/{{$p->id}}">
-                                                        {{$p->name}}</a>
+                                    <?php $products_style = (App\Models\ProductStyle::getByType(1)) ?>
+                                    @foreach($products_style as $ps)
+                                    <ul class="no-bullets filter-vendor clearfix">
+                                        <li style="margin-right: 1em;">
+                                            <div  class="  alert alert-info" style="margin-left: 2em;">{{$ps->name}}</div>
+                                            <?php $products = (App\Models\Products::getProduct_StyleID($ps->id)) ?>
+                                            @foreach($products as $p)
+                                            <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15">
+                                                <div class="product-item">
+                                                    <div class="product-img">
+                                                        <a href="chi-tiet-san-pham/{{$p->id}}">
+                                                            <img height="200" src="{{$p->image_link}}" alt="{{$p->name}}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-item-info text-center">
+                                                        <div class="product-title">
+                                                            <a href="/chi-tiet-san-pham/{{$p->id}}">
+                                                                {{$p->name}}</a>
+                                                        </div>
+                                                        <div class="product-price clearfix">
+                                                            <span class="current-price">{{number_format($p->price)}} đ</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="product-price clearfix">
-                                                    <span class="current-price">{{number_format($p->price)}} đ</span>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                            @endforeach
+                                        </li>
+                                    </ul>
                                     @endforeach
                                 </div>
                             </div>
-                            <?php $products_style = (App\Models\ProductStyle::getByType(1))?>
-                            
-                            @foreach($products_style as $p)
-                                <p>{{$p->name}}</p>
-
-                            @endforeach
                         </div>
                         @endforeach
-
                     </div>
                 </div>
             </div>
@@ -102,7 +91,7 @@
     $('li').on('click', function(e) {
         var type_ID = $(this).attr('data-id');
         $.ajax({
-            url: '{{ url("ajax/getProduct_Type") }}',
+            url: '{{url("ajax/getProduct_Type")}}',
             method: "POST",
             data: {
                 type_ID: type_ID,

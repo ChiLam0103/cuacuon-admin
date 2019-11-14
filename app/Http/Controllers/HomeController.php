@@ -35,10 +35,10 @@ class HomeController extends Controller
 
     public function products()
     {
-        $products = Products::getProduct_Type(1);
+        //$products = Products::getProduct_Type(1);
         $brands = Brands::getAll();
         $types = Types::getAll_TypeID();
-        return view('customer.products', compact('products', 'brands', 'types'));
+        return view('customer.products', compact( 'brands', 'types'));
     }
 
     public function priceProducts()
