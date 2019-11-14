@@ -36,33 +36,45 @@
             <div class="panel with-nav-tabs panel-primary">
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
-                        @foreach($types as $k)
-                        <li data-id="{{$k->id}}" @if($k->id==1) class="active" @endif ><a href="#tab_{{$k->id}}" data-toggle="tab">{{$k->name}}</a></li>
+                        @foreach($types as $t)
+                        <li data-id="{{$t->id}}" @if($t->id==1) class="active" @endif ><a href="#tab_{{$t->id}}" data-toggle="tab">{{$t->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
                 <div class="panel-body">
-                    <div class="tab-content">
-                        @foreach($types as $k)
-                        <div class="tab-pane fade  @if($k->id==1) active @endif" id="tab_{{$k->id}}" >
+                    <div class="tab-content" id='load-data'>
+                        @foreach($types as $t)
+                        <div class="tab-pane fade in @if($t->id==1) active @endif" id="tab_{{$t->id}}">
+                            <div class="panel sidebar-sort" style="max-height: 100%">
+                                <ul class="no-bullets filter-vendor clearfix" style="display: flex;">
+                                <?php $brands = (App\Models\Brands::getByType($t->id))?>
+                                    @foreach($brands as $b)
+                                    <li style="margin-right: 1em;">
+                                        <label class="filter-vendor__item pureit checkboxes">
+                                            <input name="ckBrands" type="checkbox" value="{{$b->id}}">
+                                            <span>{{$b->name}}</span>
+                                        </label>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             <div class="collection-body">
                                 <div class="grid-uniform  product-list">
-                                    <?php $products = (App\Models\Products::getProduct_Type($k->id)) ?>
-                                    @foreach($products as $k)
-                                    <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
+                                    @foreach($products as $p)
+                                    <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15">
                                         <div class="product-item">
                                             <div class="product-img">
-                                                <a href="chi-tiet-san-pham/{{$k->id}}">
-                                                    <img id="1016170018" height="200" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
+                                                <a href="chi-tiet-san-pham/{{$p->id}}">
+                                                    <img height="200" src="{{$p->image_link}}" alt="{{$p->name}}">
                                                 </a>
                                             </div>
                                             <div class="product-item-info text-center">
                                                 <div class="product-title">
-                                                    <a href="/chi-tiet-san-pham/{{$k->id}}">
-                                                        {{$k->name}}</a>
+                                                    <a href="/chi-tiet-san-pham/{{$p->id}}">
+                                                        {{$p->name}}</a>
                                                 </div>
                                                 <div class="product-price clearfix">
-                                                    <span class="current-price">{{number_format($k->price)}} đ</span>
+                                                    <span class="current-price">{{number_format($p->price)}} đ</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,12 +82,15 @@
                                     @endforeach
                                 </div>
                             </div>
+                            <?php $products_style = (App\Models\ProductStyle::getByType(1))?>
+                            
+                            @foreach($products_style as $p)
+                                <p>{{$p->name}}</p>
+
+                            @endforeach
                         </div>
                         @endforeach
-                        <!-- <div class="tab-pane fade" id="tab_2">Primary 2</div>
-                        <div class="tab-pane fade" id="tab_3">Primary 3</div>
-                        <div class="tab-pane fade" id="tab4primary">Primary 4</div>
-                        <div class="tab-pane fade" id="tab5primary">Primary 5</div> -->
+
                     </div>
                 </div>
             </div>
@@ -84,159 +99,30 @@
 </div>
 
 <script>
-// $('li').on('click', function(e) { 
-//     var targetID = $(this).attr('data-id');
-//     alert(targetID);
-// });
-
-</script>
-
-
-
-
-
-
-
-
-
-
-<div id="PageContainer" class="is-moved-by-drawer">
-    <main class="main-content" role="main">
-        <section id="collection-wrapper">
-            <div class="wrapper">
-                <div class="inner">
-                    <div class="grid" style="width: 130%; margin-left:-100px">
-                        <div class="grid__item large--three-quarters medium--one-whole small--one-whole float-right">
-                            <div class="collection-content-wrapper">
-                                <div class="collection-head">
-                                    <div class="grid">
-                                        <div class="grid__item large--two-thirds medium--one-whole small--one-whole">
-                                            <div class="collection-title">
-                                                <h1>Tất cả sản phẩm</h1>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="grid__item large--one-third medium--one-whole small--one-whole">
-                                            <div class="collection-sorting-wrapper">
-                                        <div class="form-horizontal text-right">
-                                            <label for="SortBy">Sắp xếp</label>
-                                            <select name="SortBy" id="SortBy">
-                                                <option value="manual">Tùy chọn</option>
-                                                <option value="best-selling">Sản phẩm bán chạy</option>
-                                                <option value="title-ascending">Theo bảng chữ cái từ A-Z
-                                                </option>
-                                                <option value="title-descending">Theo bảng chữ cái từ Z-A
-                                                </option>
-                                                <option value="price-ascending">Giá từ thấp tới cao</option>
-                                                <option value="price-descending">Giá từ cao tới thấp</option>
-                                                <option value="created-descending">Mới nhất</option>
-                                                <option value="created-ascending">Cũ nhất</option>
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                </div> -->
-                                    </div>
-                                </div>
-                                <div class="collection-body">
-                                    <div class="grid-uniform  product-list">
-                                        @foreach($products as $k)
-                                        <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_{{$k->type_id}} brand_{{$k->brand_id}}">
-                                            <div class="product-item">
-                                                <div class="product-img">
-                                                    <a href="chi-tiet-san-pham/{{$k->id}}">
-                                                        <img id="1016170018" height="300" src="{{$k->image_link}}" alt="Máy Lọc Nước Treo Tường Rewa RW-NA-50PB1">
-                                                    </a>
-                                                    <!-- <div class="tag-saleoff text-center">
-                                                        -30%
-                                                    </div> -->
-                                                    <div class="product-actions text-center clearfix">
-                                                        <div>
-                                                            <!--
-                                                            <button type="button" class="medium--hide small--hide"><a
-                                                                    style="color: white" href="lien-he">Nhận tư
-                                                                    vấn</a></button> -->
-                                                            <!-- <button type="button" class="medium--hide small--hide"><a style=" color: white" href="bao-gia">Báo
-                                                                    giá</a></button> -->
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="product-item-info text-center">
-                                                    <div class="product-title">
-                                                        <a href="/chi-tiet-san-pham/{{$k->id}}">
-                                                            {{$k->name}}</a>
-                                                    </div>
-                                                    <!-- <div class="product-price clearfix">
-                                                        <span class="current-price">{{number_format($k->price)}} đ</span>
-                                                    </div> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                    <div class="pagination not-filter">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__item large--one-quarter medium--one-whole small--one-whole">
-                            <div class="collection-sidebar-wrapper">
-                                <div class="grid">
-                                    <div class="grid__item large--one-whole medium--one-half small--one-whole">
-                                        <div class="collection-filter-vendor">
-                                            <button class="accordion cs-title col-sb-trigger active">
-                                                <span>Thương hiệu</span>
-                                            </button>
-                                            <div class="panel sidebar-sort" style="max-height: 100%">
-                                                <ul class="no-bullets filter-vendor clearfix">
-                                                    @foreach($brands as $k)
-                                                    <li>
-                                                        <label data-filter="Pureit" class="filter-vendor__item pureit checkboxes">
-                                                            <input name="ckBrands" type="checkbox" value="{{$k->id}}">
-                                                            <span>{{$k->name}}</span>
-                                                        </label>
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="grid__item large--one-whole medium--one-half small--one-whole">
-                                        <div class="collection-filter-type">
-                                            <button class="accordion cs-title col-sb-trigger active">
-                                                <span>Loại sản phẩm</span>
-                                            </button>
-                                            <div class="panel sidebar-sort" style="max-height: 100%;">
-                                                <ul class="no-bullets filter-type clearfix">
-                                                    @foreach($types as $k)
-                                                    <li>
-                                                        <label data-filter="Máy lọc nước" class="filter-vendor__item may-loc-nuoc checkboxes">
-                                                            <input name="ckTypes" type="checkbox" value="{{$k->id}}">
-                                                            <span>{{$k->name}}</span>
-                                                        </label>
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-</div>
-
-<script>
+    $('li').on('click', function(e) {
+        var type_ID = $(this).attr('data-id');
+        $.ajax({
+            url: '{{ url("ajax/getProduct_Type") }}',
+            method: "POST",
+            data: {
+                type_ID: type_ID,
+                _token: "{{csrf_token()}}"
+            },
+            dataType: "text",
+            success: function(data) {
+                console.log(data);
+                $('#load-data .tab-pane').remove();
+                if (data != '') {
+                    $('#load-data').append(data);
+                }
+            }
+        });
+    });
     $(document).ready(function() {
         var selected = [];
         $("input[type=checkbox]").change(function() {
             var sThisVal = (this.checked ? $(this).val() : "");
+            console.log(sThisVal);
             selected.push($(this).attr('name') + '_' + $(this).val());
             var numberOfChecked = $('input:checkbox:checked').length;
             var name = $('input:checkbox:checked').attr('name');

@@ -31,7 +31,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
-                            <input name="password" type="password" value="password" class="form-control"
+                            <input name="password" type="password" value="123123123" class="form-control"
                                 placeholder="{{ trans('global.login_password') }}">
                         </div>
                         <div class="row">
@@ -41,11 +41,6 @@
                                     <input name="remember" type="checkbox" /> {{ trans('global.remember_me') }}
                                 </label>
                             </div>
-                            <!-- <div class="col-6 text-right">
-                                <a class="btn btn-link px-0" href="{{ route('password.request') }}">
-                                    {{ trans('global.forgot_password') }}
-                                </a>
-                            </div> -->
                         </div>
                     </form>
                 </div>

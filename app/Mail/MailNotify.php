@@ -18,12 +18,10 @@ class MailNotify extends Mailable
      */
     public $sub;
     public $mes;
-    public $att;
-    public function __construct($subject, $message, $attachment)
+    public function __construct($subject, $message)
     {
         $this->sub = $subject;
         $this->mes = $message;
-        $this->att = $attachment;
     }
 
     /**
@@ -33,13 +31,11 @@ class MailNotify extends Mailable
      */
     public function build()
     {
-        $e_attachment= $this->att;
         return $this->from('baogia.anshin@gmail.com', 'Báo giá')
             ->subject('Báo giá Anshin')
             ->with([
                 'name' => 'Báo giá',
             ])
-            ->markdown('mail.send')
-            ->attach($e_attachment);
+            ->markdown('mail.send');
     }
 }

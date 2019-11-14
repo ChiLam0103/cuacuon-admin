@@ -35,11 +35,12 @@ class HomeController extends Controller
 
     public function products()
     {
-        $products = Products::getAll();
+        $products = Products::getProduct_Type(1);
         $brands = Brands::getAll();
         $types = Types::getAll_TypeID();
-        return view('customer.products', compact('products','brands', 'types'));
+        return view('customer.products', compact('products', 'brands', 'types'));
     }
+
     public function priceProducts()
     {
         $products_cuacuon = Products::get_CuaCuon();
@@ -142,7 +143,55 @@ class HomeController extends Controller
         </div>";
         echo $output;
     }
+    public function getProduct_Type(Request $request)
+    {
+        $output = "";
+        $products = "";
+        $active = '';
+        $types = Types::getAll_TypeID();
+        $product = Products::getProduct_Type($request->type_ID);
 
+
+        foreach ($product as $k) {
+
+            $products .= "
+                    <div class='grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_$k->type_id brand_$k->brand_id'>
+                        <div class='product-item'>
+                            <div class='product-img'>
+                                <a href='chi-tiet-san-pham/$k->id'>
+                                <img height='200' src='$k->image_link' alt='$k->name'>
+                                </a>
+                            </div>
+                            <div class='product-item-info text-center'>
+                                <div class='product-title'>
+                                    <a href='/chi-tiet-san-pham/$k->id'>
+                                        $k->name</a>
+                                </div>
+                                <div class='product-price clearfix'>
+                                    <span class='current-price'>$k->price đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+        }
+
+        foreach ($types as $t) {
+            if ($request->type_ID == $t->id) {
+                $active = 'active';
+            } else {
+                $active = '';
+            }
+            $output .= "
+            <div class='tab-pane fade in $active id='tab_$t->id' >
+                <div class='collection-body'>
+                    <div class='grid-uniform  product-list'>
+                    $products
+                    </div>
+            </div>
+        </div>";
+        }
+        echo $output;
+    }
     public function exportExcel(Request $request)
     {
         // dd($request);
@@ -162,8 +211,8 @@ class HomeController extends Controller
             ->select('p.id', 'p.name', 'p.price', 'b.name as brand_name', 't.name as type_name', 'ps.name as style_name')
             ->get();
         //  dd(number_format($listResult->sum('price')));
-       Contacts::saveInfoCustomer($request);
-        $attachment= Excel::create('bao-gia '. '(' . date('dmY') . ')', function ($excel) use ($listResult, $date, $infoCustomer) {
+        Contacts::saveInfoCustomer($request);
+        $attachment = Excel::create('bao-gia ' . '(' . date('dmY') . ')', function ($excel) use ($listResult, $date, $infoCustomer) {
             $excel->sheet('báo giá', function ($sheet) use ($listResult, $date, $infoCustomer) {
                 $objDrawing = new PHPExcel_Worksheet_Drawing;
                 $objDrawing->setPath(public_path('customer/img/logo.png')); //your image path
@@ -179,10 +228,12 @@ class HomeController extends Controller
             });
         })->download('xlsx');
 
-        //sendmail
+        // sendmail
         $subject = "Báo giá Anshin";
         $message = 'Xin chào: ' . $request->name . 'chúng tôi gửi cho bạn file báo giá đính kèm bên dưới! ';
-        Mail::to($request->email)->send(new MailNotify($subject, $message,$attachment));
+        Mail::to($request->email)->send(new MailNotify($subject, $message))->attach($this->attachment , ['as' => $request->name]);;
+
+
         return redirect()->back()->with('success', 'Bạn đã gửi thông tin tư vấn cho chúng tôi thành công');
     }
     public function receiveAdvice(Request $request)
