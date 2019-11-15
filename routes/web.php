@@ -14,7 +14,7 @@ Route::get('bao-hanh', 'HomeController@warranty');
 Route::get('chi-tiet-san-pham/{id?}', 'HomeController@productDetail');
 Route::get('noi-dung-tin-tuc/{id?}', 'HomeController@newsDetail');
 Route::post('ajax/getProduct', 'HomeController@getProduct');
-Route::post('ajax/getProduct_Type', 'HomeController@getProduct_Type');
+Route::get('ajax/getProduct_Type', 'HomeController@getProduct_Type');
 Route::post('ajax/filterProduct', 'HomeController@filterProduct');
 Route::post('exportExcel', 'HomeController@exportExcel');
 Route::post('receiveAdvice', 'HomeController@receiveAdvice');

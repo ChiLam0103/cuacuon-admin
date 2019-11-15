@@ -489,3 +489,10 @@ svg:not(:root).svg-inline--fa {
 .with-nav-tabs.panel-primary .nav-tabs>li.dropdown .dropdown-menu>.active>a:focus {
     background-color: #4a9fe9;
 }
+.product-list .brand{
+    margin-left: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px dashed;
+}
+.product-list .brand button{margin-right: 1em;}

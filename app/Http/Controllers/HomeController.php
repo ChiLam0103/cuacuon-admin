@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use PHPExcel_Worksheet_Drawing;
 use App\Mail\MailNotify;
+use App\Models\ProductStyle;
 use Mail;
 
 class HomeController extends Controller
@@ -35,10 +36,9 @@ class HomeController extends Controller
 
     public function products()
     {
-        //$products = Products::getProduct_Type(1);
         $brands = Brands::getAll();
         $types = Types::getAll_TypeID();
-        return view('customer.products', compact( 'brands', 'types'));
+        return view('customer.products', compact('brands', 'types'));
     }
 
     public function priceProducts()
@@ -146,15 +146,37 @@ class HomeController extends Controller
     public function getProduct_Type(Request $request)
     {
         $output = "";
-        $products = "";
-        $active = '';
-        $types = Types::getAll_TypeID();
-        $product = Products::getProduct_Type($request->type_ID);
-
-
-        foreach ($product as $k) {
-
-            $products .= "
+        $tab_pane = "";
+        $product = "";
+        $brands = "";
+        $active = "";
+        $products_style = "";
+        $image = "tongquancuacuon.png";
+        $get_types = Types::getAll_TypeID();
+        $get_brands = Brands::getByType($request->type_ID);
+        //hiển thị hình ảnh
+        if ($request->type_ID == 1) {
+            $image = "tongquancuacuon.png";
+        } elseif ($request->type_ID == 2) {
+            $image = "tongquanmotor.png";
+        } elseif ($request->type_ID == 3) {
+            $image = "tongquanbinhluu.png";
+        } elseif ($request->type_ID == 4) {
+            $image = "tongquanphukien.png";
+        }
+        //hiển thị danh sách thương hiệu
+        foreach ($get_brands as $b) {
+            $brands .= " <button type='button' class='btn btn-primary brands' data-id='$b->id'>$b->name</button>";
+        }
+        //hiển thị nội dung sản phẩm trong tab
+        if ($request->type_ID == 1) {
+            //hiển thị product style theo type_id
+            $get_products_style = ProductStyle::getByType($request->type_ID);
+            foreach ($get_products_style as $ps) {
+                //hiển thị ds product theo style id
+                $get_products = Products::getProduct_StyleID($ps->id);
+                foreach ($get_products as $k) {
+                    $product .= "
                     <div class='grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_$k->type_id brand_$k->brand_id'>
                         <div class='product-item'>
                             <div class='product-img'>
@@ -173,23 +195,76 @@ class HomeController extends Controller
                             </div>
                         </div>
                     </div>";
+                }
+
+                $products_style .= "
+                <ul class='no-bullets filter-vendor clearfix'>
+                    <li style='margin-right: 1em;'>
+                        <div  class='  alert alert-info' style='margin-left: 2em;'>$ps->name</div>
+                    $product
+                    </li>
+                </ul>";
+            }
+        } else {
+            //hiển thị ds product theo style id
+            $get_products = Products::getProduct_TypeID($request->type_ID);
+            foreach ($get_products as $k) {
+                $product .= "
+                <div class='grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_$k->type_id brand_$k->brand_id'>
+                    <div class='product-item'>
+                        <div class='product-img'>
+                            <a href='chi-tiet-san-pham/$k->id'>
+                            <img height='200' src='$k->image_link' alt='$k->name'>
+                            </a>
+                        </div>
+                        <div class='product-item-info text-center'>
+                            <div class='product-title'>
+                                <a href='/chi-tiet-san-pham/$k->id'>
+                                    $k->name</a>
+                            </div>
+                            <div class='product-price clearfix'>
+                                <span class='current-price'>$k->price đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+            }
         }
 
-        foreach ($types as $t) {
+
+        if($request->type_ID==1){
+            $list_product=$products_style;
+        }else{
+            $list_product=$product;
+        }
+
+        //hiển thị menu tab
+        foreach ($get_types as $t) {
             if ($request->type_ID == $t->id) {
                 $active = 'active';
             } else {
                 $active = '';
             }
-            $output .= "
+            $tab_pane .= "
             <div class='tab-pane fade in $active id='tab_$t->id' >
                 <div class='collection-body'>
                     <div class='grid-uniform  product-list'>
-                    $products
+                        <div class='brand'>
+                            <h4>Thương hiệu</h4>
+                            $brands
+                            </div>
+                            $list_product
                     </div>
             </div>
         </div>";
         }
+
+        $output .= "
+        <div class='tab-content' id='load-data'>
+            $tab_pane
+            <img src='public/customer/img/$image'/>
+        </div>";
+
         echo $output;
     }
     public function exportExcel(Request $request)
@@ -231,7 +306,7 @@ class HomeController extends Controller
         // sendmail
         $subject = "Báo giá Anshin";
         $message = 'Xin chào: ' . $request->name . 'chúng tôi gửi cho bạn file báo giá đính kèm bên dưới! ';
-        Mail::to($request->email)->send(new MailNotify($subject, $message))->attach($this->attachment , ['as' => $request->name]);;
+        Mail::to($request->email)->send(new MailNotify($subject, $message))->attach($this->attachment, ['as' => $request->name]);;
 
 
         return redirect()->back()->with('success', 'Bạn đã gửi thông tin tư vấn cho chúng tôi thành công');

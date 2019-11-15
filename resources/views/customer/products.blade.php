@@ -37,49 +37,13 @@
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
                         @foreach($types as $t)
-                        <li data-id="{{$t->id}}" @if($t->id==1) class="active" @endif ><a href="#tab_{{$t->id}}" data-toggle="tab">{{$t->name}}</a></li>
+                        <li data-id="{{$t->id}}"><a href="#tab_{{$t->id}}" data-toggle="tab">{{$t->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
                 <div class="panel-body">
                     <div class="tab-content" id='load-data'>
-                        @foreach($types as $t)
-                        <div class="tab-pane fade in @if($t->id==1) active @endif" id="tab_{{$t->id}}">
-                            <div class="collection-body">
-                                <div class="grid-uniform  product-list">
-                                    <?php $products_style = (App\Models\ProductStyle::getByType(1)) ?>
-                                    @foreach($products_style as $ps)
-                                    <ul class="no-bullets filter-vendor clearfix">
-                                        <li style="margin-right: 1em;">
-                                            <div  class="  alert alert-info" style="margin-left: 2em;">{{$ps->name}}</div>
-                                            <?php $products = (App\Models\Products::getProduct_StyleID($ps->id)) ?>
-                                            @foreach($products as $p)
-                                            <div class="grid__item large--one-quarter medium--one-third small--one-first md-pd-left15">
-                                                <div class="product-item">
-                                                    <div class="product-img">
-                                                        <a href="chi-tiet-san-pham/{{$p->id}}">
-                                                            <img height="200" src="{{$p->image_link}}" alt="{{$p->name}}">
-                                                        </a>
-                                                    </div>
-                                                    <div class="product-item-info text-center">
-                                                        <div class="product-title">
-                                                            <a href="/chi-tiet-san-pham/{{$p->id}}">
-                                                                {{$p->name}}</a>
-                                                        </div>
-                                                        <div class="product-price clearfix">
-                                                            <span class="current-price">{{number_format($p->price)}} đ</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </li>
-                                    </ul>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
+                        <img src="public/customer/img/tongquancuacuon.png">
                     </div>
                 </div>
             </div>
@@ -92,47 +56,54 @@
         var type_ID = $(this).attr('data-id');
         $.ajax({
             url: '{{url("ajax/getProduct_Type")}}',
-            method: "POST",
+            method: "get",
             data: {
                 type_ID: type_ID,
                 _token: "{{csrf_token()}}"
             },
             dataType: "text",
             success: function(data) {
-                console.log(data);
-                $('#load-data .tab-pane').remove();
+                $('.panel-body #load-data').remove();
                 if (data != '') {
-                    $('#load-data').append(data);
+                    $('.panel-body').append(data);
                 }
             }
         });
     });
-    $(document).ready(function() {
-        var selected = [];
-        $("input[type=checkbox]").change(function() {
-            var sThisVal = (this.checked ? $(this).val() : "");
-            console.log(sThisVal);
-            selected.push($(this).attr('name') + '_' + $(this).val());
-            var numberOfChecked = $('input:checkbox:checked').length;
-            var name = $('input:checkbox:checked').attr('name');
-            if (numberOfChecked == 0) {
-                $('.product-list .grid__item').show();
-            } else {
-                $('.product-list .grid__item').hide();
-                $.ajax({
-                    url: '{{ url("ajax/filterProduct") }}',
-                    method: "POST",
-                    data: {
-                        selected: selected,
-                        _token: "{{csrf_token()}}"
-                    },
-                    success: function(data) {
-                        console.log(data);
-
-                    }
-                });
-            }
-        });
+    $(".brands").click(function() {
+        e.preventDefault();
+        alert(1);
+        var type_ID = $(this).attr('data-id');
+        console.log(type_ID);
+        alert(type_ID);
     });
+
+    // $(document).ready(function() {
+    //     var selected = [];
+    //     $("input[type=checkbox]").change(function() {
+    //         var sThisVal = (this.checked ? $(this).val() : "");
+
+    //         selected.push($(this).attr('name') + '_' + $(this).val());
+    //         var numberOfChecked = $('input:checkbox:checked').length;
+    //         var name = $('input:checkbox:checked').attr('name');
+    //         // if (numberOfChecked == 0) {
+    //         //     $('.product-list .grid__item').show();
+    //         // } else {
+    //         //     $('.product-list .grid__item').hide();
+    //         //     $.ajax({
+    //         //         url: '{{ url("ajax/filterProduct") }}',
+    //         //         method: "POST",
+    //         //         data: {
+    //         //             selected: selected,
+    //         //             _token: "{{csrf_token()}}"
+    //         //         },
+    //         //         success: function(data) {
+    //         //             console.log(data);
+
+    //         //         }
+    //         //     });
+    //         // }
+    //     });
+    // });
 </script>
 @endsection

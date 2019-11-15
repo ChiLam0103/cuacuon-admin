@@ -22,11 +22,21 @@ class Products extends Model
     public static function getProduct_StyleID($style_id)
     {
         $data = DB::table('products as p')
+            ->rightJoin('product_style as ps', 'ps.id', '=', 'p.style_id')
+            ->where('p.type_id',1)
+            ->where('p.style_id',$style_id)
+            ->orderBy('p.type_id', 'asc')
+            ->select('p.*', 'ps.name as style_name')
+            ->get();
+        return $data;
+    }
+    public static function getProduct_TypeID($type_id)
+    {
+        $data = DB::table('products as p')
             ->leftJoin('brands as b', 'b.id', '=', 'p.brand_id')
             ->leftJoin('types as t', 't.id', '=', 'p.type_id')
             ->leftJoin('product_style as ps', 'ps.id', '=', 'p.style_id')
-            ->where('t.id',1)
-            ->where('p.style_id',$style_id)
+            ->where('t.id',$type_id)
             ->orderBy('p.type_id', 'asc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name','ps.name as style_name')
             ->get();
