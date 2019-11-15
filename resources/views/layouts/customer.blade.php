@@ -251,9 +251,10 @@
                                     @foreach($seotags as $i)
                                     <li class="has-child">
                                         <i class="fas fa-caret-right"></i>
-                                        <a href="#">{{$i->name}}
-                                            <i class="fas fa-angle-right"></i></a>
-                                        <ul class="no-bullets">
+                                        <a href="{{url('san-pham?type=').$i->id}}">{{$i->name}}
+                                            <!-- <i class="fas fa-angle-right"></i> -->
+                                        </a>
+                                        <!-- <ul class="no-bullets">
                                             <?php $brands = (App\Models\Brands::getByType($i->id))?>
                                             @foreach($brands as $i)
                                             <li>
@@ -261,7 +262,7 @@
                                                 <a href=#>{{$i->name}}</a>
                                             </li>
                                             @endforeach
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     @endforeach
                                 </ul>

@@ -37,7 +37,7 @@
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
                         @foreach($types as $t)
-                        <li data-id="{{$t->id}}"><a href="#tab_{{$t->id}}" data-toggle="tab">{{$t->name}}</a></li>
+                        <li data-id="{{$t->id}}" id="Type_{{$t->id}}"><a href="#tab_{{$t->id}}" data-toggle="tab">{{$t->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -52,6 +52,29 @@
 </div>
 
 <script>
+    $(document).ready(function() {
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var c = url.searchParams.get("type");
+        var type_ID = c;
+        $('#Type_'+type_ID).addClass('active');
+        $.ajax({
+            url: '{{url("ajax/getProduct_Type")}}',
+            method: "get",
+            data: {
+                type_ID: type_ID,
+                _token: "{{csrf_token()}}"
+            },
+            dataType: "text",
+            success: function(data) {
+                $('.panel-body #load-data').remove();
+                if (data != '') {
+                    $('.panel-body').append(data);
+                }
+            }
+        });
+
+    });
     $('li').on('click', function(e) {
         var type_ID = $(this).attr('data-id');
         $.ajax({
@@ -77,6 +100,8 @@
         console.log(type_ID);
         alert(type_ID);
     });
+
+    function Brands(id) {}
 
     // $(document).ready(function() {
     //     var selected = [];

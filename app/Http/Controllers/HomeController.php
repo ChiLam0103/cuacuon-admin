@@ -152,6 +152,7 @@ class HomeController extends Controller
         $active = "";
         $products_style = "";
         $image = "tongquancuacuon.png";
+        $get_products = "";
         $get_types = Types::getAll_TypeID();
         $get_brands = Brands::getByType($request->type_ID);
         //hiển thị hình ảnh
@@ -166,7 +167,7 @@ class HomeController extends Controller
         }
         //hiển thị danh sách thương hiệu
         foreach ($get_brands as $b) {
-            $brands .= " <button type='button' class='btn btn-primary brands' data-id='$b->id'>$b->name</button>";
+            $brands .= " <button type='button' class='btn btn-primary brands' onclick='Brands($b->id)'>$b->name</button>";
         }
         //hiển thị nội dung sản phẩm trong tab
         if ($request->type_ID == 1) {
@@ -204,6 +205,7 @@ class HomeController extends Controller
                     $product
                     </li>
                 </ul>";
+                $product="";
             }
         } else {
             //hiển thị ds product theo style id
@@ -232,10 +234,10 @@ class HomeController extends Controller
         }
 
 
-        if($request->type_ID==1){
-            $list_product=$products_style;
-        }else{
-            $list_product=$product;
+        if ($request->type_ID == 1) {
+            $list_product = $products_style;
+        } else {
+            $list_product = $product;
         }
 
         //hiển thị menu tab
