@@ -238,7 +238,8 @@ class HomeController extends Controller
             //hiển thị ds product theo style id
             $get_products = Products::getProduct_StyleID($ps->id);
             foreach ($get_products as $k) {
-                $product .= "
+                if($k->brand_id==$request->brand_ID){
+                    $product .= "
                     <div class='grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_$k->type_id brand_$k->brand_id'>
                         <div class='product-item'>
                             <div class='product-img'>
@@ -257,12 +258,13 @@ class HomeController extends Controller
                             </div>
                         </div>
                     </div>";
+                }
             }
 
             $products_style .= "
                 <ul class='no-bullets filter-vendor clearfix'>
                     <li style='margin-right: 1em;'>
-                        <div  class='alert alert-info' style='margin-left: 2em;'>$ps->name</div>
+                        <div  class='alert alert-info' style='margin-top: 1em;margin-left: 2.2em;margin-right: -1em;'>$ps->name</div>
                     $product
                     </li>
                 </ul>";
