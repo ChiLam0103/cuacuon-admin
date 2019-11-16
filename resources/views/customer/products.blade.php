@@ -57,7 +57,7 @@
         var url = new URL(url_string);
         var c = url.searchParams.get("type");
         var type_ID = c;
-        $('#Type_'+type_ID).addClass('active');
+        $('#Type_' + type_ID).addClass('active');
         $.ajax({
             url: '{{url("ajax/getProduct_Type")}}',
             method: "get",
@@ -73,7 +73,6 @@
                 }
             }
         });
-
     });
     $('li').on('click', function(e) {
         var type_ID = $(this).attr('data-id');
@@ -93,42 +92,23 @@
             }
         });
     });
-    $(".brands").click(function() {
-        e.preventDefault();
-        alert(1);
-        var type_ID = $(this).attr('data-id');
-        console.log(type_ID);
-        alert(type_ID);
-    });
-
-    function Brands(id) {}
-
-    // $(document).ready(function() {
-    //     var selected = [];
-    //     $("input[type=checkbox]").change(function() {
-    //         var sThisVal = (this.checked ? $(this).val() : "");
-
-    //         selected.push($(this).attr('name') + '_' + $(this).val());
-    //         var numberOfChecked = $('input:checkbox:checked').length;
-    //         var name = $('input:checkbox:checked').attr('name');
-    //         // if (numberOfChecked == 0) {
-    //         //     $('.product-list .grid__item').show();
-    //         // } else {
-    //         //     $('.product-list .grid__item').hide();
-    //         //     $.ajax({
-    //         //         url: '{{ url("ajax/filterProduct") }}',
-    //         //         method: "POST",
-    //         //         data: {
-    //         //             selected: selected,
-    //         //             _token: "{{csrf_token()}}"
-    //         //         },
-    //         //         success: function(data) {
-    //         //             console.log(data);
-
-    //         //         }
-    //         //     });
-    //         // }
-    //     });
-    // });
+    function Brands(id) {
+    $.ajax({
+            url: '{{url("ajax/getCuaCuon")}}',
+            method: "get",
+            data: {
+                brand_ID: id,
+                _token: "{{csrf_token()}}"
+            },
+            dataType: "text",
+            success: function(data) {
+                console.log(data);
+                $('.panel-body #load-data').remove();
+                if (data != '') {
+                    $('.panel-body').append(data);
+                }
+            }
+        });
+    }
 </script>
 @endsection

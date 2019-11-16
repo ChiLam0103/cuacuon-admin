@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <p>axNếu có vấn đề không hiểu hãy liên hệ cho chúng tôi </p>
+    <p>Nếu có vấn đề không hiểu hãy liên hệ cho chúng tôi </p>
 
-    <p>Tạm biệt</p>
+    <p>FIle đính kèm bên dưới, vui lòng xem</p>
 </body>
 
 </html>
