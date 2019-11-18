@@ -14,7 +14,7 @@ class ProductStyle extends Model
     }
     public static function getByType($id)
     {
-        $data = DB::table('product_style as ps')->leftJoin('products as p','p.style_id','=','ps.id')->where('p.type_id', $id)->select('ps.*')->get();
+        $data = DB::table('product_style as ps')->rightJoin('products as p','p.style_id','=','ps.id')->where('p.type_id', $id)->select('ps.*')->distinct()->get();
         return $data;
     }
     public static function create($data)

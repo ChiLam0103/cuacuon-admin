@@ -150,8 +150,7 @@ class HomeController extends Controller
         $product = "";
         $brands = "";
         $active = "";
-        $products_style = "";
-        $image = "tongquancuacuon.png";
+        $image = "tong-quan-san-pham.png";
         $get_products = "";
         $get_types = Types::getAll_TypeID();
         $get_brands = Brands::getByType($request->type_ID);
@@ -167,7 +166,7 @@ class HomeController extends Controller
         }
         //hiển thị danh sách thương hiệu
         foreach ($get_brands as $b) {
-            $brands .= " <button type='button' class='btn btn-primary brands' onclick='Brands($b->id)'>$b->name</button>";
+            $brands .= " <button type='button' class='btn btn-primary brands' onclick='Brands($request->type_ID,$b->id)'>$b->name</button>";
         }
         $get_products = Products::getProduct_TypeID($request->type_ID);
         foreach ($get_products as $k) {
@@ -191,7 +190,6 @@ class HomeController extends Controller
                     </div>
                 </div>";
         }
-        // }
 
         //hiển thị menu tab
         foreach ($get_types as $t) {
@@ -222,21 +220,82 @@ class HomeController extends Controller
 
         echo $output;
     }
-    public function getCuaCuon(Request $request)
+    public function getBrands(Request $request)
     {
         $output = "";
         $tab_pane = "";
         $product = "";
         $active = "";
         $products_style = "";
-        $image = "tongquancuacuon.png";
+        $image = "tong-quan-san-pham.png";
         $get_products = "";
         $get_types = Types::getAll_TypeID();
+
+        if ($request->type_ID == 1) {
+            $image = "tongquancuacuon.png";
+        } elseif ($request->type_ID == 2) {
+            $image = "tongquanmotor.png";
+        } elseif ($request->type_ID == 3) {
+            $image = "tongquanbinhluu.png";
+        } elseif ($request->type_ID == 4) {
+            $image = "tongquanphukien.png";
+        }
+        
         //hiển thị product style theo type_id
-        $get_products_style = ProductStyle::getByType(1);
-        foreach ($get_products_style as $ps) {
-            //hiển thị ds product theo style id
-            $get_products = Products::getProduct_StyleID($ps->id);
+        if ($request->type_id == 1) {
+            $get_products_style = ProductStyle::getByType($request->type_id);
+            foreach ($get_products_style as $ps) {
+                //hiển thị ds product theo style id
+                $get_products = Products::getProduct_StyleID_BrandID($ps->id,$request->brand_id);
+                foreach ($get_products as $k) {
+                    $product .= "
+                        <div class='grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_$k->type_id brand_$k->brand_id'>
+                            <div class='product-item'>
+                                <div class='product-img'>
+                                    <a href='chi-tiet-san-pham/$k->id'>
+                                    <img height='200' src='$k->image_link' alt='$k->name'>
+                                    </a>
+                                </div>
+                                <div class='product-item-info text-center'>
+                                    <div class='product-title'>
+                                        <a href='/chi-tiet-san-pham/$k->id'>
+                                            $k->name</a>
+                                    </div>
+                                    <div class='product-price clearfix'>
+                                        <span class='current-price'>$k->price đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                }
+                $products_style .= "
+                    <ul class='no-bullets filter-vendor clearfix'>
+                        <li style='margin-right: 1em;'>
+                            <div  class='alert alert-info' style='margin-left: 2em;'>$ps->name</div>
+                        $product
+                        </li>
+                    </ul>";
+                $product = "";
+            }
+
+            //hiển thị menu tab
+            foreach ($get_types as $t) {
+                if (1 == $t->id) {
+                    $active = 'active';
+                } else {
+                    $active = '';
+                }
+                $tab_pane .= "
+                <div class='tab-pane fade in $active id='tab_$t->id' >
+                    <div class='collection-body'>
+                        <div class='grid-uniform  product-list'>
+                            $products_style
+                        </div>
+                </div>
+            </div>";
+            }
+        } else {
+            $get_products = Products::getProduct_TypeID_BrandID($request->type_id,$request->brand_id);
             foreach ($get_products as $k) {
                 $product .= "
                     <div class='grid__item large--one-quarter medium--one-third small--one-first md-pd-left15 type_$k->type_id brand_$k->brand_id'>
@@ -258,38 +317,28 @@ class HomeController extends Controller
                         </div>
                     </div>";
             }
-
-            $products_style .= "
-                <ul class='no-bullets filter-vendor clearfix'>
-                    <li style='margin-right: 1em;'>
-                        <div  class='alert alert-info' style='margin-left: 2em;'>$ps->name</div>
-                    $product
-                    </li>
-                </ul>";
-            $product = "";
-        }
-
-        //hiển thị menu tab
-        foreach ($get_types as $t) {
-            if (1 == $t->id) {
-                $active = 'active';
-            } else {
-                $active = '';
-            }
-            $tab_pane .= "
+            //hiển thị menu tab
+            foreach ($get_types as $t) {
+                if ($request->type_id == $t->id) {
+                    $active = 'active';
+                } else {
+                    $active = '';
+                }
+                $tab_pane .= "
             <div class='tab-pane fade in $active id='tab_$t->id' >
                 <div class='collection-body'>
                     <div class='grid-uniform  product-list'>
-                        $products_style
+                            $product
                     </div>
-            </div>
-        </div>";
+                </div>
+            </div>";
+            }
         }
 
         $output .= "
         <div class='tab-content' id='load-data'>
-            <img src='public/customer/img/$image'/>
             $tab_pane
+            <img src='public/customer/img/$image'/>
         </div>";
 
         echo $output;

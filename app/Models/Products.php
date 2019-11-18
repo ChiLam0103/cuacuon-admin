@@ -19,12 +19,13 @@ class Products extends Model
             ->get();
         return $data;
     }
-    public static function getProduct_StyleID($style_id)
+    public static function getProduct_StyleID_BrandID($style_id,$brand_id)
     {
         $data = DB::table('products as p')
             ->rightJoin('product_style as ps', 'ps.id', '=', 'p.style_id')
             ->where('p.type_id',1)
             ->where('p.style_id',$style_id)
+            ->where('p.brand_id',$brand_id)
             ->orderBy('p.type_id', 'asc')
             ->select('p.*', 'ps.name as style_name')
             ->get();
@@ -39,6 +40,16 @@ class Products extends Model
             ->where('t.id',$type_id)
             ->orderBy('p.type_id', 'asc')
             ->select('p.*', 'b.name as brand_name', 't.name as type_name','ps.name as style_name')
+            ->get();
+        return $data;
+    }
+    public static function getProduct_TypeID_BrandID($type_id,$brand_id)
+    {
+        $data = DB::table('products as p')
+            ->where('p.type_id',$type_id)
+            ->where('p.brand_id',$brand_id)
+            ->orderBy('p.type_id', 'asc')
+            ->select('p.*')
             ->get();
         return $data;
     }

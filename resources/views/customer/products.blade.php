@@ -43,7 +43,6 @@
                 </div>
                 <div class="panel-body">
                     <div class="tab-content" id='load-data'>
-                        <img src="public/customer/img/tongquancuacuon.png">
                     </div>
                 </div>
             </div>
@@ -52,6 +51,7 @@
 </div>
 
 <script>
+    //sự kiện load trang khi click vào menu chính, lấy params sử lý 
     $(document).ready(function() {
         var url_string = window.location.href
         var url = new URL(url_string);
@@ -74,6 +74,7 @@
             }
         });
     });
+    //sự kiện khi lick vào menu sản phẩm
     $('li').on('click', function(e) {
         var type_ID = $(this).attr('data-id');
         $.ajax({
@@ -92,17 +93,18 @@
             }
         });
     });
-    function Brands(id) {
+    //sự kiện xử lý thương hiệu cửa cuốn
+    function Brands(type_id,brand_id) {
     $.ajax({
-            url: '{{url("ajax/getCuaCuon")}}',
+            url: '{{url("ajax/getBrands")}}',
             method: "get",
             data: {
-                brand_ID: id,
+                type_id:type_id,
+                brand_id: brand_id,
                 _token: "{{csrf_token()}}"
             },
             dataType: "text",
             success: function(data) {
-                console.log(data);
                 $('.panel-body #load-data').remove();
                 if (data != '') {
                     $('.panel-body').append(data);
