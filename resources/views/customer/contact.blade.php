@@ -42,11 +42,19 @@
                                                     <div class="contact-wrapper">
                                                         <div class="contact-title">
                                                             <h4>
-                                                                Địa chỉ trụ sở:
+                                                            Văn phòng đại diện:
                                                             </h4>
                                                         </div>
                                                         <div class="contact-info">
-                                                            Số 1 Lương Yên, Q.Hai Bà Trưng, Hà Nội
+                                                        94 Nguyễn Du, Phường 7, Quận Gò Vấp, TP.Hồ Chí Minh
+                                                        </div>
+                                                        <div class="contact-title">
+                                                            <h4>
+                                                            Showroom:
+                                                            </h4>
+                                                        </div>
+                                                        <div class="contact-info">
+                                                        63 Lê Đức Thọ, Phường 7, Quận Gò Vấp, TP.Hồ Chí Minh
                                                         </div>
                                                         <div class="contact-map">
                                                             <iframe
@@ -60,7 +68,7 @@
                                                             </h4>
                                                         </div>
                                                         <div class="contact-info">
-                                                            <a href="tel:(+84) 934 323 882">(+84) 934 323 882</a>
+                                                            <a href="tel:0901722802">0901722802</a>
                                                         </div>
                                                         <div class="contact-title">
                                                             <h4>
@@ -68,7 +76,7 @@
                                                             </h4>
                                                         </div>
                                                         <div class="contact-info">
-                                                            <a href="mailto:support@suplo.vn">support@suplo.vn</a>
+                                                            <a href="mailto: cuacuon.anshin@gmail.com"> cuacuon.anshin@gmail.com</a>
                                                         </div>
                                                     </div>
                                                 </div>

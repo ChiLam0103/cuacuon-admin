@@ -411,7 +411,20 @@
                                         </svg>
                                         <!-- <i class="fas fa-map-marker-alt"></i> --></span>
                                     <div class="ft-contact-detail">
-                                        Địa chỉ: Số 1 Lương Yên, Q.Hai Bà Trưng, Hà Nội
+                                    Văn phòng đại diện: 94 Nguyễn Du, Phường 7, Quận Gò Vấp, TP.Hồ Chí Minh
+                                    </div>
+                                </div>
+                                <div class="ft-contact-address">
+                                    <span class="ft-contact-icon"><svg class="svg-inline--fa fa-map-marker-alt fa-w-12"
+                                            aria-hidden="true" data-prefix="fas" data-icon="map-marker-alt" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                            <path fill="currentColor"
+                                                d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
+                                            </path>
+                                        </svg>
+                                        <!-- <i class="fas fa-map-marker-alt"></i> --></span>
+                                    <div class="ft-contact-detail">
+                                    Showroom: 63 Lê Đức Thọ, Phường 7, Quận Gò Vấp, TP.Hồ Chí Minh
                                     </div>
                                 </div>
                                 <div class="ft-contact-tel">
@@ -424,7 +437,7 @@
                                         </svg>
                                         <!-- <i class="fas fa-phone"></i> --></span>
                                     <div class="ft-contact-detail">
-                                        Số điện thoại: <a href="tel:(+84) 934 323 882">(+84) 934 323 882</a>
+                                        Số điện thoại: <a href="tel:0901722802">0901722802</a>
                                     </div>
                                 </div>
                                 <div class="ft-contact-email">
@@ -437,7 +450,7 @@
                                         </svg>
                                         <!-- <i class="fas fa-envelope"></i> --></span>
                                     <div class="ft-contact-detail">
-                                        Email: <a href="mailto:support@suplo.vn">support@suplo.vn</a>
+                                        Email: <a href="mailto:0901722802">0901722802</a>
                                     </div>
                                 </div>
                                 <div class="ft-contact-email">
