@@ -272,7 +272,7 @@ return array(
             | The path we want to save excel file to
             |
             */
-            'path'       => storage_path('exports'),
+            'path'       => public_path('storage\exports'),
 
             /*
             |--------------------------------------------------------------------------

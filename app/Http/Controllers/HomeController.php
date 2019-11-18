@@ -363,7 +363,8 @@ class HomeController extends Controller
             ->get();
         //  dd(number_format($listResult->sum('price')));
         Contacts::saveInfoCustomer($request);
-        $attachment = Excel::create('bao-gia' . '(' . date('dmY') . ')', function ($excel) use ($listResult, $date, $infoCustomer) {
+        $random=rand();
+        $attachment = Excel::create('bao-gia' . '-'.$random, function ($excel) use ($listResult, $date, $infoCustomer) {
             $excel->sheet('báo giá', function ($sheet) use ($listResult, $date, $infoCustomer) {
                 $objDrawing = new PHPExcel_Worksheet_Drawing;
                 $objDrawing->setPath(public_path('customer/img/logo.png')); //your image path
@@ -378,11 +379,11 @@ class HomeController extends Controller
                 $sheet->setOrientation('landscape');
             });
         })->store('xlsx');
-        // dd($attachment->filename.'.xlsx');
+        //  dd($attachment->filename.'.xlsx');
         // sendmail
         $subject = "Báo giá Anshin";
         $message = 'Xin chào: ' . $request->name . 'chúng tôi gửi cho bạn file báo giá đính kèm bên dưới! ';
-        Mail::to($request->email)->send(new MailNotify($subject, $message))->attach($attachment, ['as' => $request->name]);
+        Mail::to($request->email)->send(new MailNotify($subject, $message,$attachment));
 
 
         return redirect()->back()->with('success', 'Bạn đã gửi thông tin tư vấn cho chúng tôi thành công');
