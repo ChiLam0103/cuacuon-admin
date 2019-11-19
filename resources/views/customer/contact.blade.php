@@ -57,10 +57,7 @@
                                                         63 Lê Đức Thọ, Phường 7, Quận Gò Vấp, TP.Hồ Chí Minh
                                                         </div>
                                                         <div class="contact-map">
-                                                            <iframe
-                                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.5120670251613!2d105.86084421536768!3d21.01218739371877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abf776b69417%3A0x10c4f7db43776bb5!2sHanoi+Creative+City!5e0!3m2!1sen!2s!4v1536115056046"
-                                                                width="100%" height="450" frameborder="0"
-                                                                style="border:0" allowfullscreen=""></iframe>
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4397981407187!2d106.69613231533417!3d10.777588862118074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3822b579c1%3A0x550d31e1ad26d60c!2zOTQgTmd1eeG7hW4gRHUsIELhur9uIE5naMOpLCBRdeG6rW4gMSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1574131507271!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                                                         </div>
                                                         <div class="contact-title">
                                                             <h4>

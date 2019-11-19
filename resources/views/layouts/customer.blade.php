@@ -329,25 +329,28 @@
     </div>
     <div id="fb-root"></div>
     <!-- Load Facebook SDK for JavaScript -->
-    <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            xfbml: true,
-            version: 'v4.0'
-        });
-    };
-    (function(d, s, id) {
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v5.0'
+          });
+        };
+
+        (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
+        js = d.createElement(s); js.id = id;
         js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <!-- Your customer chat code -->
-    <div class="fb-customerchat" attribution=setup_tool page_id="571131936685251">
-    </div>
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="2509210899291446">
+      </div>
     <script>
     $(document).ready(function() {
         $('#hero-slider').on('init', function(e, slick) {
@@ -450,14 +453,14 @@
                                         </svg>
                                         <!-- <i class="fas fa-envelope"></i> --></span>
                                     <div class="ft-contact-detail">
-                                        Email: <a href="mailto:0901722802">0901722802</a>
+                                        Email: <a href="mailto:cuacuon.anshin@gmail.com">cuacuon.anshin@gmail.com</a>
                                     </div>
                                 </div>
                                 <div class="ft-contact-email">
                                     <span class="ft-contact-icon">
                                         <i class="fas fa-barcode"></i></span>
                                     <div class="ft-contact-detail">
-                                        Mã số thuế: <a href="mailto:support@suplo.vn">support@suplo.vn</a>
+                                        Mã số thuế: <a href=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -510,11 +513,11 @@
                                         <a href='https://www.facebook.com/cuacuonthehemoi'><img style="height: 25px"
                                                 src="{{ asset('public/customer/img/facebook.png') }}"></a>
                                     </li>
-                                    <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
+                                    <!-- <li class="wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="0.75s"
                                         style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
                                         <a href='lien-he'><img style="height: 25px"
                                                 src="{{ asset('public/customer/img/youtube.png') }}"></a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
