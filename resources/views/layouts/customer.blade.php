@@ -440,7 +440,7 @@
                                         </svg>
                                         <!-- <i class="fas fa-phone"></i> --></span>
                                     <div class="ft-contact-detail">
-                                        Số điện thoại: <a href="tel:0901722802">0901722802</a>
+                                        Số điện thoại: <a href="tel:0901772802">0901.772.802</a>
                                     </div>
                                 </div>
                                 <div class="ft-contact-email">
