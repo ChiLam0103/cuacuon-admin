@@ -14,6 +14,11 @@ class Services extends Model
         $data = DB::table('services')->orderBy('id', 'desc')->get();
         return $data;
     }
+    public static function get_5()
+    {
+        $data = DB::table('services')->orderBy('id', 'desc')->take(5)->get();
+        return $data;
+    }
     public static function getById($id){
         $data = DB::table('services')->where('id',$id)->first();
         return $data;

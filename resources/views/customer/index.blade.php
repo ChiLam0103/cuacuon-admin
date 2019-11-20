@@ -35,7 +35,7 @@
                     <div class="section-title wow fadeInDown text-center"
                         style="visibility: hidden; animation-name: none;">
                         <h2>
-                            Đồng hành cùng phát triển
+                            Chúng tôi là ai? Giá trị của chúng tôi
                         </h2>
                         <span class="section-title-border"></span>
                     </div>
@@ -53,16 +53,24 @@
                             style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
                             <div class="haboutus-desc">
                                 <p>
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp. Với sự chuyên nghiệp và am hiểu của
-                                    mình, Suplo tự tin đồng hành cùng khách hàng và đối tác cùng nhau phát triển bền
-                                    vững.
+                                Anshin là ai :
+                                    Nhận ra sự thiếu an toàn và hạn chế của cửa cuốn thế hệ cũ, Anshin mong muốn người việt được sử dụng sản phẩm cửa cuốn an toàn và thông minh hơn. Chính vì lẽ đó, Anshin đã lựa chọn các nhà cung cấp cửa cuốn công nghệ Đức hàng đầu tại Việt Nam như Mitadoor, Titadoor, KTNdoor và tích hợp những tích năng vượt trội của hệ thống quản lý cửa cuốn Rhino đến từ công ty công nghệ Pitech để cho ra đời sản phẩm cửa cuốn Thế Hệ Mới.
                                 </p>
                                 <p>
-                                    Các dịch vụ của Suplo được dựa trên hơn 20 năm kinh nghiệm giúp đỡ khách hàng và đối
-                                    tác trong kinh doanh và quản lý doanh nghiệp. Với sự chuyên nghiệp và am hiểu của
-                                    mình, Suplo tự tin đồng hành cùng khách hàng và đối tác cùng nhau phát triển bền
-                                    vững.
+                                Điểm vượt trội của cửa cuốn Thế Hệ Mới<br>
+                                - An toàn<br>
+                                - Thông minh<br>
+                                - Tiện lợi<br>
+                                Công nghệ của chúng tôi :<br>
+                                - Điều khiển bằng smartphone<br>
+                                - Phát hiện xâm hại trái phép<br>
+                                - Chia sẻ quyền sử dụng<br>
+                                - Quản lý lịch sử sử dụng<br>
+                                - An toàn cho người dùng<br>
+                                Dịch vụ của chúng tôi :<br>
+                                - Tư vấn miễn phí tại nhà<br>
+                                - Lắp đặt chuyên nghiệp tận tâm<br>
+                                - Bảo dưỡng đinh kỹ + miễn phí trong 1 năm đầu sử dụng
                                 </p>
                             </div>
                             <!-- <div class="btn-viewmore">
@@ -105,7 +113,7 @@
                     <div class="section-title wow fadeInDown text-center"
                         style="visibility: hidden; animation-name: none;">
                         <h2>
-                            Các dịch vụ của Suplo
+                            Dịch vụ nổi bật của chúng tôi
                         </h2>
                         <span class="section-title-border"></span>
                     </div>
@@ -132,6 +140,59 @@
             </div>
         </section>
         <section id="home-articles-1">
+            <div class="wrapper">
+                <div class="inner">
+                    <div class="section-title wow fadeInDown text-center"
+                        style="visibility: hidden; animation-name: none;">
+                        <h2>
+                            Sản phẩm nổi bật
+                        </h2>
+                        <span class="section-title-border"></span>
+                    </div>
+                    <div class="grid">
+
+                        <div id="owl-home-articles-slider-1" class="owl-carousel owl-theme">
+                            @foreach($products->take(3) as $k)
+                            <div class="owl-item" style="width: 390px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.2s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
+                                    <div class="article-item">
+                                        <div class="article-img">
+                                            <a href="chi-tiet-san-pham/{{$k->id}}">
+                                                <img src="{{$k->image_link}}" height="400"
+                                                    alt="{{$k->name}}">
+                                            </a>
+                                        </div>
+                                        <div class="article-info-wrapper">
+                                            <div class="article-title">
+                                                <a href="chi-tiet-san-pham/{{$k->id}}">
+                                                    {{$k->name}} </a>
+                                            </div>
+                                            <div class="article-desc" style="height: 150px">
+                                                {!! substr($k->short_description,0, 300)!!}...
+                                            </div>
+                                            <div class="article-info" style="padding: 7px;">
+                                                <!-- <button type="button"
+                                                    style="height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
+                                                        style="color: white" href="{{ url('/') . '/lien-he'}}">Nhận tư
+                                                        vấn</a></button> -->
+                                                <button type="button"
+                                                    style="width:100%;height: 34px;line-height: 34px;padding: 0px 5px;margin-right: 5px; background: #11b5e6;color: #fff;border: 0px;outline: 0px;border-radius: 3px;"><a
+                                                        style="color: white" href="{{ url('/') . '/bao-gia'}}">Báo
+                                                        giá</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="home-articles-2">
             <div class="wrapper">
                 <div class="inner">
                     <div class="section-title wow fadeInDown text-center"
@@ -249,48 +310,28 @@
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.2s"
                                     data-wow-duration="0.75s"
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.2s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="./img/brand_img1.png" alt="Logo hãng 1"></a>
+                                    <a href=# class="text-center"><img src="public/customer/img/ktn-door.jpg" alt="Logo hãng 1"></a>
                                 </div>
                             </div>
                             <div class="owl-item" style="width: 195px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.4s"
                                     data-wow-duration="0.75s"
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="./img/brand_img2.png" alt="Logo hãng 2"></a>
+                                    <a href=# class="text-center"><img src="public/customer/img/mita-door.jpg" alt="Logo hãng 2"></a>
                                 </div>
                             </div>
                             <div class="owl-item" style="width: 195px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.6s"
                                     data-wow-duration="0.75s"
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="./img/brand_img3.png" alt="Logo hãng 3"></a>
+                                    <a href=# class="text-center"><img src="public/customer/img/pitech.jpg" alt="Logo hãng 3"></a>
                                 </div>
                             </div>
                             <div class="owl-item" style="width: 195px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.8s"
                                     data-wow-duration="0.75s"
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="./img/brand_img4.png" alt="Logo hãng 4"></a>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 195px;">
-                                <div class="item grid__item wow fadeInUp" data-wow-delay="1s" data-wow-duration="0.75s"
-                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="./img/brand_img5.png" alt="Logo hãng 5"></a>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 195px;">
-                                <div class="item grid__item wow fadeInUp" data-wow-delay="1.2s"
-                                    data-wow-duration="0.75s"
-                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1.2s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="./img/brand_img6.png" alt="Logo hãng 6"></a>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 195px;">
-                                <div class="item grid__item wow fadeInUp" data-wow-delay="1.4s"
-                                    data-wow-duration="0.75s"
-                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 1.4s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="./img/brand_img7.png" alt="Logo hãng 7"></a>
+                                    <a href=# class="text-center"><img src="public/customer/img/tita-door.jpg" alt="Logo hãng 4"></a>
                                 </div>
                             </div>
                         </div>

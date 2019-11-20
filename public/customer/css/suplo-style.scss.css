@@ -1494,7 +1494,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 15px;
     background: #fff;
     border-style: double;
-    border-color: #e7e7e7; }
+    border-color: #e7e7e7;height: 6em; }
     #home-brands #owl-brands-slider .item > a > img {
       filter: grayscale(100%);
       -webkit-filter: grayscale(100%); }

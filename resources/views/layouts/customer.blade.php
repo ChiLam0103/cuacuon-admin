@@ -456,13 +456,6 @@
                                         Email: <a href="mailto:cuacuon.anshin@gmail.com">cuacuon.anshin@gmail.com</a>
                                     </div>
                                 </div>
-                                <div class="ft-contact-email">
-                                    <span class="ft-contact-icon">
-                                        <i class="fas fa-barcode"></i></span>
-                                    <div class="ft-contact-detail">
-                                        Mã số thuế: <a href=""></a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
