@@ -30,7 +30,7 @@ class HomeController extends Controller
         $products = Products::getAll();
         $news = News::getAll();
         $statistics = Statistics::getAll();
-        $services = Services::get_5();
+        $services = Services::getAll();
         return view('customer.index', compact('products', 'home_banners', 'news', 'statistics', 'services'));
     }
 
