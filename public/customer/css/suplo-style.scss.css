@@ -1495,9 +1495,9 @@ input[type=number]::-webkit-outer-spin-button {
     background: #fff;
     border-style: double;
     border-color: #e7e7e7;height: 6em; }
-    #home-brands #owl-brands-slider .item > a > img {
+    /* #home-brands #owl-brands-slider .item > a > img {
       filter: grayscale(100%);
-      -webkit-filter: grayscale(100%); }
+      -webkit-filter: grayscale(100%); } */
     #home-brands #owl-brands-slider .item > a:hover {
       border-color: #11b5e6; }
       #home-brands #owl-brands-slider .item > a:hover > img {

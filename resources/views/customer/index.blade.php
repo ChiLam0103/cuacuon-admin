@@ -305,7 +305,20 @@
                     </div>
                     <div class="grid">
                         <div id="owl-brands-slider" class="owl-carousel">
-
+                        <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.4s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="public/customer/img/mita-door.jpg" alt="Logo hãng 2"></a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.8s"
+                                    data-wow-duration="0.75s"
+                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="public/customer/img/tita-door.jpg" alt="Logo hãng 4"></a>
+                                </div>
+                            </div>
                             <div class="owl-item" style="width: 195px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.2s"
                                     data-wow-duration="0.75s"
@@ -314,24 +327,10 @@
                                 </div>
                             </div>
                             <div class="owl-item" style="width: 195px;">
-                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.4s"
-                                    data-wow-duration="0.75s"
-                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.4s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="public/customer/img/mita-door.jpg" alt="Logo hãng 2"></a>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 195px;">
                                 <div class="item grid__item wow fadeInUp" data-wow-delay="0.6s"
                                     data-wow-duration="0.75s"
                                     style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
                                     <a href=# class="text-center"><img src="public/customer/img/pitech.jpg" alt="Logo hãng 3"></a>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 195px;">
-                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.8s"
-                                    data-wow-duration="0.75s"
-                                    style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.8s; animation-name: none;">
-                                    <a href=# class="text-center"><img src="public/customer/img/tita-door.jpg" alt="Logo hãng 4"></a>
                                 </div>
                             </div>
                         </div>
