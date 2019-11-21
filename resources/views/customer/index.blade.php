@@ -72,40 +72,9 @@
                 </div>
             </div>
         </section>
-        <!-- công nghệ của chúng tôi -->
-        <section id="our-technology">
-            <div class="wrapper">
-                <div class="inner">
-                    <div class="section-title wow fadeInDown text-center" style="visibility: hidden; animation-name: none;">
-                        <h2>
-                            Công nghệ của chúng tôi
-                        </h2>
-                        <span class="section-title-border"></span>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="public/customer/img/cong-nghe-1.jpg">
-                            </div>
-                            <div class="col-md-2">
-                            <img src="public/customer/img/cong-nghe-2.jpg">
-                            </div>
-                            <div class="col-md-2">
-                            <img src="public/customer/img/cong-nghe-3.jpg">
-                            </div>
-                            <div class="col-md-2">
-                            <img src="public/customer/img/cong-nghe-4.png">
-                            </div>
-                            <div class="col-md-2">
-                            <img src="public/customer/img/cong-nghe-5.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="home-statistics">
+
+        <!-- <section id="home-statistics">
             <div class="hstatistics-overlay"></div>
             <div class="wrapper">
                 <div class="inner">
@@ -124,9 +93,40 @@
                     </div>
                 </div>
             </div>
+        </section> -->
+
+        <!-- công nghệ của chúng tôi -->
+        <section id="our-technology">
+            <div class="wrapper">
+                <div class="inner">
+                    <div class="section-title wow fadeInDown text-center" style="visibility: hidden; animation-name: none;">
+                        <h2>
+                            Công nghệ của chúng tôi
+                        </h2>
+                        <span class="section-title-border"></span>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="public/customer/img/cong-nghe-1.jpg">
+                            </div>
+                            <div class="col-md-2">
+                                <img src="public/customer/img/cong-nghe-2.jpg">
+                            </div>
+                            <div class="col-md-2">
+                                <img src="public/customer/img/cong-nghe-3.jpg">
+                            </div>
+                            <div class="col-md-2">
+                                <img src="public/customer/img/cong-nghe-4.png">
+                            </div>
+                            <div class="col-md-2">
+                                <img src="public/customer/img/cong-nghe-5.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-
-
         <section id="home-services">
             <div class="wrapper">
                 <div class="inner">
