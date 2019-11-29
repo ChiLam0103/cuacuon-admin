@@ -134,7 +134,7 @@ class HomeController extends Controller
         <input type='hidden' name='$type_id' id='$type_id' value='$data->id'>
         </div>
         <div class='item-total-price w20'>
-        " . number_format($data->price) . "đ
+        " . number_format($data->price) . "
         </div>
         <div class='item-button w20'>
         <button type='button' class='remove-cart' data-parent='$data->id' onclick='removeCart(this, $data->type_id)'>
@@ -184,7 +184,7 @@ class HomeController extends Controller
                                     $k->name</a>
                             </div>
                             <div class='product-price clearfix'>
-                                <span class='current-price'>$k->price đ</span>
+                                <span class='current-price'>" . number_format($k->price) . "</span>
                             </div>
                         </div>
                     </div>
@@ -262,7 +262,7 @@ class HomeController extends Controller
                                             $k->name</a>
                                     </div>
                                     <div class='product-price clearfix'>
-                                        <span class='current-price'>$k->price đ</span>
+                                        <span class='current-price'>" . number_format($k->price) . "</span>
                                     </div>
                                 </div>
                             </div>
@@ -311,7 +311,7 @@ class HomeController extends Controller
                                         $k->name</a>
                                 </div>
                                 <div class='product-price clearfix'>
-                                    <span class='current-price'>$k->price đ</span>
+                                    <span class='current-price'>" . number_format($k->price) . "</span>
                                 </div>
                             </div>
                         </div>

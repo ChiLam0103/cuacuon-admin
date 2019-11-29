@@ -11,7 +11,6 @@ class Contacts extends Model
     public static function getAll()
     {
         $data=DB::table('contacts')->orderBy('id','desc')->get();
-        
         return $data;
     }
     public static function edit($data)
