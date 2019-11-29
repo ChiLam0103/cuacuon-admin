@@ -22,8 +22,8 @@ class Contacts extends Model
         ->update([
             'name'=>$data->name,
             'email'=>$data->email,
-            'phone'=>$data->email,
-            'content'=>$data->email,
+            'phone'=>$data->phone,
+            'content'=>$data->content,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
         return 200;
@@ -35,8 +35,8 @@ class Contacts extends Model
         ->insert([
             'name'=>$data->name,
             'email'=>$data->email,
-            'phone'=>$data->email,
-            'content'=>$data->email,
+            'phone'=>$data->phone,
+            'content'=>$data->content,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         return 200;
