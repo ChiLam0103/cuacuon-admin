@@ -14,7 +14,7 @@ class Types extends Model
     }
     public static function getAll_TypeID()
     {
-        $data = DB::table('types as t')->leftJoin('brands as b','b.type_id','=','t.id')->select('t.*','b.type_id')->orderBy('t.id')->get();
+        $data = DB::table('types as t')->get();
         return $data;
     }
     public static function create($data)

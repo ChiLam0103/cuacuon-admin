@@ -277,6 +277,11 @@
                                     <a href=# class="text-center"><img src="public/customer/img/pitech.jpg" alt="Logo hãng 3"></a>
                                 </div>
                             </div>
+                            <div class="owl-item" style="width: 195px;">
+                                <div class="item grid__item wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="0.75s" style="visibility: hidden; animation-duration: 0.75s; animation-delay: 0.6s; animation-name: none;">
+                                    <a href=# class="text-center"><img src="public/customer/img/pistore.jpg" alt="Logo hãng 3"></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
