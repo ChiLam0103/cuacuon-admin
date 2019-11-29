@@ -51,7 +51,13 @@
 @section('scripts')
 @parent
 <script>
+  $(function() {
 
+        let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+        $('.datatable:not(.ajaxTable)').DataTable({
+            buttons: dtButtons
+        })
+    })
 </script>
 @endsection
 @endsection
