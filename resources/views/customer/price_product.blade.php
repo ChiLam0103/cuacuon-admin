@@ -154,7 +154,7 @@
                                 <label>Email : <span class="alert-danger" id="errorEmail"></span></label>
                                 <input type="email" class="input-full" id="email" name="email" placeholder="Nhập địa chỉ email của bạn" required>
 
-                                <button type="submit" formaction="exportExcel" id="exportExcel" class="build-product" disabled><i class="fa fa-download" disabled></i> Tải file Excel </button>
+                                <button type="submit" formaction="exportExcel" id="exportExcel" class="build-product" disabled><i class="fa fa-envelope" disabled></i> Gửi email </button>
                                 <button type="submit" formaction="receiveAdvice" id="receiveAdvice" class="build-product"  disabled><i class="fa fa-phone" disabled></i> Nhận tư vấn </button>
                             </div>
                         </div>
