@@ -147,14 +147,14 @@
             <li class="mobile-nav__item mobile-nav__search">
             </li>
             <li class="mobile-nav__item mobile-nav__item--active">
-                <a href="" class="mobile-nav__link">Trang chủ</a>
+                <a href="{{url('/')}}" class="mobile-nav__link">Trang chủ</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="gioi-thieu" class="mobile-nav__link">Giới thiệu</a>
+                <a href="{{url('gioi-thieu')}}" class="mobile-nav__link">Giới thiệu</a>
             </li>
             <li class="mobile-nav__item" aria-haspopup="true">
                 <div class="mobile-nav__has-sublist">
-                    <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu" class="mobile-nav__link">Sản
+                    <a href="{{url('san-pham')}}" class="mobile-nav__link">Sản
                         phẩm</a>
                     <div class="mobile-nav__toggle">
                         <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
@@ -172,9 +172,9 @@
                     @foreach($seotags as $i)
                     <li class="mobile-nav__item" aria-haspopup="true">
                         <div class="mobile-nav__has-sublist">
-                            <a href="https://suplo-company-2.myharavan.com/blogs/cac-dich-vu"
-                                class="mobile-nav__link">Lá cửa</a>
-                            <div class="mobile-nav__toggle">
+                            <a href="{{url('san-pham?type=').$i->id}}"
+                                class="mobile-nav__link">{{$i->name}}</a>
+                            <!-- <div class="mobile-nav__toggle">
                                 <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
                                     <span class="icon icon-plus" aria-hidden="true"></span>
                                     <span class="fallback-text">See More</span>
@@ -183,29 +183,29 @@
                                     <span class="icon icon-minus" aria-hidden="true"></span>
                                     <span class="fallback-text">"Đóng"</span>
                                 </button>
-                            </div>
+                            </div> -->
                         </div>
-                        <ul class="mobile-nav__sublist">
+                        <!-- <ul class="mobile-nav__sublist">
                             <li class="mobile-nav__item  mobile-nav__item--active">
                                 <a href=# class="mobile-nav__link">Mita door</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
                     @endforeach
 
                 </ul>
             </li>
             <li class="mobile-nav__item">
-                <a href="bao-gia" class="mobile-nav__link">Báo giá</a>
+                <a href="{{url('bao-gia')}}" class="mobile-nav__link">Báo giá</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="bao-hanh" class="mobile-nav__link">Bảo hành</a>
+                <a href="{{url('bao-hanh')}}" class="mobile-nav__link">Bảo hành</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="tin-tuc" class="mobile-nav__link">Tin tức</a>
+                <a href="{{url('tin-tuc')}}" class="mobile-nav__link">Tin tức</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="lien-he" class="mobile-nav__link">Liên hệ</a>
+                <a href="{{url('lien-he')}}" class="mobile-nav__link">Liên hệ</a>
             </li>
         </ul>
         <!-- //mobile-nav -->

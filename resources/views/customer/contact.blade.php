@@ -64,7 +64,7 @@
                                                             </h4>
                                                         </div>
                                                         <div class="contact-info">
-                                                            <a href="tel:0901722802">0901.772.802</a>
+                                                            <a href="tel:0901772802">0901.77.2802</a>
                                                         </div>
                                                         <div class="contact-title">
                                                             <h4>
